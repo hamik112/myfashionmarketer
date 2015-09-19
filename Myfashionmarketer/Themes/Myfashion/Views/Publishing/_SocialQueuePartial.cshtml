@@ -1,0 +1,171 @@
+﻿@using Domain.Myfashion.Domain;
+@{
+    string path = @System.Configuration.ConfigurationManager.AppSettings["domain"];
+    string status = "Pending";
+    string ProfileUrl = string.Empty;
+    string senttoname = string.Empty;
+    string sendtoprofileimage = string.Empty;
+    string scheduleddate = string.Empty;
+    Domain.Myfashion.Domain.User objuser = (Domain.Myfashion.Domain.User)Session["User"];
+    Myfashionmarketer.Api.Groups.Groups ApiobjGroups = new Myfashionmarketer.Api.Groups.Groups();
+    Domain.Myfashion.Domain.Groups objGroups = (Domain.Myfashion.Domain.Groups)(new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize(ApiobjGroups.GetGroupDetailsByGroupId(Session["group"].ToString()), typeof(Domain.Myfashion.Domain.Groups)));
+    FacebookAccount objFacebookAccount = new FacebookAccount();
+    TwitterAccount objTwitterAccount = new TwitterAccount();
+    LinkedInAccount objLinkedInAccount = new LinkedInAccount();
+    InstagramAccount objInstagramAccount = new InstagramAccount();
+    TumblrAccount objTumblrAccount = new TumblrAccount();
+
+    }
+@if (!string.IsNullOrEmpty(objuser.ProfileUrl))
+{
+    try
+    {
+        string[] profileUrl = objuser.ProfileUrl.Split(new string[] { path }, StringSplitOptions.None);
+        string imgurl = "/Themes/"+ path+ "/" + profileUrl[1];
+        //ProfileUrl = System.Text.RegularExpressions.Regex.Split(objuser.ProfileUrl, "wwwroot")[1];
+        ProfileUrl = imgurl;
+    }
+    catch {
+        ProfileUrl = objuser.ProfileUrl;
+    }
+}
+
+
+
+   <thead>
+    <tr>
+        <th>Sent From</th>
+        <th>Message</th>
+        <th>Network</th>
+        <th>Status</th>
+        <th>Action</th>
+    </tr>
+</thead>
+    <tbody>
+        @foreach (var item in (List<Domain.Myfashion.Domain.ScheduledMessage>)Model)
+{
+    objGroups = (Domain.Myfashion.Domain.Groups)(new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize(ApiobjGroups.GetGroupDetailsByGroupId(Session["group"].ToString()), typeof(Domain.Myfashion.Domain.Groups)));
+    if (item.ProfileType == "facebook")
+    {
+        Myfashionmarketer.Api.FacebookAccount.FacebookAccount ApiobjFacebookAccount = new Myfashionmarketer.Api.FacebookAccount.FacebookAccount();
+        objFacebookAccount = (FacebookAccount)(new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize(ApiobjFacebookAccount.getFacebookAccountDetailsById(objGroups.UserId.ToString(), item.ProfileId.ToString()), typeof(FacebookAccount)));
+        senttoname = objFacebookAccount.FbUserName;
+        sendtoprofileimage = "http://graph.facebook.com/" + objFacebookAccount.FbUserId + "/picture?type=small";
+        if (string.IsNullOrEmpty(sendtoprofileimage))
+        {
+            sendtoprofileimage = "/Themes/" + System.Configuration.ConfigurationManager.AppSettings["domain"] + "/Contents/img/blank_img.png";
+        }
+
+    }
+    else if (item.ProfileType == "twitter")
+    {
+        Myfashionmarketer.Api.TwitterAccount.TwitterAccount ApiobjTwitterAccount = new Myfashionmarketer.Api.TwitterAccount.TwitterAccount();
+        objTwitterAccount = (TwitterAccount)(new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize(ApiobjTwitterAccount.GetTwitterAccountDetailsById(objGroups.UserId.ToString(), item.ProfileId.ToString()), typeof(TwitterAccount)));
+        senttoname = objTwitterAccount.TwitterScreenName;
+        sendtoprofileimage = objTwitterAccount.ProfileImageUrl;
+        if (string.IsNullOrEmpty(sendtoprofileimage))
+        {
+            sendtoprofileimage = "/Themes/" + System.Configuration.ConfigurationManager.AppSettings["domain"] + "/Contents/img/blank_img.png";
+        }
+    }
+    else if (item.ProfileType == "linkedin")
+    {
+        Myfashionmarketer.Api.LinkedinAccount.LinkedinAccount ApiobjLinkedinAccount = new Myfashionmarketer.Api.LinkedinAccount.LinkedinAccount();
+        objLinkedInAccount = (LinkedInAccount)(new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize(ApiobjLinkedinAccount.GetLinkedinAccountDetailsById(objGroups.UserId.ToString(), item.ProfileId.ToString()), typeof(LinkedInAccount)));
+        senttoname = objLinkedInAccount.LinkedinUserName;
+        sendtoprofileimage = objLinkedInAccount.ProfileImageUrl;
+        if (string.IsNullOrEmpty(sendtoprofileimage))
+        {
+            sendtoprofileimage = "/Themes/" + System.Configuration.ConfigurationManager.AppSettings["domain"] + "/Contents/img/blank_img.png";
+        }
+    }
+    else if (item.ProfileType == "instagram")
+    {
+
+    }
+    else if (item.ProfileType == "tumblr")
+    {
+        Myfashionmarketer.Api.TumblrAccount.TumblrAccount ApiobjTumblrAccount = new Myfashionmarketer.Api.TumblrAccount.TumblrAccount();
+        objTumblrAccount = (TumblrAccount)(new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize(ApiobjTumblrAccount.GetTumblrAccountDetailsById(objGroups.UserId.ToString(), item.ProfileId.ToString()), typeof(TumblrAccount)));
+        senttoname = objTumblrAccount.tblrUserName;
+        sendtoprofileimage = "http://api.tumblr.com/v2/blog/" + objTumblrAccount.tblrUserName + ".tumblr.com/avatar";
+        if (string.IsNullOrEmpty(sendtoprofileimage))
+        {
+            sendtoprofileimage = "/Themes/" + System.Configuration.ConfigurationManager.AppSettings["domain"] + "/Contents/img/blank_img.png";
+        }
+    }
+    else if (item.ProfileType == "youtube")
+    {
+
+    }
+    <tr class="text-center" id="@item.Id">
+        <td class="text-center">
+            @if (ProfileUrl == null || ProfileUrl == "")
+            {
+                <img src="/Themes/@path/Contents/assets/admin/layout2/img/avatar3.jpg" class="img-circle profilePic" onclick="DetailsofProfile('@item.ProfileId','@item.ProfileType')">
+                <p>@objuser.UserName<br> @ScheduleTime(item.ClientTime.ToLocalTime(), @item.CreateTime, @item.ScheduleTime)</p>
+            }
+            else
+            {
+                <img src="@ProfileUrl" class="img-circle profilePic" onclick="DetailsofProfile('@item.ProfileId','@item.ProfileType')">
+                <p>@objuser.UserName<br> @ScheduleTime(item.ClientTime.ToLocalTime(), @item.CreateTime, @item.ScheduleTime)</p>
+            }
+        </td>
+
+        @if ((item.ShareMessage).Contains("$%^_^%$"))
+        {
+            <td>@item.ShareMessage.Replace("$%^_^%$", "  ")</td>
+        }
+        else
+        {
+            <td>@item.ShareMessage</td>
+        }
+        <td class="text-center">
+            <img src="@sendtoprofileimage" class="img-circle square-40" onclick="DetailsofProfile('@item.ProfileId','@item.ProfileType')">
+
+            @if (item.Status == true)
+            {
+                status = "Completed";
+            }
+            else
+            {
+                status = "Pending";
+            }
+            <p>@senttoname</p>
+        </td>
+        <td class="center">@status</td>
+        <td class="center">
+            <a class="btn btn-xs btn-danger" data-toggle="modal" onclick="deletesocialqueuemsg('@item.Id')"><span><i class="fa fa-trash"></i></span></a>
+            <a class="btn btn-xs btn-warning" data-toggle="modal" onclick="editsocialqueuemsg('@item.Id','@item.ShareMessage')"><span><i class="fa fa-edit"></i></span></a>
+        </td>
+    </tr>
+}
+
+    </tbody>
+
+@helper  ScheduleTime(DateTime clientdate, DateTime server, DateTime scheduletime)
+{
+    DateTime client = Convert.ToDateTime(clientdate);
+    string strTimeNow = String.Format("{0:s}", client).Replace('T', ' ');
+    DateTime schedule = Convert.ToDateTime(scheduletime);
+    if (DateTime.Compare(client, server) > 0)
+    {
+
+        //double minutes = (server - client).TotalMinutes;
+        double minutes = (client - server).TotalMinutes;
+        schedule = schedule.AddMinutes(minutes);
+        @String.Format(schedule.ToString());
+
+    }
+    else if (DateTime.Compare(client, server) == 0)
+    {
+        @String.Format(schedule.ToString());
+    }
+    else if (DateTime.Compare(client, server) < 0)
+    {
+        //double minutes = (server - client).TotalMinutes;
+        double minutes = (client - server).TotalMinutes;
+        schedule = schedule.AddMinutes(minutes);
+        @String.Format(schedule.ToString());
+    }
+}

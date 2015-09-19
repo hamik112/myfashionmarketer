@@ -1,0 +1,21 @@
+﻿@using Myfashionmarketer.Domain;
+
+@{
+    Layout = null;
+}
+@{
+
+    List<User> lstEmployees = (List<User>)ViewBag.lstEmployee;
+}
+
+
+@foreach (User emp in lstEmployees)
+{
+    <tbody>
+        <tr>
+            <td>@emp.UserName</td>
+            <td>@emp.EmailId</td>
+            <td>@emp.Phone</td>
+            <td><a href="/Assets/ContactProfile?id=@emp.Id"><input type="hidden" id="emp_id" value="@emp.Id"/><i class="fa fa-pencil"></i></a></td>
+        </tbody>
+}

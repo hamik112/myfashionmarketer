@@ -1,0 +1,451 @@
+﻿@using Myfashionmarketer.Helper;
+@using Myfashionmarketer.Api;
+@{
+    string path = @System.Configuration.ConfigurationManager.AppSettings["domain"];
+    int PostCount = 0;
+    int LikesCount = 0;
+}
+<h2>Recent Profiles</h2>
+@{
+    int counter = 0;
+    int divcounter = 0;
+    if (divcounter == 0)
+    {
+
+    }
+    Dictionary<Domain.Myfashion.Domain.TeamMemberProfile, Dictionary<object, List<object>>> dict = (Dictionary<Domain.Myfashion.Domain.TeamMemberProfile, Dictionary<object, List<object>>>)Model;
+    if (dict.Count == 0)
+    {
+    }
+    foreach (var item in (Dictionary<Domain.Myfashion.Domain.TeamMemberProfile, Dictionary<object, List<object>>>)Model)
+    {
+        int feedcount = 0;
+        int days = 0;
+        double avg = 0;
+        string stravg = "0";
+        Random rNum = new Random();
+        if (item.Key.ProfileType == "facebook" || item.Key.ProfileType == "facebook_page")
+        {
+            string fan = string.Empty;
+            if (item.Key.ProfileType == "facebook")
+            {
+                fan = "Friends";
+            }
+            else
+            {
+                fan = "Fans";
+            }
+            var dic_profileinfo = item.Value.ElementAt(counter);
+            Domain.Myfashion.Domain.FacebookAccount objFacebookAccount = (Domain.Myfashion.Domain.FacebookAccount)dic_profileinfo.Key;
+
+            List<object> lstdic = (List<object>)dic_profileinfo.Value;
+            feedcount = lstdic.Count;
+            if (feedcount != 0)
+            {
+                Domain.Myfashion.Domain.FacebookFeed objFacebookFeeds = (Domain.Myfashion.Domain.FacebookFeed)lstdic[feedcount - 1];
+                days = (DateTime.Now.Date - objFacebookFeeds.FeedDate.Date).Days;
+                if (days == 0)
+                {
+                    days = 1;
+                }
+                avg = (double)feedcount / days;
+                stravg = String.Format("{0:0.00}", avg);
+            }
+            <div id="mid_@objFacebookAccount.FbUserId" class="col-md-4 col-sm-6 col-xs-12">
+                <div class="widget widget-shadow">
+@if (objFacebookAccount.AccessToken != "")
+                    {
+                    <div class="widget-header bg-blue-600 padding-20 white">
+                        <a href="javascript:void(0)" class="avatar avatar-lg img-bordered bg-white pull-left margin-right-20">
+                            <img alt="" title="@objFacebookAccount.FbUserName" src="http://graph.facebook.com/@objFacebookAccount.FbUserId/picture?type=small" style="height:48px; width:48px;" >
+                            <img class="iconPoss" src="/Themes/Myfashion/Contents/assets/images/img/fb_icon.png">
+                          </a>
+                        <div class="vertical-align height-50 text-truncate">
+                            <div class="vertical-align-middle">
+                                <div class="font-size-14 margin-bottom-5 text-truncate">@objFacebookAccount.FbUserName</div>
+                             <!--   <div class="font-size-12 text-truncate">Adminnistrator</div>-->
+                            </div>
+                        </div>
+                    </div>
+                    <div style="min-height: 214px; overflow: hidden;" class="widget-body padding-horizontal-30 padding-vertical-20">
+                        <ul class="list-group recent_height">
+    @for (int i = 0; i < lstdic.Count; i++){
+     Domain.Myfashion.Domain.FacebookFeed objFacebookFeed = ((Domain.Myfashion.Domain.FacebookFeed)lstdic[i]);
+                            string ms = string.Empty;
+                            if (objFacebookFeed.FeedDescription.Length > 23)
+                            {
+                                ms = objFacebookFeed.FeedDescription.Substring(0, 20) + "...";
+                            }
+                            else
+                            {
+                                ms = objFacebookFeed.FeedDescription;
+                            }                   
+        <li class="list-group-item">
+            <img class="commentsmallsize" src="http://graph.facebook.com/@objFacebookAccount.FbUserId/picture?type=small"><span class="commentmargin" title="@objFacebookFeed.FeedDescription">@ms</span>
+        </li>
+                            if (lstdic.Count > 4)
+                            {
+                            if (i == 3)
+                            {
+                            break;
+                            }
+                            }
+    
+    }
+
+                    </ul>
+                    </div>
+}else{
+
+    int j = 0;
+                        Myfashionmarketer.Api.FbPagePost.FbPagePost ApiobjFbPagePost = new Myfashionmarketer.Api.FbPagePost.FbPagePost();
+                        List<Domain.Myfashion.Domain.FbPagePost> lstFbPagePost = (List<Domain.Myfashion.Domain.FbPagePost>)(new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize(ApiobjFbPagePost.GetAllPostOfPage(objFacebookAccount.FbUserId, objFacebookAccount.UserId.ToString()), typeof(List<Domain.Myfashion.Domain.FbPagePost>)));
+                        feedcount = lstFbPagePost.Count;
+                        if (feedcount != 0)
+                        {
+                            Domain.Myfashion.Domain.FbPagePost objFbPagePost = lstFbPagePost[feedcount - 1];
+                            days = (DateTime.Now.Date - objFbPagePost.PostDate).Days;
+                            if (days == 0)
+                            {
+                                days = 1;
+                            }
+                            avg = (double)feedcount / days;
+                            stravg = String.Format("{0:0.00}", avg);
+                        }
+           <div class="widget widget-shadow">
+                <div class="widget-header bg-green-600 padding-20 white">
+                    <a href="javascript:void(0)" class="avatar avatar-lg img-bordered bg-white pull-left margin-right-20">
+                        <img alt="" title="@objFacebookAccount.FbUserName" src="http://graph.facebook.com/@objFacebookAccount.FbUserId/picture?type=small" >
+                    </a>
+
+                    <div class="vertical-align height-50 text-truncate">
+                        <div class="vertical-align-middle">
+                            <div class="font-size-14 margin-bottom-5 text-truncate">@objFacebookAccount.FbUserName</div>
+                          <!--  <div class="font-size-12 text-truncate">Adminnistrator</div>-->
+                        </div>
+                    </div>
+                </div>
+               <div style="min-height: 214px; overflow: hidden;" class="widget-body padding-horizontal-30 padding-vertical-20">
+                   <ul class="list-group recent_height">
+@foreach (Domain.Myfashion.Domain.FbPagePost item_FbPagePost in lstFbPagePost)
+                        {
+                            if (item_FbPagePost.Post != null)
+                            {
+                                string ms = string.Empty;
+                                if (item_FbPagePost.Post.Length > 23)
+                                {
+                                    ms = item_FbPagePost.Post.Substring(0, 20) + "...";
+                                }
+                                else
+                                {
+                                    ms = item_FbPagePost.Post;
+                                }
+                       <li class="list-group-item">
+                           <img class="commentsmallsize" src="http://graph.facebook.com/@objFacebookAccount.FbUserId/picture?type=small"><span class="commentmargin" title="@item_FbPagePost.Post">@ms</span>
+                       </li>
+                       if (j == 3)
+                                {
+                                    break;
+                                }
+                                j++;
+                                }
+                                }
+                   </ul>
+               </div>
+}
+                   
+                </div>}
+            </div>
+
+                    </div>
+
+
+
+
+        }
+
+        if (item.Key.ProfileType == "twitter")
+        {
+            divcounter++;
+            var dic_profileinfo = item.Value.ElementAt(counter);
+            Domain.Myfashion.Domain.TwitterAccount objTwitterAccount = (Domain.Myfashion.Domain.TwitterAccount)dic_profileinfo.Key;
+            List<object> lstdic = (List<object>)dic_profileinfo.Value;
+            feedcount = lstdic.Count;
+            if (feedcount != 0)
+            {
+                Domain.Myfashion.Domain.TwitterFeed objTwtFeed = (Domain.Myfashion.Domain.TwitterFeed)lstdic[feedcount - 1];
+                days = (DateTime.Now.Date - objTwtFeed.FeedDate.Date).Days;
+                if (days == 0)
+                {
+                    days = 1;
+                }
+                avg = (double)feedcount / days;
+                stravg = String.Format("{0:0.00}", avg);
+            }
+            List<Domain.Myfashion.Domain.TwitterFeed> lstTwitterFeed = new List<Domain.Myfashion.Domain.TwitterFeed>();
+            <div id="mid_@objTwitterAccount.TwitterUserId"  class="col-md-4 col-sm-6 col-xs-12">
+                <div class="widget widget-shadow">
+                    <div class="widget-header bg-green-600 padding-20 white">
+                        <a href="javascript:void(0)" class="avatar avatar-lg img-bordered bg-white pull-left margin-right-20">
+                            <img alt="" title="@objTwitterAccount.TwitterScreenName" src="@objTwitterAccount.ProfileImageUrl">
+                            <img class="iconPoss" src="/Themes/Myfashion/Contents/assets/images/img/twticon.png">
+                        </a>
+                        <div class="vertical-align height-50 text-truncate">
+                            <div class="vertical-align-middle">
+                                <div class="font-size-14 margin-bottom-5 text-truncate">@objTwitterAccount.TwitterScreenName</div>
+                          <!--      <div class="font-size-12 text-truncate">Adminnistrator</div>-->
+                            </div>
+                        </div>
+                    </div>
+                    <div style="min-height: 214px; overflow: hidden;" class="widget-body padding-horizontal-30 padding-vertical-20">
+                        <ul class="list-group">
+@for (int i = 0; i < lstdic.Count; i++)
+                        {
+                            Domain.Myfashion.Domain.TwitterFeed objTwitterFeed = ((Domain.Myfashion.Domain.TwitterFeed)lstdic[i]);
+                            string ms = string.Empty;
+                            if (objTwitterFeed.Feed.Length > 23)
+                            {
+                                ms = objTwitterFeed.Feed.Substring(0, 20) + "...";
+
+                            }
+                            else
+                            {
+                                ms = objTwitterFeed.Feed;
+                            }
+                            <li class="list-group-item">
+                                <img class="commentsmallsize" src="@objTwitterFeed.FromProfileUrl"><span class="commentmargin" title="@objTwitterFeed.Feed">@ms</span>
+                            </li>
+                            if (lstdic.Count > 4)
+                            {
+                                if (i == 3)
+                                {
+                                    break;
+                                }
+                            }
+                            }
+                        </ul>
+                    </div>
+                   
+                </div>
+            </div>  <!--End of Twitter Div-->
+
+
+
+
+        }  <!-- End of tweeter if -->
+
+        if (item.Key.ProfileType == "instagram")
+        {
+            divcounter++;
+            var dic_profileinfo = item.Value.ElementAt(counter);
+            //  var item = dictionary.ElementAt(index);
+            Domain.Myfashion.Domain.InstagramAccount objInstagramAccount = (Domain.Myfashion.Domain.InstagramAccount)dic_profileinfo.Key;
+            if (string.IsNullOrEmpty(objInstagramAccount.ProfileUrl))
+            {
+                objInstagramAccount.ProfileUrl = "/Themes/" + path + "/Contents/assets/images/img/anonymousUser.jpg";
+            }
+            <div id="mid_@objInstagramAccount.InstagramId"  class="col-md-4 col-sm-6 col-xs-12">
+                <div class="widget widget-shadow">
+                    <div class="widget-header bg-green-600 padding-20">
+                        <a href="javascript:void(0)" class="avatar avatar-lg img-bordered bg-white pull-left margin-right-20">
+                            <img alt="" title="@objInstagramAccount.InsUserName" src="@objInstagramAccount.ProfileUrl">
+                            <img src="/Themes/Myfashion/Contents/assets/images/img/instagram_icon.png" class="iconPoss">
+                        </a>
+                        <div class="vertical-align height-50 text-truncate">
+                            <div class="vertical-align-middle">
+                                <div class="font-size-14 margin-bottom-5 text-truncate">@objInstagramAccount.InsUserName</div>
+                            
+                            </div>
+                        </div>
+                    </div>
+                    <div style="min-height: 214px; overflow: hidden;" class="widget-body padding-horizontal-30 padding-vertical-20">
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <span class="badge">@objInstagramAccount.TotalImages</span>
+                                Photos
+                            </li>
+                            <li class="list-group-item">
+                                <span class="badge">@objInstagramAccount.FollowedBy</span>
+                                Followers
+                            </li>
+                            <li class="list-group-item">
+                                <span class="badge">@objInstagramAccount.Followers</span>
+                              Following
+                            </li>
+                        </ul>
+                    </div>
+                  
+                </div>
+            </div>
+
+
+
+        }
+        if (item.Key.ProfileType == "tumblr")
+        {
+
+                divcounter++;
+                var dic_profileinfo = item.Value.ElementAt(counter);
+                //  var item = dictionary.ElementAt(index);
+                Domain.Myfashion.Domain.TumblrAccount objTumblrAccount = (Domain.Myfashion.Domain.TumblrAccount)dic_profileinfo.Key;
+                string tumblruserimage = "http://api.tumblr.com/v2/blog/" + objTumblrAccount.tblrUserName + ".tumblr.com/avatar";
+                string profileurl = "http://" + objTumblrAccount.tblrUserName + ".tumblr.com";
+
+                var tmblerdata = Myfashionmarketer.Helper.SBUtils.GetTumblerData(objTumblrAccount.tblrUserName);
+
+                try
+                {
+                    PostCount = Convert.ToInt16(tmblerdata["PostCount"]);
+                    LikesCount = Convert.ToInt16(tmblerdata["LikesCount"]);
+                }
+                catch (Exception)
+                {
+
+                    PostCount = 0;
+                    LikesCount = 0;
+                }
+                <div id="mid_@objTumblrAccount.tblrUserName"  class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="widget widget-shadow">
+                        <div class="widget-header bg-green-600 padding-20 white">
+                            <a href="javascript:void(0)" class="avatar avatar-lg img-bordered bg-white pull-left margin-right-20">
+                                <img alt="" title="@objTumblrAccount.tblrUserName" src="@tumblruserimage">
+                                <img src="/Themes/Myfashion/Contents/assets/images/img/tumblr_icon.png" class="iconPoss">
+                            </a>
+                            <div class="vertical-align height-50 text-truncate">
+                                <div class="vertical-align-middle">
+                                    <div class="font-size-14 margin-bottom-5 text-truncate">@objTumblrAccount.tblrUserName</div>
+                                 <!--   <div class="font-size-12 text-truncate">Adminnistrator</div>-->
+                                </div>
+                            </div>
+                        </div>
+                        <div style="min-height: 214px; overflow: hidden;" class="widget-body padding-horizontal-30 padding-vertical-20">
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <span class="badge">@PostCount</span>
+                                  Post
+                                </li>
+                                <li class="list-group-item">
+                                    <span class="badge">@LikesCount</span>
+                                   Likes
+                                </li>
+                            
+                            </ul>
+                        </div>
+                     
+                    </div>
+                </div>  <!--End of Tumblr div-->
+
+
+
+         
+           
+
+        }
+        if (item.Key.ProfileType == "youtube")
+        {
+            divcounter++;
+            var dic_profileinfo = item.Value.ElementAt(counter);
+            Domain.Myfashion.Domain.YoutubeAccount objYoutubeAccount = (Domain.Myfashion.Domain.YoutubeAccount)dic_profileinfo.Key;
+            List<object> lstdic = (List<object>)dic_profileinfo.Value;
+            Domain.Myfashion.Domain.YoutubeChannel objYoutubeChannel = ((Domain.Myfashion.Domain.YoutubeChannel)lstdic[0]);
+            string pp = objYoutubeAccount.Ytprofileimage;
+            if (string.IsNullOrEmpty(pp))
+            {
+                pp = "/Themes/" + path + "/Contents/assets/global/img/anonymousUser.jpg";
+            }
+            <div id="mid_@objYoutubeAccount.Ytuserid"  class="col-md-4 col-sm-6 col-xs-12">
+                <div class="widget widget-shadow">
+                    <div class="widget-header bg-yellow-600 padding-20 white">
+                        <a href="javascript:void(0)" class="avatar avatar-lg img-bordered bg-white pull-left margin-right-20">
+                            <img alt="" title="@objYoutubeAccount.Ytusername" src="@pp">
+                            <img src="/Themes/@path/Contents/assets/images/img/youtube.png" class="iconPoss">
+                        </a>
+                        <div class="vertical-align height-50 text-truncate">
+                            <div class="vertical-align-middle">
+                                <div class="font-size-14 margin-bottom-5 text-truncate">@objYoutubeAccount.Ytusername</div>
+                                <!--        <div class="font-size-12 text-truncate">Adminnistrator</div> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div style="min-height: 214px; overflow: hidden;" class="widget-body padding-horizontal-30 padding-vertical-20">
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <span class="badge">@objYoutubeChannel.ViewCount</span>
+                                Total View
+                            </li>
+                            <li class="list-group-item">
+                                <span class="badge">@objYoutubeChannel.SubscriberCount</span>
+                                Total Subcriber
+                            </li>
+                            <li class="list-group-item">
+                                <span class="badge">@objYoutubeChannel.VideoCount</span>
+                                Total Video
+                            </li>
+                        </ul>
+                    </div>
+                    
+                </div>
+            </div>
+
+
+
+        }
+        if (item.Key.ProfileType == "gplus")
+        {
+            try
+            {
+                divcounter++;
+                var dic_profileinfo = item.Value.ElementAt(counter);
+                //  var item = dictionary.ElementAt(index);
+                Domain.Myfashion.Domain.GooglePlusAccount objGooglePlusAccount = (Domain.Myfashion.Domain.GooglePlusAccount)dic_profileinfo.Key;
+                <div id="mid_@objGooglePlusAccount.GpUserName"  class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="widget widget-shadow">
+                        <div class="widget-header bg-grey-600 padding-20 white">
+                            <a href="javascript:void(0)" class="avatar avatar-lg img-bordered bg-white pull-left margin-right-20">
+                                <img alt="" title="@objGooglePlusAccount.GpUserName" src="@objGooglePlusAccount.GpProfileImage">
+                                <img class="iconPoss" src="/Themes/Myfashion/Contents/assets/images/img/gplus.png">
+                             
+                              </a>
+                            <div class="vertical-align height-50 text-truncate">
+                                <div class="vertical-align-middle">
+                                    <div class="font-size-14 margin-bottom-5 text-truncate">@objGooglePlusAccount.GpUserName</div>
+                                <!--    <div class="font-size-12 text-truncate">Adminnistrator</div>-->
+                                </div>
+                            </div>
+                        </div>
+                        <div style="min-height: 214px; overflow: hidden;" class="widget-body padding-horizontal-30 padding-vertical-20">
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <span class="badge">@objGooglePlusAccount.HaveYouInCircles</span>
+                                    Have You In Circles
+                                </li>
+                                <li class="list-group-item">
+                                    <span class="badge">@objGooglePlusAccount.InYourCircles</span>
+                                    In Your Circles
+                                </li>
+                               
+                            </ul>
+                        </div>
+                      
+                    </div>
+                </div>
+
+
+
+            }
+            catch (Exception ex)
+            {
+                divcounter = divcounter - 1;
+            }
+        }
+        counter++;
+        if (divcounter == 3)
+        {
+            divcounter = 0;
+             @:</div>
+            @:</div>
+                                    
+            }
+}
+
+}

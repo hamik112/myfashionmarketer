@@ -1,0 +1,196 @@
+﻿@using Domain.Myfashion.Domain;
+@{
+    string path = @System.Configuration.ConfigurationManager.AppSettings["domain"];
+    Domain.Myfashion.Domain.User user = (Domain.Myfashion.Domain.User)ViewBag.user;
+}
+<script src="/Themes/@path/Contents/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+<style type="text/css">
+    .widget-body {
+        padding: 10px !important;
+        position: relative;
+    }
+
+</style>
+    
+        <ul class="blocks blocks-100 blocks-xlg-4 blocks-md-3 blocks-sm-2" data-plugin="masonry">
+            <li class="masonry-item seotracker" module="seocampaign" attrpass="@user.PuId" attrid="@user.EmailId">
+                <div class="widget widget-article widget-shadow light_maroon">
+                    <div class="widget-header cover">
+                        <img class="cover-image" src="/Themes/@path/Contents/assets/images/icons/briefcase.png" alt="...">
+                    </div>
+                    <div class="widget-body slitdark_marron">
+                        <h4><b>Brand Management</b></h4>
+                        <p>Manage the activity of supervising the promotion of a particular brand of goods.</p>
+                    </div>
+                </div>
+            </li>
+            <li class="masonry-item" data="socioalmedia" onclick="moduleredirect()">
+                <div class="widget widget-article widget-shadow dark_maroon">
+                    <div class="widget-header cover">
+                        <img class="cover-image" src="/Themes/@path/Contents/assets/images/icons/share.png" alt="...">
+                    </div>
+                    <div class="widget-body darkdark_marron">
+                        <h4><b>Social Media Marketing</b></h4>
+                        <p>Mange Your Multiple Socioal Media Accounts(Facebook,Tweeter,Instagram,Google+,YouTube,Tumblr)</p>
+                    </div>
+                </div>
+            </li>
+            <li class="masonry-item">
+                <div class="widget widget-article widget-shadow light_navvy">
+                    <div class="widget-header cover">
+                        <img class="cover-image" src="/Themes/@path/Contents/assets/images/icons/campaign_management.png" alt="...">
+                    </div>
+                    <div class="widget-body dark_navvy">
+                        <h4><b>Campaign  Management</b></h4>
+                        <p>Create Your Campaign with Custom Templates</p>
+                    </div>
+                </div>
+            </li>
+            <li class="masonry-item">
+                <div class="widget widget-article widget-shadow light_yellow">
+                    <div class="widget-header cover">
+                        <img class="cover-image" src="/Themes/@path/Contents/assets/images/icons/seo_management.png" alt="...">
+                    </div>
+                    <div class="widget-body dark_yellow">
+                        <h4><b>SEO Management</b></h4>
+                        <p>Use SEO Management to manage your keyowrds,video and campaings with Google,Yahoo,Bing</p>
+                    </div>
+                </div>
+            </li>
+            <li class="masonry-item">
+                <div class="widget widget-article widget-shadow light_green">
+                    <div class="widget-header cover">
+                        <img class="cover-image" src="/Themes/@path/Contents/assets/images/icons/email.png" alt="...">
+                    </div>
+                    <div class="widget-body dark_green">
+                        <h4><b>Email Marketing</b></h4>
+                        <p>Learn how to effectively build your users lists, deliver emails & generate relevant clicks</p>
+                    </div>
+                </div>
+            </li>
+            <li class="masonry-item">
+                <div class="widget widget-article widget-shadow light_blue">
+                    <div class="widget-header cover">
+                        <img class="cover-image" src="/Themes/@path/Contents/assets/images/icons/event.png" alt="...">
+                    </div>
+                    <div class="widget-body dark_blue">
+                        <h4><b>Event Marketing</b></h4>
+                        <p>Create and promote your event</p>
+                    </div>
+                </div>
+            </li>
+            <li class="masonry-item">
+                <div class="widget widget-article widget-shadow light_navyblue">
+                    <div class="widget-header cover">
+                        <img class="cover-image" src="/Themes/@path/Contents/assets/images/icons/nurture_campaign.png" alt="...">
+                    </div>
+                    <div class="widget-body dark_navyblue">
+                        <h4><b> Nurture  Campaigns</b></h4>
+                        <p>In order to set up a lead nurturing email campaign, you first need to know who needs nurturing</p>
+                    </div>
+                </div>
+            </li>
+            <li class="masonry-item">
+                <div class="widget widget-article widget-shadow light_greens">
+                    <div class="widget-header cover">
+                        <img class="cover-image" src="/Themes/@path/Contents/assets/images/icons/analytics.png" alt="...">
+                    </div>
+                    <div class="widget-body dark_greens">
+                        <h4><b>Google Analytics</b></h4>
+                        <p>Check Your website Performence</p>
+                    </div>
+                </div>
+            </li>
+            <li class="masonry-item">
+                <div class="widget widget-article widget-shadow light_yellows">
+                    <div class="widget-header cover">
+                        <img class="cover-image" src="/Themes/@path/Contents/assets/images/icons/lead_scoring.png" alt="...">
+                    </div>
+                    <div class="widget-body dark_yellows">
+                        <h4><b>Lead Scoring</b></h4>
+                        <p>Track who is leading in your group</p>
+                    </div>
+                </div>
+            </li>
+
+        </ul>
+  
+<script>
+    $(document).ready(function (e) {
+        debugger
+        //   loadpro();
+        tracker();
+        DisplayRemainingDaysMsg();
+
+    });
+
+
+    function DisplayRemainingDaysMsg() {
+        debugger;
+
+        $.ajax({
+            type: "POST",
+            url: "../Home/RemainingDays",
+            contentType: false,
+            success: function (msg) {
+                if (msg !== "") {
+
+                    var accounttype = msg.split("##")[0];
+                    var daysremain = msg.split("##")[1];
+                    var message = "";
+                    if (daysremain == "0") {
+                        message = "Your Trial " + accounttype + "account will expire Today";
+                        alert(message);
+                        // window.location = "../Billing/Index";
+                    }
+                    else if (daysremain == "-1") {
+                        message = "Your Trial account is expired Please Upgrade";
+                        alert(message);
+                        window.location = "../Billing/Index";
+                    }
+                    else {
+                        message = "Your Trial " + accounttype + "account will expire in " + daysremain + "days please upgrade to paid plan";
+                        alert(message);
+                    }
+
+
+                }
+
+            }
+        });
+
+    }
+
+
+    function tracker()
+    {
+        debugger;
+        var puid="@ViewBag.PuId";
+        var id ="@user.EmailId";
+        alert(puid + id);
+        $.ajax({
+            type: "POST",
+            crossDomain: true,
+            dataType: 'jsonp',
+            jsonpCallback: "func",
+            url: "http://tracker.myfashionmarketer.com/myfashion/loginService.action?username=" + id + "&password=" + puid + "&callback=?",
+            contentType: "application/json; charset=utf-8",
+            //   contentType: "application/json",
+            success: function (json) {
+                if (json.code === 101) {
+
+                    //window.location = "/home/index";
+
+                }
+            },
+            error: function (e) {
+                console.log("abc");
+                console.log(e);
+            }
+        })
+
+
+    }
+
+
+</script>

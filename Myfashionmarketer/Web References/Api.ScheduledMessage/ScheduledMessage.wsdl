@@ -1,0 +1,1118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:element name="UploadFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="f" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="fileName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UploadFileResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ADDScheduledMessage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="typeandid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ShareMessage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ClientTime" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="ScheduleTime" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PicUrl" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="CreateTime" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ADDScheduledMessageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ADDScheduledMessageResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddGroupScheduleMessages">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ScheduleTime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CreateTime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ProfileType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ProfileId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PicUrl" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ClientTime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ShareMessage" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddGroupScheduleMessagesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddGroupScheduleMessagesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateScheduledMessage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="typeidandmsgid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ShareMessage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="scheduledTime" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="picurl" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateScheduledMessageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateScheduledMessageResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllScheduledMessageByUserId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllScheduledMessageByUserIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllScheduledMessageByUserIdResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllUnSentMessagesOfUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllUnSentMessagesOfUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllUnSentMessagesOfUserResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllUnSentMessagesAccordingToGroup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="profileid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="network" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllUnSentMessagesAccordingToGroupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllUnSentMessagesAccordingToGroupResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWooQueueMessageByUserId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWooQueueMessageByUserIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetWooQueueMessageByUserIdResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetScheduleMessageByMessageId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MessageId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetScheduleMessageByMessageIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetScheduleMessageByMessageIdResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckMessageExistsAtTime">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="schetime" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckMessageExistsAtTimeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckMessageExistsAtTimeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllMessagesOfUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="profileid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllMessagesOfUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllMessagesOfUserResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateScheduledMessageByMsgId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="msgId" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateScheduledMessageByMsgIdResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="getScheduledMessageByProfileType">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="profileType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getScheduledMessageByProfileTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getScheduledMessageByProfileTypeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getAllSentMessageDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="profileid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getAllSentMessageDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getAllSentMessageDetailsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSociaoQueueMessageByUserIdAndGroupId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="GroupId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSociaoQueueMessageByUserIdAndGroupIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSociaoQueueMessageByUserIdAndGroupIdResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteSchecduledMessage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteSchecduledMessageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteSchecduledMessageResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditSchecduledMessage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="msg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditSchecduledMessageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EditSchecduledMessageResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddAllScheduledMessage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="typeandid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ShareMessage" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ClientTime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="scheduleddate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="scheduletime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PicUrl" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddAllScheduledMessageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddAllScheduledMessageResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddComposeMessage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ProfileId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ProfileType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddComposeMessageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddComposeMessageResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllScheduledMessageforADay">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="profileid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="days" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllScheduledMessageforADayResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllScheduledMessageforADayResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllScheduledMessageByDays">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="profileid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="days" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllScheduledMessageByDaysResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllScheduledMessageByDaysResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllScheduledMessageByMonth">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="profileid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="month" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllScheduledMessageByMonthResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllScheduledMessageByMonthResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllSentMessageDetailsForCustomrange">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="profileid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sdate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ldate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllSentMessageDetailsForCustomrangeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllSentMessageDetailsForCustomrangeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllScheduledDetails">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllScheduledDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllScheduledDetailsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSentMessageCountByProfileIdAndUserId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ProfileIds" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSentMessageCountByProfileIdAndUserIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetSentMessageCountByProfileIdAndUserIdResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="guid">
+        <s:restriction base="s:string">
+          <s:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="UploadFileSoapIn">
+    <wsdl:part name="parameters" element="tns:UploadFile" />
+  </wsdl:message>
+  <wsdl:message name="UploadFileSoapOut">
+    <wsdl:part name="parameters" element="tns:UploadFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="ADDScheduledMessageSoapIn">
+    <wsdl:part name="parameters" element="tns:ADDScheduledMessage" />
+  </wsdl:message>
+  <wsdl:message name="ADDScheduledMessageSoapOut">
+    <wsdl:part name="parameters" element="tns:ADDScheduledMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddGroupScheduleMessagesSoapIn">
+    <wsdl:part name="parameters" element="tns:AddGroupScheduleMessages" />
+  </wsdl:message>
+  <wsdl:message name="AddGroupScheduleMessagesSoapOut">
+    <wsdl:part name="parameters" element="tns:AddGroupScheduleMessagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateScheduledMessageSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateScheduledMessage" />
+  </wsdl:message>
+  <wsdl:message name="UpdateScheduledMessageSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateScheduledMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllScheduledMessageByUserIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllScheduledMessageByUserId" />
+  </wsdl:message>
+  <wsdl:message name="GetAllScheduledMessageByUserIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllScheduledMessageByUserIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllUnSentMessagesOfUserSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllUnSentMessagesOfUser" />
+  </wsdl:message>
+  <wsdl:message name="GetAllUnSentMessagesOfUserSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllUnSentMessagesOfUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllUnSentMessagesAccordingToGroupSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllUnSentMessagesAccordingToGroup" />
+  </wsdl:message>
+  <wsdl:message name="GetAllUnSentMessagesAccordingToGroupSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllUnSentMessagesAccordingToGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetWooQueueMessageByUserIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetWooQueueMessageByUserId" />
+  </wsdl:message>
+  <wsdl:message name="GetWooQueueMessageByUserIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetWooQueueMessageByUserIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetScheduleMessageByMessageIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetScheduleMessageByMessageId" />
+  </wsdl:message>
+  <wsdl:message name="GetScheduleMessageByMessageIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetScheduleMessageByMessageIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckMessageExistsAtTimeSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckMessageExistsAtTime" />
+  </wsdl:message>
+  <wsdl:message name="CheckMessageExistsAtTimeSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckMessageExistsAtTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllMessagesOfUserSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllMessagesOfUser" />
+  </wsdl:message>
+  <wsdl:message name="GetAllMessagesOfUserSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllMessagesOfUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateScheduledMessageByMsgIdSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateScheduledMessageByMsgId" />
+  </wsdl:message>
+  <wsdl:message name="UpdateScheduledMessageByMsgIdSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateScheduledMessageByMsgIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="getScheduledMessageByProfileTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:getScheduledMessageByProfileType" />
+  </wsdl:message>
+  <wsdl:message name="getScheduledMessageByProfileTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:getScheduledMessageByProfileTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="getAllSentMessageDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:getAllSentMessageDetails" />
+  </wsdl:message>
+  <wsdl:message name="getAllSentMessageDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:getAllSentMessageDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSociaoQueueMessageByUserIdAndGroupIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSociaoQueueMessageByUserIdAndGroupId" />
+  </wsdl:message>
+  <wsdl:message name="GetSociaoQueueMessageByUserIdAndGroupIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSociaoQueueMessageByUserIdAndGroupIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSchecduledMessageSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteSchecduledMessage" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSchecduledMessageSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteSchecduledMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="EditSchecduledMessageSoapIn">
+    <wsdl:part name="parameters" element="tns:EditSchecduledMessage" />
+  </wsdl:message>
+  <wsdl:message name="EditSchecduledMessageSoapOut">
+    <wsdl:part name="parameters" element="tns:EditSchecduledMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddAllScheduledMessageSoapIn">
+    <wsdl:part name="parameters" element="tns:AddAllScheduledMessage" />
+  </wsdl:message>
+  <wsdl:message name="AddAllScheduledMessageSoapOut">
+    <wsdl:part name="parameters" element="tns:AddAllScheduledMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddComposeMessageSoapIn">
+    <wsdl:part name="parameters" element="tns:AddComposeMessage" />
+  </wsdl:message>
+  <wsdl:message name="AddComposeMessageSoapOut">
+    <wsdl:part name="parameters" element="tns:AddComposeMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllScheduledMessageforADaySoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllScheduledMessageforADay" />
+  </wsdl:message>
+  <wsdl:message name="GetAllScheduledMessageforADaySoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllScheduledMessageforADayResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllScheduledMessageByDaysSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllScheduledMessageByDays" />
+  </wsdl:message>
+  <wsdl:message name="GetAllScheduledMessageByDaysSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllScheduledMessageByDaysResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllScheduledMessageByMonthSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllScheduledMessageByMonth" />
+  </wsdl:message>
+  <wsdl:message name="GetAllScheduledMessageByMonthSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllScheduledMessageByMonthResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllSentMessageDetailsForCustomrangeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllSentMessageDetailsForCustomrange" />
+  </wsdl:message>
+  <wsdl:message name="GetAllSentMessageDetailsForCustomrangeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllSentMessageDetailsForCustomrangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllScheduledDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllScheduledDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetAllScheduledDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllScheduledDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSentMessageCountByProfileIdAndUserIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSentMessageCountByProfileIdAndUserId" />
+  </wsdl:message>
+  <wsdl:message name="GetSentMessageCountByProfileIdAndUserIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSentMessageCountByProfileIdAndUserIdResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ScheduledMessageSoap">
+    <wsdl:operation name="UploadFile">
+      <wsdl:input message="tns:UploadFileSoapIn" />
+      <wsdl:output message="tns:UploadFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ADDScheduledMessage">
+      <wsdl:input message="tns:ADDScheduledMessageSoapIn" />
+      <wsdl:output message="tns:ADDScheduledMessageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddGroupScheduleMessages">
+      <wsdl:input message="tns:AddGroupScheduleMessagesSoapIn" />
+      <wsdl:output message="tns:AddGroupScheduleMessagesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateScheduledMessage">
+      <wsdl:input message="tns:UpdateScheduledMessageSoapIn" />
+      <wsdl:output message="tns:UpdateScheduledMessageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllScheduledMessageByUserId">
+      <wsdl:input message="tns:GetAllScheduledMessageByUserIdSoapIn" />
+      <wsdl:output message="tns:GetAllScheduledMessageByUserIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUnSentMessagesOfUser">
+      <wsdl:input message="tns:GetAllUnSentMessagesOfUserSoapIn" />
+      <wsdl:output message="tns:GetAllUnSentMessagesOfUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUnSentMessagesAccordingToGroup">
+      <wsdl:input message="tns:GetAllUnSentMessagesAccordingToGroupSoapIn" />
+      <wsdl:output message="tns:GetAllUnSentMessagesAccordingToGroupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWooQueueMessageByUserId">
+      <wsdl:input message="tns:GetWooQueueMessageByUserIdSoapIn" />
+      <wsdl:output message="tns:GetWooQueueMessageByUserIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetScheduleMessageByMessageId">
+      <wsdl:input message="tns:GetScheduleMessageByMessageIdSoapIn" />
+      <wsdl:output message="tns:GetScheduleMessageByMessageIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckMessageExistsAtTime">
+      <wsdl:input message="tns:CheckMessageExistsAtTimeSoapIn" />
+      <wsdl:output message="tns:CheckMessageExistsAtTimeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllMessagesOfUser">
+      <wsdl:input message="tns:GetAllMessagesOfUserSoapIn" />
+      <wsdl:output message="tns:GetAllMessagesOfUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateScheduledMessageByMsgId">
+      <wsdl:input message="tns:UpdateScheduledMessageByMsgIdSoapIn" />
+      <wsdl:output message="tns:UpdateScheduledMessageByMsgIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getScheduledMessageByProfileType">
+      <wsdl:input message="tns:getScheduledMessageByProfileTypeSoapIn" />
+      <wsdl:output message="tns:getScheduledMessageByProfileTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllSentMessageDetails">
+      <wsdl:input message="tns:getAllSentMessageDetailsSoapIn" />
+      <wsdl:output message="tns:getAllSentMessageDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSociaoQueueMessageByUserIdAndGroupId">
+      <wsdl:input message="tns:GetSociaoQueueMessageByUserIdAndGroupIdSoapIn" />
+      <wsdl:output message="tns:GetSociaoQueueMessageByUserIdAndGroupIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSchecduledMessage">
+      <wsdl:input message="tns:DeleteSchecduledMessageSoapIn" />
+      <wsdl:output message="tns:DeleteSchecduledMessageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EditSchecduledMessage">
+      <wsdl:input message="tns:EditSchecduledMessageSoapIn" />
+      <wsdl:output message="tns:EditSchecduledMessageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddAllScheduledMessage">
+      <wsdl:input message="tns:AddAllScheduledMessageSoapIn" />
+      <wsdl:output message="tns:AddAllScheduledMessageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddComposeMessage">
+      <wsdl:input message="tns:AddComposeMessageSoapIn" />
+      <wsdl:output message="tns:AddComposeMessageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllScheduledMessageforADay">
+      <wsdl:input message="tns:GetAllScheduledMessageforADaySoapIn" />
+      <wsdl:output message="tns:GetAllScheduledMessageforADaySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllScheduledMessageByDays">
+      <wsdl:input message="tns:GetAllScheduledMessageByDaysSoapIn" />
+      <wsdl:output message="tns:GetAllScheduledMessageByDaysSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllScheduledMessageByMonth">
+      <wsdl:input message="tns:GetAllScheduledMessageByMonthSoapIn" />
+      <wsdl:output message="tns:GetAllScheduledMessageByMonthSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSentMessageDetailsForCustomrange">
+      <wsdl:input message="tns:GetAllSentMessageDetailsForCustomrangeSoapIn" />
+      <wsdl:output message="tns:GetAllSentMessageDetailsForCustomrangeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllScheduledDetails">
+      <wsdl:input message="tns:GetAllScheduledDetailsSoapIn" />
+      <wsdl:output message="tns:GetAllScheduledDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSentMessageCountByProfileIdAndUserId">
+      <wsdl:input message="tns:GetSentMessageCountByProfileIdAndUserIdSoapIn" />
+      <wsdl:output message="tns:GetSentMessageCountByProfileIdAndUserIdSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ScheduledMessageSoap" type="tns:ScheduledMessageSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="UploadFile">
+      <soap:operation soapAction="http://tempuri.org/UploadFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ADDScheduledMessage">
+      <soap:operation soapAction="http://tempuri.org/ADDScheduledMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddGroupScheduleMessages">
+      <soap:operation soapAction="http://tempuri.org/AddGroupScheduleMessages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateScheduledMessage">
+      <soap:operation soapAction="http://tempuri.org/UpdateScheduledMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllScheduledMessageByUserId">
+      <soap:operation soapAction="http://tempuri.org/GetAllScheduledMessageByUserId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUnSentMessagesOfUser">
+      <soap:operation soapAction="http://tempuri.org/GetAllUnSentMessagesOfUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUnSentMessagesAccordingToGroup">
+      <soap:operation soapAction="http://tempuri.org/GetAllUnSentMessagesAccordingToGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWooQueueMessageByUserId">
+      <soap:operation soapAction="http://tempuri.org/GetWooQueueMessageByUserId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetScheduleMessageByMessageId">
+      <soap:operation soapAction="http://tempuri.org/GetScheduleMessageByMessageId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckMessageExistsAtTime">
+      <soap:operation soapAction="http://tempuri.org/CheckMessageExistsAtTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllMessagesOfUser">
+      <soap:operation soapAction="http://tempuri.org/GetAllMessagesOfUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateScheduledMessageByMsgId">
+      <soap:operation soapAction="http://tempuri.org/UpdateScheduledMessageByMsgId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getScheduledMessageByProfileType">
+      <soap:operation soapAction="http://tempuri.org/getScheduledMessageByProfileType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllSentMessageDetails">
+      <soap:operation soapAction="http://tempuri.org/getAllSentMessageDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSociaoQueueMessageByUserIdAndGroupId">
+      <soap:operation soapAction="http://tempuri.org/GetSociaoQueueMessageByUserIdAndGroupId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSchecduledMessage">
+      <soap:operation soapAction="http://tempuri.org/DeleteSchecduledMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditSchecduledMessage">
+      <soap:operation soapAction="http://tempuri.org/EditSchecduledMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAllScheduledMessage">
+      <soap:operation soapAction="http://tempuri.org/AddAllScheduledMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddComposeMessage">
+      <soap:operation soapAction="http://tempuri.org/AddComposeMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllScheduledMessageforADay">
+      <soap:operation soapAction="http://tempuri.org/GetAllScheduledMessageforADay" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllScheduledMessageByDays">
+      <soap:operation soapAction="http://tempuri.org/GetAllScheduledMessageByDays" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllScheduledMessageByMonth">
+      <soap:operation soapAction="http://tempuri.org/GetAllScheduledMessageByMonth" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSentMessageDetailsForCustomrange">
+      <soap:operation soapAction="http://tempuri.org/GetAllSentMessageDetailsForCustomrange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllScheduledDetails">
+      <soap:operation soapAction="http://tempuri.org/GetAllScheduledDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSentMessageCountByProfileIdAndUserId">
+      <soap:operation soapAction="http://tempuri.org/GetSentMessageCountByProfileIdAndUserId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ScheduledMessageSoap12" type="tns:ScheduledMessageSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="UploadFile">
+      <soap12:operation soapAction="http://tempuri.org/UploadFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ADDScheduledMessage">
+      <soap12:operation soapAction="http://tempuri.org/ADDScheduledMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddGroupScheduleMessages">
+      <soap12:operation soapAction="http://tempuri.org/AddGroupScheduleMessages" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateScheduledMessage">
+      <soap12:operation soapAction="http://tempuri.org/UpdateScheduledMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllScheduledMessageByUserId">
+      <soap12:operation soapAction="http://tempuri.org/GetAllScheduledMessageByUserId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUnSentMessagesOfUser">
+      <soap12:operation soapAction="http://tempuri.org/GetAllUnSentMessagesOfUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUnSentMessagesAccordingToGroup">
+      <soap12:operation soapAction="http://tempuri.org/GetAllUnSentMessagesAccordingToGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWooQueueMessageByUserId">
+      <soap12:operation soapAction="http://tempuri.org/GetWooQueueMessageByUserId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetScheduleMessageByMessageId">
+      <soap12:operation soapAction="http://tempuri.org/GetScheduleMessageByMessageId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckMessageExistsAtTime">
+      <soap12:operation soapAction="http://tempuri.org/CheckMessageExistsAtTime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllMessagesOfUser">
+      <soap12:operation soapAction="http://tempuri.org/GetAllMessagesOfUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateScheduledMessageByMsgId">
+      <soap12:operation soapAction="http://tempuri.org/UpdateScheduledMessageByMsgId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getScheduledMessageByProfileType">
+      <soap12:operation soapAction="http://tempuri.org/getScheduledMessageByProfileType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllSentMessageDetails">
+      <soap12:operation soapAction="http://tempuri.org/getAllSentMessageDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSociaoQueueMessageByUserIdAndGroupId">
+      <soap12:operation soapAction="http://tempuri.org/GetSociaoQueueMessageByUserIdAndGroupId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSchecduledMessage">
+      <soap12:operation soapAction="http://tempuri.org/DeleteSchecduledMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditSchecduledMessage">
+      <soap12:operation soapAction="http://tempuri.org/EditSchecduledMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAllScheduledMessage">
+      <soap12:operation soapAction="http://tempuri.org/AddAllScheduledMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddComposeMessage">
+      <soap12:operation soapAction="http://tempuri.org/AddComposeMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllScheduledMessageforADay">
+      <soap12:operation soapAction="http://tempuri.org/GetAllScheduledMessageforADay" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllScheduledMessageByDays">
+      <soap12:operation soapAction="http://tempuri.org/GetAllScheduledMessageByDays" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllScheduledMessageByMonth">
+      <soap12:operation soapAction="http://tempuri.org/GetAllScheduledMessageByMonth" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSentMessageDetailsForCustomrange">
+      <soap12:operation soapAction="http://tempuri.org/GetAllSentMessageDetailsForCustomrange" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllScheduledDetails">
+      <soap12:operation soapAction="http://tempuri.org/GetAllScheduledDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSentMessageCountByProfileIdAndUserId">
+      <soap12:operation soapAction="http://tempuri.org/GetSentMessageCountByProfileIdAndUserId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ScheduledMessage">
+    <wsdl:port name="ScheduledMessageSoap" binding="tns:ScheduledMessageSoap">
+      <soap:address location="http://localhost:2022/Services/ScheduledMessage.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ScheduledMessageSoap12" binding="tns:ScheduledMessageSoap12">
+      <soap12:address location="http://localhost:2022/Services/ScheduledMessage.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

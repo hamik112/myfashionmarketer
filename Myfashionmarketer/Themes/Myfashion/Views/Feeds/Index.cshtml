@@ -1,0 +1,372 @@
+﻿@{
+    string path = @System.Configuration.ConfigurationManager.AppSettings["domain"];
+}
+<link href="/Themes/@path/Contents/assets/css/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css" />
+<script src="/Themes/@path/Contents/assets/js/jquery.mCustomScrollbar.concat.min.js" type="text/javascript"></script>
+<script src="/Themes/@path/Contents/assets/js/jquery.lazyscrollloading-src.js" type="text/javascript"></script>
+<script src="/Themes/@path/Contents/assets/js/jquery.easing.1.3.js" type="text/javascript"></script>
+<script src="/Themes/@path/Contents/assets/js/Feeds.js"></script>
+<script src="/Themes/@path/Contents/assets/js/underscore.js"></script>
+<script src="/Themes/@path/Contents/assets/js/Message.js"></script>
+<script src="/Themes/@path/Contents/assets/js/Helper.js"></script>
+<script src="/Themes/@path/Contents/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+
+
+<style>
+    .badge.pull-right {
+        margin-right: 5% !important;
+    }
+</style>
+
+<script type="text/javascript">
+
+    function loadfeesmenu() {
+        debugger;
+        //alert('load feeds');
+        //$('#feeds').load('../Feeds/loadmenu');
+        $.ajax({
+            type: 'POST',
+            url: '../Feeds/loadmenu',
+            success: function (msg) {
+                $('#feeds').html('').append(msg);
+            },
+            async: false
+        });
+
+
+    }
+
+
+    function DisplayDefaultFeed() {
+        debugger;
+        // var cnt = $('ul#items li').length;
+
+        //var x = $('#feeds > ul > li > ul > li');
+        //if (x.length > 0) {
+        //    $('#feeds > ul').addClass('collapse in');
+        //    $('#feeds > ul > li > ul').addClass('collapse in');
+        //   // $('#feeds > ul > li > ul > li')[0].click();
+        //}
+
+
+
+
+
+        //var fn = $('#first-profile-load_0').attr('onclick');
+        //fn;
+        //alert("No Data");
+        //$("#first-profile-load_0").click();
+        //if (!$("ul").has("li").length) {
+        //    alertify.alert("No Data");
+        //}
+
+
+    }
+
+
+    function LikeUnlikeInstagramPost(LikeCount, FeedId, InstagramId) {
+        debugger;
+        var IsLike = $("#myImage_" + FeedId).attr('status');
+        var fd = new FormData();
+        fd.append("LikeCount", LikeCount);
+        fd.append("IsLike", IsLike);
+        fd.append("FeedId", FeedId);
+        fd.append("InstagramId", InstagramId);
+
+        $.ajax({
+
+            type: 'POST',
+            url: '../Feeds/LikeUnlikeInstagramPost',
+            data: fd,
+            processData: false,
+            contentType: false,
+            dataType: "html",
+            success: function (msg) {
+                if (msg == 'unlike') {
+                    var count = +LikeCount + +1;
+                    $("#count_" + FeedId).html(count + " likes");
+                    $("#myImage_" + FeedId).attr("src", "http://i.imgur.com/Kt5N68n.png");
+                    $("#myImage_" + FeedId).attr('status', '1');
+                }
+                else {
+                    var count = +LikeCount - +1;
+                    $("#count_" + FeedId).html(count + " likes");
+                    $("#myImage_" + FeedId).attr("src", "http://i.imgur.com/5VSlTqW.png");
+                    $("#myImage_" + FeedId).attr('status', '0');
+                }
+            },
+        });
+
+    }
+
+
+    function opnReply(messageid, ProfileId) {
+        debugger;
+        var buttonhtm = "<button type=\"button\" class=\"btn btn-primary\" onclick=\"saveCommentReply('twitter','" + messageid + "','" + ProfileId + "')\">Reply</button>";
+        $("#leaveCommentReply").html(buttonhtm);
+        //$("#Reply").modal('show');
+    }
+    $(document).ready(function () {
+        loadfeesmenu();
+        $('#socialmedia').css('display', 'block');
+        $('#side-menu a').removeClass('active');
+        $("#feeds").addClass('active');
+        $("#feeds").children().addClass('active');
+        //$("#first-profile-load_0").click();
+        //DisplayDefaultFeed();
+        var x = $('#feeds > ul > li > ul > li');
+        if (x.length > 0) {
+            $('#feeds > ul').addClass('collapse in');
+            $('#feeds > ul > li > ul > li')[0].click();
+        }
+        //To Load News feeds data every 15 seconds
+        try {
+            debugger;
+            FacebookLoadNewNewsFeeds();
+        } catch (e) {
+
+        }
+
+        //To Load Wall Posts data every 60 seconds
+        try {
+            FacebookLoadNewUserHome();
+        } catch (e) {
+
+        }
+
+        ////To Load User feeds data every 60 seconds
+        //try {
+        //    FacebookLoadNewUserFeeds();
+        //} catch (e) {
+
+        //}
+    });
+</script>
+
+
+<div class="col-md-12 col-sm-12">
+    <div class="col-md-12 col-sm-12" id="campaigns">
+        <!-- BEGIN PORTLET-->
+        <div class="panel panel-bordered panel-dark ">
+            <div class="panel-heading">
+                <div class="panel-title font-green-sharp">
+                    <i class="fa fa-search font-green-sharp"></i>
+                    <span class="caption-subject">Live Feeds</span>
+                </div>
+            </div>
+            <div class="panel-body" id="page-wrapper">
+
+                <!--Modal-->
+                <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                <h4 class="modal-title" id="myModalLabel">Edit Status</h4>
+                            </div>
+                            <div class="modal-body col-md-12">
+                                <p>Are you sure want to change status?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary ">OK</button>
+                                <button type="button" class="btn btn-default " data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="activityModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                <h4 class="modal-title" id="myModalLabel">TASK ACTIVITY</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="">
+                                    <img src="assets/portraits/11.jpg" class="img-circle" style="height:45px;width:45px;">
+                                    <img class="img-circle" src="assets/images/img/twticon.png">
+                                    <span>Chanchal</span>
+                                </div>
+                                <div class="m-top-sm">
+                                    <p>Hey check this out.</p>
+                                    <span>By Sumit Ghosh at 8/21/2014 5:45:49 AM</span>
+                                    <textarea class="form-control" rows="3" placeholder="Leave a comment"></textarea>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary ">Save</button>
+                                <button type="button" class="btn btn-default " data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Modal-->
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    (function (document, window, $) {
+        'use strict';
+
+        var Site = window.Site;
+        $(document).ready(function () {
+            Site.run();
+        });
+    })(document, window, jQuery);
+</script>
+<script>
+    $(document).ready(function () {
+        $(window).scroll(imagebind);
+    });
+    var facebookfeed = _.throttle(facebookfeedscrolldata, 3000);
+    var twittertweet = _.throttle(Twitterfeedscrolldata, 3000);
+    var linkedinfeed = _.throttle(LinkedInfeedscrolldata, 3000);
+
+    var facebookwall = _.throttle(facebookwallscrolldata, 3000);
+    var twitterfeed = _.throttle(Twitterscrolldata, 3000);
+    var linkedinnetworkupdate = _.throttle(LinkedInscrolldata, 3000);
+    var tumblrimages = _.throttle(Tumblrscrolldata, 3000);
+    var feedonscroll = _.throttle(loadinstagramfeedonscroll, 3000);
+    function ccc() {
+        // alert("ccc");
+        debugger;
+        var network = $("#data_paneltab1").attr('network');
+        if (network == "facebook") {
+            facebookwall();
+        }
+        if (network == "twitter") {
+            twitterfeed();
+        }
+        if (network == "linkedin") {
+            linkedinnetworkupdate();
+        }
+    }
+
+    function feedbind() {
+        debugger;
+        var network = $("#data_paneltab2").attr('network');
+        if (network == "facebook") {
+            facebookfeed();
+        }
+        if (network == "twitter") {
+            twittertweet();
+        }
+        if (network == "linkedin") {
+            linkedinfeed();
+        }
+    }
+    function imagebind() {
+        debugger;
+        var nwt = $("#feedimages").attr("network");
+        if (nwt == "tumblr") {
+            tumblrimages();
+        }
+    }
+    //function FacebookUserFeeds() {
+    //    debugger;
+    //    var nwtid = $('#refreshpanel2').attr('nwtid');
+    //    $("#title_paneltab3").html("User Feeds");
+
+    //    $.ajax({
+    //        type: "GET",
+    //        url: "/Feeds/FacebookUserFeeds",
+    //        data: { "profileid": nwtid },
+    //        contentType: "application/json; charset=utf-8",
+    //        dataType: "html",
+    //        beforeSend: function () {
+    //            console.log("test");
+    //        },
+    //        success: function (msg) {
+    //            console.log("I")
+
+    //            $("#data_paneltab3").html(msg);
+    //            console.log("testend");
+    //        },
+    //        error: function (e) {
+    //            console.log("testerr");
+
+    //            console.log(e);
+    //            alert("gfgh");
+    //        }
+    //    });
+    //}
+
+    function FacebookStatus() {
+        debugger;
+        var nwtid = $('#refreshpanel2').attr('nwtid');
+        $("#title_paneltab3").html("Status");
+
+        $.ajax({
+            type: "GET",
+            url: "/Feeds/FacebookStatus",
+            data: { "profileid": nwtid },
+            contentType: "application/json; charset=utf-8",
+            dataType: "html",
+            beforeSend: function () {
+                console.log("test");
+            },
+            success: function (msg) {
+
+                $("#data_paneltab3").html(msg);
+                console.log("testend");
+            },
+            error: function (e) {
+                console.log("testerr");
+                console.log(e);
+
+            }
+        });
+    }
+
+    function FacebookTag() {
+        debugger;
+        var nwtid = $('#refreshpanel2').attr('nwtid');
+
+        //   console.log("FacebookTag begin")
+
+        $("#title_paneltab3").html("Tags");
+
+        $.ajax({
+            type: "GET",
+            url: "/Feeds/FacebookTag",
+            data: { profileid: nwtid },
+            contentType: "application/json; charset=utf-8",
+            dataType: "html",
+            beforeSend: function () {
+                console.log("test");
+            },
+            success: function (msg) {
+                $("#data_paneltab3").html(msg);
+                console.log("testend");
+            },
+            error: function (e) {
+                console.log(e);
+                console.log("testerr");
+
+            }
+        });
+    }
+    function loadinstagramfeedonscroll() {
+        debugger;
+        $.ajax({
+            url: "../Feeds/ShowInstagramFeeds?load=scroll",
+            type: "Post",
+            success: function (msg) {
+                if (msg == "no_data") {
+
+                }
+                else {
+                    $("#instafeeds").append(msg);
+                }
+            }
+        });
+    }
+
+
+
+
+</script>
+@*<script src="/Themes/Socioboard/Contents/js/plugins/morris/morris-data.js"></script>*@

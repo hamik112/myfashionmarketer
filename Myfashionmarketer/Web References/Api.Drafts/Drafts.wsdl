@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetDraftsByUserId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDraftsByUserIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDraftsByUserIdResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddDraft">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="groupid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ModifiedDate" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddDraftResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddDraftResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDrafts">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDraftsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateDraftsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteDrafts">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteDraftsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteDraftsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDraftMessageByUserIdAndGroupId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="GroupId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDraftMessageByUserIdAndGroupIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDraftMessageByUserIdAndGroupIdResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDraftsMessage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="draftId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="groupid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDraftsMessageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateDraftsMessageResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetDraftsByUserIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDraftsByUserId" />
+  </wsdl:message>
+  <wsdl:message name="GetDraftsByUserIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDraftsByUserIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddDraftSoapIn">
+    <wsdl:part name="parameters" element="tns:AddDraft" />
+  </wsdl:message>
+  <wsdl:message name="AddDraftSoapOut">
+    <wsdl:part name="parameters" element="tns:AddDraftResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDraftsSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateDrafts" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDraftsSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateDraftsResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteDraftsSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteDrafts" />
+  </wsdl:message>
+  <wsdl:message name="DeleteDraftsSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteDraftsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDraftMessageByUserIdAndGroupIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDraftMessageByUserIdAndGroupId" />
+  </wsdl:message>
+  <wsdl:message name="GetDraftMessageByUserIdAndGroupIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDraftMessageByUserIdAndGroupIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDraftsMessageSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateDraftsMessage" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDraftsMessageSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateDraftsMessageResponse" />
+  </wsdl:message>
+  <wsdl:portType name="DraftsSoap">
+    <wsdl:operation name="GetDraftsByUserId">
+      <wsdl:input message="tns:GetDraftsByUserIdSoapIn" />
+      <wsdl:output message="tns:GetDraftsByUserIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddDraft">
+      <wsdl:input message="tns:AddDraftSoapIn" />
+      <wsdl:output message="tns:AddDraftSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDrafts">
+      <wsdl:input message="tns:UpdateDraftsSoapIn" />
+      <wsdl:output message="tns:UpdateDraftsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDrafts">
+      <wsdl:input message="tns:DeleteDraftsSoapIn" />
+      <wsdl:output message="tns:DeleteDraftsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDraftMessageByUserIdAndGroupId">
+      <wsdl:input message="tns:GetDraftMessageByUserIdAndGroupIdSoapIn" />
+      <wsdl:output message="tns:GetDraftMessageByUserIdAndGroupIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDraftsMessage">
+      <wsdl:input message="tns:UpdateDraftsMessageSoapIn" />
+      <wsdl:output message="tns:UpdateDraftsMessageSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DraftsSoap" type="tns:DraftsSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetDraftsByUserId">
+      <soap:operation soapAction="http://tempuri.org/GetDraftsByUserId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddDraft">
+      <soap:operation soapAction="http://tempuri.org/AddDraft" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDrafts">
+      <soap:operation soapAction="http://tempuri.org/UpdateDrafts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDrafts">
+      <soap:operation soapAction="http://tempuri.org/DeleteDrafts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDraftMessageByUserIdAndGroupId">
+      <soap:operation soapAction="http://tempuri.org/GetDraftMessageByUserIdAndGroupId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDraftsMessage">
+      <soap:operation soapAction="http://tempuri.org/UpdateDraftsMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DraftsSoap12" type="tns:DraftsSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetDraftsByUserId">
+      <soap12:operation soapAction="http://tempuri.org/GetDraftsByUserId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddDraft">
+      <soap12:operation soapAction="http://tempuri.org/AddDraft" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDrafts">
+      <soap12:operation soapAction="http://tempuri.org/UpdateDrafts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDrafts">
+      <soap12:operation soapAction="http://tempuri.org/DeleteDrafts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDraftMessageByUserIdAndGroupId">
+      <soap12:operation soapAction="http://tempuri.org/GetDraftMessageByUserIdAndGroupId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDraftsMessage">
+      <soap12:operation soapAction="http://tempuri.org/UpdateDraftsMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Drafts">
+    <wsdl:port name="DraftsSoap" binding="tns:DraftsSoap">
+      <soap:address location="http://localhost:2022/Services/Drafts.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DraftsSoap12" binding="tns:DraftsSoap12">
+      <soap12:address location="http://localhost:2022/Services/Drafts.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

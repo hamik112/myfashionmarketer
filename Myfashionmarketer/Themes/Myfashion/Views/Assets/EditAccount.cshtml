@@ -1,0 +1,411 @@
+﻿@{
+
+    Myfashionmarketer.Domain.Account _Account = (Myfashionmarketer.Domain.Account)ViewBag.accountlist;
+    
+}
+<div class="page-content-wrapper">
+    <div class="page-content" style="min-height:722px">
+        <!-- BEGIN PAGE CONTENT-->
+        <div class="page-bar no-m-bottom">
+            <ul class="page-breadcrumb">
+                <li>
+                    <i class="fa fa-home"></i>
+                    <a href="index.html">Home</a>
+                    <i class="fa fa-angle-right"></i>
+                </li>
+                <li>
+                    <a href="#">Accounts</a>
+                    <i class="fa fa-angle-right"></i>
+                </li>
+                <li>
+                    <span>@_Account.Business_name</span>
+                </li>
+            </ul>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h3><span class="m-right-sm"><i class="fa fa-sitemap font-24"></i></span> @_Account.Business_name</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 margin-top-15">
+                <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                <div class="portlet box blue-hoki">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class="fa fa-message"></i>Company Info
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <form class="form-horizontal">
+                                    <div class="">
+                                        <label class="control-label">
+                                            Business Name <span class="text-danger">*</span>
+                                        </label>
+                                        <input type="text" value="@_Account.Business_name" id="txtbname" name="bname" class="form-control">
+                                    </div>
+                                    <div class="">
+                                        <label class="control-label">Auto Hashtag Phrases (comma separated)</label>
+                                        <input type="text" name="hashtag" class="form-control">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 margin-top-15">
+                <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                <div class="portlet box blue-hoki">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class="fa fa-message"></i>Contact Information
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <form class="form-horizontal row">
+                                    <div class="col-md-6">
+                                        <div class="">
+                                            <label class="control-label">Website URL</label>
+                                            <input type="url" value="@_Account.Company_url" id="txtweburl" name="url" class="form-control">
+                                        </div>
+                                        <div class="">
+                                            <label class="control-label">Default Marketing Reply Email</label>
+                                            <input type="email" value="@_Account.EmailId" name="lname" class="form-control">
+                                        </div>
+                                        <div class="">
+                                            <label class="control-label">Address</label>
+                                            <input type="text" id="txtaddress" value="@_Account.Address" name="addr" class="form-control">
+                                        </div>
+                                        <div class="">
+                                            <label class="control-label">City</label>
+                                            <input type="text" id="txtcity" value="@_Account.City" name="city" class="form-control">
+                                        </div>
+                                        <div class="">
+                                            <label class="control-label">Postal/Zip Code</label>
+                                            <input type="text" id="txtpostal" value="@_Account.Zip" name="postal" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="">
+                                            <label class="control-label">Default Number</label>
+                                            <input type="text" value="@_Account.Default_no" id="txtdefaultno" name="no" class="form-control">
+                                        </div>
+                                        <div class="">
+                                            <label class="control-label">Billing Email</label>
+                                            <input type="email" id="txtbillingemail" value="@_Account.Default_no" name="bmail" class="form-control">
+                                        </div>
+                                        <div class="">
+                                            <label class="control-label">Country</label>
+                                            <select name="country" class="form-control">
+                                                <option>India</option>
+                                                <option>US</option>
+                                                <option>France</option>
+                                                <option>UK</option>
+                                            </select>
+                                        </div>
+                                        <div class="">
+                                            <label class="control-label">Province/State</label>
+                                            <select name="country" class="form-control">
+                                                <option>Tamilnadu</option>
+                                                <option>Andhra Pradesh</option>
+                                                <option>Chhattisgarh</option>
+                                                <option>Kerala</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 margin-top-15">
+                <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                <div class="portlet box blue-hoki">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class="fa fa-message"></i>Account Setup
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <form class="form-horizontal row">
+                                    <div class="col-md-6">
+                                        <div class="">
+                                            <label class="control-label">ActiveDEMAND API Key</label>
+                                            <input type="text" readonly="" value="" name="api" class="form-control">
+                                        </div>
+                                        <div class="">
+                                            <label class="control-label">Primary Sales Contact</label>
+                                            <select name="psales" class="form-control">
+                                                <option>Rakesh Kumar</option>
+                                                <option>test</option>
+                                            </select>
+                                        </div>
+                                        <div class="">
+                                            <label class="control-label">Primary Marketing Contact</label>
+                                            <select name="pmarket" class="form-control">
+                                                <option>Rakesh Kumar</option>
+                                                <option>test</option>
+                                            </select>
+                                        </div>
+                                        <div class="">
+                                            <label class="control-label">Page Domain</label>
+                                            <input id="txtpagedomain" type="text" value="" name="domain" class="form-control">
+                                        </div>
+                                        <div class="">
+                                            <label class="control-label">Link Replace Domain</label>
+                                            <input id="txtlinkdomain" type="text" placeholder="link.&lt;your domain&gt;.com" name="link" class="form-control">
+                                        </div>
+                                        <div class="">
+                                            <label class="control-label">Root Page</label>
+                                            <select name="rpage" class="form-control">
+                                                <option>Rakesh Kumar</option>
+                                                <option>test</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="">
+                                            <label class="control-label">Spam Confirmation Page URL</label>
+                                            <input type="url" id="txtspamconfurl" name="spam" class="form-control">
+                                        </div>
+                                        <div class="">
+                                            <label class="control-label">Blocked Confirmation URL</label>
+                                            <input type="url" id="txtblockedconfurl" name="blocked" class="form-control">
+                                        </div>
+                                        <div class="">
+                                            <label class="control-label">Google Analytics Account ID</label>
+                                            <input type="text" id="txtgoogleanalId" name="analytics" class="form-control">
+                                            <small class="text-muted">The account ID should be in the form: UA-XXXXXXXX-X</small>
+                                        </div>
+                                        <div class="">
+                                            <label class="control-label">Adwords Customer ID</label>
+                                            <input type="text" id="txtaddwordId" name="adid" class="form-control">
+                                        </div>
+                                        <div class="">
+                                            <label class="control-label">Google Captcha Key</label>
+                                            <input type="text" id="txtgooglecaptchakey" name="googlekey" class="form-control">
+                                        </div>
+                                        <div class="">
+                                            <label class="control-label">Google Captcha Secret</label>
+                                            <input type="text" id="txtgooglecaptchasecret" name="googlesecret" class="form-control">
+                                            <div class="checker"><span><input type="checkbox" name="ddns"></span></div> Dynamic DNS Lookup
+                                        </div>
+                                        <div class="">
+                                            <label class="control-label">Date Format</label>
+                                            <select name="date" class="form-control">
+                                                <option>dd/mm/yyyy</option>
+                                                <option>mm/dd/yyyy</option>
+                                                <option>yyyy/mm/dd</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 margin-top-15">
+                <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                <div class="portlet box blue-hoki">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class="fa fa-message"></i>Employees
+                        </div>
+                        <div class="actions">
+                            <button class="btn btn-default btn-sm" data-target="#gridSystemModal" data-toggle="modal">
+                                <i class="fa fa-plus"></i> Add Employee
+                            </button>
+                        </div>
+                    </div>
+                    <div class="portlet-body" >
+                        <table id="empbody"  class="table" style="margin-bottom:0;">
+                            <thead>
+                                <tr>
+                                    <th>User Name</th>
+                                    <th>Emails</th>
+                                    <th>Phone</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 margin-top-15">
+                <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                <div class="portlet box blue-hoki">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class="fa fa-message"></i>Social Media
+                        </div>
+                        <div class="actions">
+                            <button class="btn btn-default btn-sm">
+                                <i class="fa fa-plus"></i> Add Social Media
+                            </button>
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <table class="table" style="margin-bottom:0;">
+                            <thead>
+                                <tr>
+                                    <th>Media Type</th>
+                                    <th>URL</th>
+                                    <th>Username</th>
+                                    <th>Authenticated?</th>
+                                    <th>&nbsp;</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Facebook</td>
+                                    <td>https://www.facebook.com/?_rdr=p</td>
+                                    <td>rakesh</td>
+                                    <td><a href="#"><i class="fa fa-sign-in"></i></a></td>
+                                    <td><a href="#"><i class="fa fa-pencil"></i></a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 margin-top-15">
+                <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                <div class="portlet box blue-hoki">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class="fa fa-message"></i>Third Party Applications
+                        </div>
+                        <div class="actions">
+                            <button class="btn btn-default btn-sm">
+                                <i class="fa fa-plus"></i> Add Application
+                            </button>
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <table class="table" style="margin-bottom:0;">
+                            <thead>
+                                <tr>
+                                    <th>Application Type</th>
+                                    <th>Username</th>
+                                    <th>Authenticated?</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 margin-top-15">
+                <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                <div class="portlet box blue-hoki">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class="fa fa-message"></i>Associated Email Domains
+                        </div>
+                        <div class="actions">
+                            <button class="btn btn-default btn-sm">
+                                <i class="fa fa-plus"></i> Add Email Domain
+                            </button>
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <table class="table" style="margin-bottom:0;">
+                            <tbody>
+                                <tr>
+                                    <td>tr.com</td>
+                                    <td><a href="#"><i class="fa fa-times"></i></a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 margin-top-15">
+                <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                <div class="portlet box blue-hoki">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class="fa fa-message"></i>Associated IP Addresses
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <table class="table" style="margin-bottom:0;">
+                            <thead>
+                                <tr>
+                                    <th>Contact</th>
+                                    <th>IP Address</th>
+                                    <th>City</th>
+                                    <th>Province</th>
+                                    <th>Country</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="pull-right">
+                    <button class="btn blue" onclick="updateaccount('@_Account.Company_id');">Save</button>
+                    @*        <button class="btn blue" id="submit">Save</button>*@
+                    <button class="btn btn-default">Close</button>
+                </div>
+            </div>
+        </div>
+        <!-- END PAGE CONTENT-->
+    </div>
+</div>
+<div aria-labelledby="gridModalLabel" role="dialog" tabindex="-1" class="modal fade in" id="gridSystemModal">
+    <div role="document" class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button aria-label="Close" data-dismiss="modal" class="close" type="button"><span aria-hidden="true">×</span></button>
+                <h4 id="gridModalLabel" class="modal-title">Add Employee</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="emp_first_name" class="control-label">First Name</label>
+                    <div class="controls"><input type="text" size="30" name="contact[first_name]" id="emp_first_name" class="form-control"></div>
+                </div>
+                <div class="form-group">
+                    <label for="emp_last_name" class="control-label">Last Name</label>
+                    <div class="controls"><input type="text" size="30" name="contact[first_name]" id="emp_last_name" class="form-control"></div>
+                </div>
+                <div class="form-group">
+                    <label for="emp_email" class="control-label">Email Address</label>
+                    <div class="controls"><input type="text" size="30" name="contact[first_name]" id="emp_email" class="form-control"></div>
+                </div>
+                <div class="form-group">
+                    <label for="emp_phone" class="control-label">Phone Number</label>
+                    <div class="controls"><input type="text" size="30" name="contact[first_name]" id="emp_phone" class="form-control"></div>
+                </div>
+            <button class="btn btn-primary" onclick="addemployee()">Add</button>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+    </div>

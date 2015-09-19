@@ -1,0 +1,1431 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="AddFacebookAccount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="GroupId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddFacebookAccountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddFacebookAccountResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddFacebookAccountWithPagination">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="GroupId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddFacebookAccountWithPaginationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddFacebookAccountWithPaginationResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFacebookData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FbId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFacebookDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFacebookDataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddFacebookAccountWithlogin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accessToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="GroupId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddFacebookAccountWithloginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddFacebookAccountWithloginResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllFbGroupdata">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="groupid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accestoken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="profileid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllFbGroupdataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllFbGroupdataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FacebookLike">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="msgguid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="profileid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="msgid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FacebookLikeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FacebookLikeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FacebookComment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="profileid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="commentid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FacebookCommentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FacebookCommentResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PostOnFBGroupFeeds">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="gid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ack" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="msg" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PostOnFBGroupFeedsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PostOnFBGroupFeedsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FacebookComposeMessage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="profileid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="currentdatetime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="imagepath" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FacebookComposeMessageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FacebookComposeMessageResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FacebookComposeMessageForPage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="profileid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="currentdatetime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="imagepath" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FacebookComposeMessageForPageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FacebookComposeMessageForPageResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FacebookLogin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="code" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FacebookLoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FacebookLoginResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SheduleFacebookMessage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FacebookId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sscheduledmsgguid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SheduleFacebookMessageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SheduleFacebookMessageResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SheduleFacebookGroupMessage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FacebookId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sscheduledmsgguid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SheduleFacebookGroupMessageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SheduleFacebookGroupMessageResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFacebookPages">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="code" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFacebookPagesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFacebookPagesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddFacebookPagesInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="profileId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accessToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="groupId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddFacebookPagesInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddFacebookPagesInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFacebookGroups">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="code" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFacebookGroupsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFacebookGroupsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddFacebookGroupsInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fbgroupid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accessToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="groupId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fbgroupname" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddFacebookGroupsInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddFacebookGroupsInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CommentOnFbGroupPost">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GpPostid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="comment" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Accesstoken" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CommentOnFbGroupPostResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CommentOnFbGroupPostResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddFbPagePost">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accesstoken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="profileid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddFbPagePostResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddFbPagePostResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllFbPagePostDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pageid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllFbPagePostDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllFbPagePostDetailsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddFacebookPagesByUrl">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="profileId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="groupId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddFacebookPagesByUrlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddFacebookPagesByUrlResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFbPageDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="url" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFbPageDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFbPageDetailsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FacebookProfileDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ProfileId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FacebookProfileDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FacebookProfileDetailsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddAllFbPagePost">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accesstoken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="profileid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddAllFbPagePostResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddAllFbPagePostResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateFacebookAccountByAdmin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObjFacebook" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateFacebookAccountByAdminResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateFacebookAccountByAdminResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LikeFBGroupPost">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="postid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accesstoken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Isliked" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LikeFBGroupPostResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LikeFBGroupPostResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TicketFacebokReply">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="profileid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="commentid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TicketFacebokReplyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TicketFacebokReplyResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddNewFacebookFeeds">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FbId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddNewFacebookFeedsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddNewFacebookFeedsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddNewFacebookWallPosts">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FbId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddNewFacebookWallPostsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddNewFacebookWallPostsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getUserNotifications">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fb" type="tns:FacebookClient" />
+            <s:element minOccurs="0" maxOccurs="1" name="profile" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="FacebookClient">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="AccessToken" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AppId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AppSecret" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsSecureConnection" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="UseFacebookBeta" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Version" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubscriptionVerifyToken" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getUserNotificationsResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="getPageConversations">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fb" type="tns:FacebookClient" />
+            <s:element minOccurs="0" maxOccurs="1" name="profile" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getPageConversationsResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetFacebookPageData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FbId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFacebookPageDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFacebookPageDataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AddFacebookAccountSoapIn">
+    <wsdl:part name="parameters" element="tns:AddFacebookAccount" />
+  </wsdl:message>
+  <wsdl:message name="AddFacebookAccountSoapOut">
+    <wsdl:part name="parameters" element="tns:AddFacebookAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddFacebookAccountWithPaginationSoapIn">
+    <wsdl:part name="parameters" element="tns:AddFacebookAccountWithPagination" />
+  </wsdl:message>
+  <wsdl:message name="AddFacebookAccountWithPaginationSoapOut">
+    <wsdl:part name="parameters" element="tns:AddFacebookAccountWithPaginationResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFacebookDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFacebookData" />
+  </wsdl:message>
+  <wsdl:message name="GetFacebookDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFacebookDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddFacebookAccountWithloginSoapIn">
+    <wsdl:part name="parameters" element="tns:AddFacebookAccountWithlogin" />
+  </wsdl:message>
+  <wsdl:message name="AddFacebookAccountWithloginSoapOut">
+    <wsdl:part name="parameters" element="tns:AddFacebookAccountWithloginResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllFbGroupdataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllFbGroupdata" />
+  </wsdl:message>
+  <wsdl:message name="GetAllFbGroupdataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllFbGroupdataResponse" />
+  </wsdl:message>
+  <wsdl:message name="FacebookLikeSoapIn">
+    <wsdl:part name="parameters" element="tns:FacebookLike" />
+  </wsdl:message>
+  <wsdl:message name="FacebookLikeSoapOut">
+    <wsdl:part name="parameters" element="tns:FacebookLikeResponse" />
+  </wsdl:message>
+  <wsdl:message name="FacebookCommentSoapIn">
+    <wsdl:part name="parameters" element="tns:FacebookComment" />
+  </wsdl:message>
+  <wsdl:message name="FacebookCommentSoapOut">
+    <wsdl:part name="parameters" element="tns:FacebookCommentResponse" />
+  </wsdl:message>
+  <wsdl:message name="PostOnFBGroupFeedsSoapIn">
+    <wsdl:part name="parameters" element="tns:PostOnFBGroupFeeds" />
+  </wsdl:message>
+  <wsdl:message name="PostOnFBGroupFeedsSoapOut">
+    <wsdl:part name="parameters" element="tns:PostOnFBGroupFeedsResponse" />
+  </wsdl:message>
+  <wsdl:message name="FacebookComposeMessageSoapIn">
+    <wsdl:part name="parameters" element="tns:FacebookComposeMessage" />
+  </wsdl:message>
+  <wsdl:message name="FacebookComposeMessageSoapOut">
+    <wsdl:part name="parameters" element="tns:FacebookComposeMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="FacebookComposeMessageForPageSoapIn">
+    <wsdl:part name="parameters" element="tns:FacebookComposeMessageForPage" />
+  </wsdl:message>
+  <wsdl:message name="FacebookComposeMessageForPageSoapOut">
+    <wsdl:part name="parameters" element="tns:FacebookComposeMessageForPageResponse" />
+  </wsdl:message>
+  <wsdl:message name="FacebookLoginSoapIn">
+    <wsdl:part name="parameters" element="tns:FacebookLogin" />
+  </wsdl:message>
+  <wsdl:message name="FacebookLoginSoapOut">
+    <wsdl:part name="parameters" element="tns:FacebookLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="SheduleFacebookMessageSoapIn">
+    <wsdl:part name="parameters" element="tns:SheduleFacebookMessage" />
+  </wsdl:message>
+  <wsdl:message name="SheduleFacebookMessageSoapOut">
+    <wsdl:part name="parameters" element="tns:SheduleFacebookMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="SheduleFacebookGroupMessageSoapIn">
+    <wsdl:part name="parameters" element="tns:SheduleFacebookGroupMessage" />
+  </wsdl:message>
+  <wsdl:message name="SheduleFacebookGroupMessageSoapOut">
+    <wsdl:part name="parameters" element="tns:SheduleFacebookGroupMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFacebookPagesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFacebookPages" />
+  </wsdl:message>
+  <wsdl:message name="GetFacebookPagesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFacebookPagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddFacebookPagesInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:AddFacebookPagesInfo" />
+  </wsdl:message>
+  <wsdl:message name="AddFacebookPagesInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:AddFacebookPagesInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFacebookGroupsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFacebookGroups" />
+  </wsdl:message>
+  <wsdl:message name="GetFacebookGroupsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFacebookGroupsResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddFacebookGroupsInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:AddFacebookGroupsInfo" />
+  </wsdl:message>
+  <wsdl:message name="AddFacebookGroupsInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:AddFacebookGroupsInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="CommentOnFbGroupPostSoapIn">
+    <wsdl:part name="parameters" element="tns:CommentOnFbGroupPost" />
+  </wsdl:message>
+  <wsdl:message name="CommentOnFbGroupPostSoapOut">
+    <wsdl:part name="parameters" element="tns:CommentOnFbGroupPostResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddFbPagePostSoapIn">
+    <wsdl:part name="parameters" element="tns:AddFbPagePost" />
+  </wsdl:message>
+  <wsdl:message name="AddFbPagePostSoapOut">
+    <wsdl:part name="parameters" element="tns:AddFbPagePostResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllFbPagePostDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllFbPagePostDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetAllFbPagePostDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllFbPagePostDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddFacebookPagesByUrlSoapIn">
+    <wsdl:part name="parameters" element="tns:AddFacebookPagesByUrl" />
+  </wsdl:message>
+  <wsdl:message name="AddFacebookPagesByUrlSoapOut">
+    <wsdl:part name="parameters" element="tns:AddFacebookPagesByUrlResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFbPageDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFbPageDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetFbPageDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFbPageDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="FacebookProfileDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:FacebookProfileDetails" />
+  </wsdl:message>
+  <wsdl:message name="FacebookProfileDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:FacebookProfileDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddAllFbPagePostSoapIn">
+    <wsdl:part name="parameters" element="tns:AddAllFbPagePost" />
+  </wsdl:message>
+  <wsdl:message name="AddAllFbPagePostSoapOut">
+    <wsdl:part name="parameters" element="tns:AddAllFbPagePostResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateFacebookAccountByAdminSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateFacebookAccountByAdmin" />
+  </wsdl:message>
+  <wsdl:message name="UpdateFacebookAccountByAdminSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateFacebookAccountByAdminResponse" />
+  </wsdl:message>
+  <wsdl:message name="LikeFBGroupPostSoapIn">
+    <wsdl:part name="parameters" element="tns:LikeFBGroupPost" />
+  </wsdl:message>
+  <wsdl:message name="LikeFBGroupPostSoapOut">
+    <wsdl:part name="parameters" element="tns:LikeFBGroupPostResponse" />
+  </wsdl:message>
+  <wsdl:message name="TicketFacebokReplySoapIn">
+    <wsdl:part name="parameters" element="tns:TicketFacebokReply" />
+  </wsdl:message>
+  <wsdl:message name="TicketFacebokReplySoapOut">
+    <wsdl:part name="parameters" element="tns:TicketFacebokReplyResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddNewFacebookFeedsSoapIn">
+    <wsdl:part name="parameters" element="tns:AddNewFacebookFeeds" />
+  </wsdl:message>
+  <wsdl:message name="AddNewFacebookFeedsSoapOut">
+    <wsdl:part name="parameters" element="tns:AddNewFacebookFeedsResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddNewFacebookWallPostsSoapIn">
+    <wsdl:part name="parameters" element="tns:AddNewFacebookWallPosts" />
+  </wsdl:message>
+  <wsdl:message name="AddNewFacebookWallPostsSoapOut">
+    <wsdl:part name="parameters" element="tns:AddNewFacebookWallPostsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getUserNotificationsSoapIn">
+    <wsdl:part name="parameters" element="tns:getUserNotifications" />
+  </wsdl:message>
+  <wsdl:message name="getUserNotificationsSoapOut">
+    <wsdl:part name="parameters" element="tns:getUserNotificationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getPageConversationsSoapIn">
+    <wsdl:part name="parameters" element="tns:getPageConversations" />
+  </wsdl:message>
+  <wsdl:message name="getPageConversationsSoapOut">
+    <wsdl:part name="parameters" element="tns:getPageConversationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFacebookPageDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFacebookPageData" />
+  </wsdl:message>
+  <wsdl:message name="GetFacebookPageDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFacebookPageDataResponse" />
+  </wsdl:message>
+  <wsdl:portType name="FacebookSoap">
+    <wsdl:operation name="AddFacebookAccount">
+      <wsdl:input message="tns:AddFacebookAccountSoapIn" />
+      <wsdl:output message="tns:AddFacebookAccountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddFacebookAccountWithPagination">
+      <wsdl:input message="tns:AddFacebookAccountWithPaginationSoapIn" />
+      <wsdl:output message="tns:AddFacebookAccountWithPaginationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFacebookData">
+      <wsdl:input message="tns:GetFacebookDataSoapIn" />
+      <wsdl:output message="tns:GetFacebookDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddFacebookAccountWithlogin">
+      <wsdl:input message="tns:AddFacebookAccountWithloginSoapIn" />
+      <wsdl:output message="tns:AddFacebookAccountWithloginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllFbGroupdata">
+      <wsdl:input message="tns:GetAllFbGroupdataSoapIn" />
+      <wsdl:output message="tns:GetAllFbGroupdataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FacebookLike">
+      <wsdl:input message="tns:FacebookLikeSoapIn" />
+      <wsdl:output message="tns:FacebookLikeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FacebookComment">
+      <wsdl:input message="tns:FacebookCommentSoapIn" />
+      <wsdl:output message="tns:FacebookCommentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PostOnFBGroupFeeds">
+      <wsdl:input message="tns:PostOnFBGroupFeedsSoapIn" />
+      <wsdl:output message="tns:PostOnFBGroupFeedsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FacebookComposeMessage">
+      <wsdl:input message="tns:FacebookComposeMessageSoapIn" />
+      <wsdl:output message="tns:FacebookComposeMessageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FacebookComposeMessageForPage">
+      <wsdl:input message="tns:FacebookComposeMessageForPageSoapIn" />
+      <wsdl:output message="tns:FacebookComposeMessageForPageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FacebookLogin">
+      <wsdl:input message="tns:FacebookLoginSoapIn" />
+      <wsdl:output message="tns:FacebookLoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SheduleFacebookMessage">
+      <wsdl:input message="tns:SheduleFacebookMessageSoapIn" />
+      <wsdl:output message="tns:SheduleFacebookMessageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SheduleFacebookGroupMessage">
+      <wsdl:input message="tns:SheduleFacebookGroupMessageSoapIn" />
+      <wsdl:output message="tns:SheduleFacebookGroupMessageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFacebookPages">
+      <wsdl:input message="tns:GetFacebookPagesSoapIn" />
+      <wsdl:output message="tns:GetFacebookPagesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddFacebookPagesInfo">
+      <wsdl:input message="tns:AddFacebookPagesInfoSoapIn" />
+      <wsdl:output message="tns:AddFacebookPagesInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFacebookGroups">
+      <wsdl:input message="tns:GetFacebookGroupsSoapIn" />
+      <wsdl:output message="tns:GetFacebookGroupsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddFacebookGroupsInfo">
+      <wsdl:input message="tns:AddFacebookGroupsInfoSoapIn" />
+      <wsdl:output message="tns:AddFacebookGroupsInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CommentOnFbGroupPost">
+      <wsdl:input message="tns:CommentOnFbGroupPostSoapIn" />
+      <wsdl:output message="tns:CommentOnFbGroupPostSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddFbPagePost">
+      <wsdl:input message="tns:AddFbPagePostSoapIn" />
+      <wsdl:output message="tns:AddFbPagePostSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllFbPagePostDetails">
+      <wsdl:input message="tns:GetAllFbPagePostDetailsSoapIn" />
+      <wsdl:output message="tns:GetAllFbPagePostDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddFacebookPagesByUrl">
+      <wsdl:input message="tns:AddFacebookPagesByUrlSoapIn" />
+      <wsdl:output message="tns:AddFacebookPagesByUrlSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFbPageDetails">
+      <wsdl:input message="tns:GetFbPageDetailsSoapIn" />
+      <wsdl:output message="tns:GetFbPageDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FacebookProfileDetails">
+      <wsdl:input message="tns:FacebookProfileDetailsSoapIn" />
+      <wsdl:output message="tns:FacebookProfileDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddAllFbPagePost">
+      <wsdl:input message="tns:AddAllFbPagePostSoapIn" />
+      <wsdl:output message="tns:AddAllFbPagePostSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFacebookAccountByAdmin">
+      <wsdl:input message="tns:UpdateFacebookAccountByAdminSoapIn" />
+      <wsdl:output message="tns:UpdateFacebookAccountByAdminSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LikeFBGroupPost">
+      <wsdl:input message="tns:LikeFBGroupPostSoapIn" />
+      <wsdl:output message="tns:LikeFBGroupPostSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TicketFacebokReply">
+      <wsdl:input message="tns:TicketFacebokReplySoapIn" />
+      <wsdl:output message="tns:TicketFacebokReplySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNewFacebookFeeds">
+      <wsdl:input message="tns:AddNewFacebookFeedsSoapIn" />
+      <wsdl:output message="tns:AddNewFacebookFeedsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNewFacebookWallPosts">
+      <wsdl:input message="tns:AddNewFacebookWallPostsSoapIn" />
+      <wsdl:output message="tns:AddNewFacebookWallPostsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getUserNotifications">
+      <wsdl:input message="tns:getUserNotificationsSoapIn" />
+      <wsdl:output message="tns:getUserNotificationsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getPageConversations">
+      <wsdl:input message="tns:getPageConversationsSoapIn" />
+      <wsdl:output message="tns:getPageConversationsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFacebookPageData">
+      <wsdl:input message="tns:GetFacebookPageDataSoapIn" />
+      <wsdl:output message="tns:GetFacebookPageDataSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="FacebookSoap" type="tns:FacebookSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddFacebookAccount">
+      <soap:operation soapAction="http://tempuri.org/AddFacebookAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddFacebookAccountWithPagination">
+      <soap:operation soapAction="http://tempuri.org/AddFacebookAccountWithPagination" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFacebookData">
+      <soap:operation soapAction="http://tempuri.org/GetFacebookData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddFacebookAccountWithlogin">
+      <soap:operation soapAction="http://tempuri.org/AddFacebookAccountWithlogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllFbGroupdata">
+      <soap:operation soapAction="http://tempuri.org/GetAllFbGroupdata" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FacebookLike">
+      <soap:operation soapAction="http://tempuri.org/FacebookLike" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FacebookComment">
+      <soap:operation soapAction="http://tempuri.org/FacebookComment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostOnFBGroupFeeds">
+      <soap:operation soapAction="http://tempuri.org/PostOnFBGroupFeeds" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FacebookComposeMessage">
+      <soap:operation soapAction="http://tempuri.org/FacebookComposeMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FacebookComposeMessageForPage">
+      <soap:operation soapAction="http://tempuri.org/FacebookComposeMessageForPage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FacebookLogin">
+      <soap:operation soapAction="http://tempuri.org/FacebookLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SheduleFacebookMessage">
+      <soap:operation soapAction="http://tempuri.org/SheduleFacebookMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SheduleFacebookGroupMessage">
+      <soap:operation soapAction="http://tempuri.org/SheduleFacebookGroupMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFacebookPages">
+      <soap:operation soapAction="http://tempuri.org/GetFacebookPages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddFacebookPagesInfo">
+      <soap:operation soapAction="http://tempuri.org/AddFacebookPagesInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFacebookGroups">
+      <soap:operation soapAction="http://tempuri.org/GetFacebookGroups" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddFacebookGroupsInfo">
+      <soap:operation soapAction="http://tempuri.org/AddFacebookGroupsInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CommentOnFbGroupPost">
+      <soap:operation soapAction="http://tempuri.org/CommentOnFbGroupPost" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddFbPagePost">
+      <soap:operation soapAction="http://tempuri.org/AddFbPagePost" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllFbPagePostDetails">
+      <soap:operation soapAction="http://tempuri.org/GetAllFbPagePostDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddFacebookPagesByUrl">
+      <soap:operation soapAction="http://tempuri.org/AddFacebookPagesByUrl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFbPageDetails">
+      <soap:operation soapAction="http://tempuri.org/GetFbPageDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FacebookProfileDetails">
+      <soap:operation soapAction="http://tempuri.org/FacebookProfileDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAllFbPagePost">
+      <soap:operation soapAction="http://tempuri.org/AddAllFbPagePost" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFacebookAccountByAdmin">
+      <soap:operation soapAction="http://tempuri.org/UpdateFacebookAccountByAdmin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LikeFBGroupPost">
+      <soap:operation soapAction="http://tempuri.org/LikeFBGroupPost" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TicketFacebokReply">
+      <soap:operation soapAction="http://tempuri.org/TicketFacebokReply" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewFacebookFeeds">
+      <soap:operation soapAction="http://tempuri.org/AddNewFacebookFeeds" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewFacebookWallPosts">
+      <soap:operation soapAction="http://tempuri.org/AddNewFacebookWallPosts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserNotifications">
+      <soap:operation soapAction="http://tempuri.org/getUserNotifications" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPageConversations">
+      <soap:operation soapAction="http://tempuri.org/getPageConversations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFacebookPageData">
+      <soap:operation soapAction="http://tempuri.org/GetFacebookPageData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="FacebookSoap12" type="tns:FacebookSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddFacebookAccount">
+      <soap12:operation soapAction="http://tempuri.org/AddFacebookAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddFacebookAccountWithPagination">
+      <soap12:operation soapAction="http://tempuri.org/AddFacebookAccountWithPagination" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFacebookData">
+      <soap12:operation soapAction="http://tempuri.org/GetFacebookData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddFacebookAccountWithlogin">
+      <soap12:operation soapAction="http://tempuri.org/AddFacebookAccountWithlogin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllFbGroupdata">
+      <soap12:operation soapAction="http://tempuri.org/GetAllFbGroupdata" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FacebookLike">
+      <soap12:operation soapAction="http://tempuri.org/FacebookLike" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FacebookComment">
+      <soap12:operation soapAction="http://tempuri.org/FacebookComment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostOnFBGroupFeeds">
+      <soap12:operation soapAction="http://tempuri.org/PostOnFBGroupFeeds" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FacebookComposeMessage">
+      <soap12:operation soapAction="http://tempuri.org/FacebookComposeMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FacebookComposeMessageForPage">
+      <soap12:operation soapAction="http://tempuri.org/FacebookComposeMessageForPage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FacebookLogin">
+      <soap12:operation soapAction="http://tempuri.org/FacebookLogin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SheduleFacebookMessage">
+      <soap12:operation soapAction="http://tempuri.org/SheduleFacebookMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SheduleFacebookGroupMessage">
+      <soap12:operation soapAction="http://tempuri.org/SheduleFacebookGroupMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFacebookPages">
+      <soap12:operation soapAction="http://tempuri.org/GetFacebookPages" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddFacebookPagesInfo">
+      <soap12:operation soapAction="http://tempuri.org/AddFacebookPagesInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFacebookGroups">
+      <soap12:operation soapAction="http://tempuri.org/GetFacebookGroups" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddFacebookGroupsInfo">
+      <soap12:operation soapAction="http://tempuri.org/AddFacebookGroupsInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CommentOnFbGroupPost">
+      <soap12:operation soapAction="http://tempuri.org/CommentOnFbGroupPost" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddFbPagePost">
+      <soap12:operation soapAction="http://tempuri.org/AddFbPagePost" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllFbPagePostDetails">
+      <soap12:operation soapAction="http://tempuri.org/GetAllFbPagePostDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddFacebookPagesByUrl">
+      <soap12:operation soapAction="http://tempuri.org/AddFacebookPagesByUrl" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFbPageDetails">
+      <soap12:operation soapAction="http://tempuri.org/GetFbPageDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FacebookProfileDetails">
+      <soap12:operation soapAction="http://tempuri.org/FacebookProfileDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAllFbPagePost">
+      <soap12:operation soapAction="http://tempuri.org/AddAllFbPagePost" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFacebookAccountByAdmin">
+      <soap12:operation soapAction="http://tempuri.org/UpdateFacebookAccountByAdmin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LikeFBGroupPost">
+      <soap12:operation soapAction="http://tempuri.org/LikeFBGroupPost" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TicketFacebokReply">
+      <soap12:operation soapAction="http://tempuri.org/TicketFacebokReply" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewFacebookFeeds">
+      <soap12:operation soapAction="http://tempuri.org/AddNewFacebookFeeds" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewFacebookWallPosts">
+      <soap12:operation soapAction="http://tempuri.org/AddNewFacebookWallPosts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserNotifications">
+      <soap12:operation soapAction="http://tempuri.org/getUserNotifications" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPageConversations">
+      <soap12:operation soapAction="http://tempuri.org/getPageConversations" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFacebookPageData">
+      <soap12:operation soapAction="http://tempuri.org/GetFacebookPageData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Facebook">
+    <wsdl:port name="FacebookSoap" binding="tns:FacebookSoap">
+      <soap:address location="http://localhost:2022/Services/Facebook.asmx" />
+    </wsdl:port>
+    <wsdl:port name="FacebookSoap12" binding="tns:FacebookSoap12">
+      <soap12:address location="http://localhost:2022/Services/Facebook.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

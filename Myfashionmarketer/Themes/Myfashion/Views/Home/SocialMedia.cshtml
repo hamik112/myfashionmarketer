@@ -1,0 +1,542 @@
+﻿@{
+    string path = @System.Configuration.ConfigurationManager.AppSettings["domain"];
+}
+
+<script type="text/javascript" src="/Themes/@path/Contents/assets/js/underscore.js"></script>
+
+<link rel="stylesheet" href="/Themes/@path/Contents/assets/admin/layout2/css/v1.css">
+<link href="/Themes/@path/Contents/assets/admin/layout2/css/social.css" rel="stylesheet">
+
+<div class="row" id="DisplayCount" data-url="/Home/DisplayCount">
+    <div class="col-lg-3 col-md-6">
+        <!-- Widget -->
+        <div class="widget">
+            <div class="widget-content padding-20 light_maroon white">
+                <div class="counter counter-lg counter-inverse">
+                    <div class="counter-label text-uppercase margin-bottom-5">INCOMMING MESSAGES</div>
+                    <div class="counter-number-group">
+                        <span class="counter-number">0</span>
+                        <span class="counter-icon margin-left-10"><i aria-hidden="true" class="icon wb-chat-group"></i></span>
+                    </div>
+                    <div class="counter-label">Read More <i class="icon fa-arrow-circle-right"></i></div>
+                </div>
+            </div>
+        </div>
+        <!-- End Widget -->
+    </div>
+    <div class="col-lg-3 col-md-6">
+        <!-- Widget -->
+        <div class="widget">
+            <div class="widget-content padding-20 bg-blue-600 white">
+                <div class="counter counter-lg counter-inverse">
+                    <div class="counter-label text-uppercase margin-bottom-5">Sent Messages</div>
+                    <div class="counter-number-group">
+                        <span class="counter-number">0</span>
+                        <span class="counter-icon margin-left-10"><i aria-hidden="true" class="icon wb-reply"></i></span>
+                    </div>
+                    <div class="counter-label">Read More <i class="icon fa-arrow-circle-right"></i></div>
+                </div>
+            </div>
+        </div>
+        <!-- End Widget -->
+    </div>
+    <div class="col-lg-3 col-md-6">
+        <!-- Widget -->
+        <div class="widget">
+            <div class="widget-content padding-20 light_greens text-white">
+                <div class="counter counter-lg">
+                    <div class="counter-label text-uppercase margin-bottom-5">Twitter Followers</div>
+                    <div class="counter-number-group">
+                        <span class="counter-number">0</span>
+                        <span class="counter-number-related"><i aria-hidden="true" class="icon bd-twitter"></i></span>
+                    </div>
+                    <div class="counter-label">Read More <i class="icon fa-arrow-circle-right"></i></div>
+                </div>
+            </div>
+        </div>
+        <!-- End Widget -->
+    </div>
+    <div class="col-lg-3 col-md-6">
+        <!-- Widget -->
+        <div class="widget">
+            <div class="widget-content padding-20 dark_yellows white">
+                <div class="counter counter-lg counter-inverse">
+                    <div class="counter-label text-uppercase font-size-16">New Facebook Fans</div>
+                    <div class="counter-number-group">
+                        <span class="counter-number">0</span>
+                        <span class="counter-icon margin-left-10"><i class="icon bd-facebook" aria-hidden="true"></i></span>
+                    </div>
+                    <div class="counter-label">Read More <i class="icon fa-arrow-circle-right"></i></div>
+                </div>
+            </div>
+        </div>
+        <!-- End Widget -->
+    </div>
+    <div class="clearfix visible-lg-block"></div>
+</div>
+<div class="row" >
+    <div class="col-lg-9 col-md-9 col-sm-12" id="SocialProfile" data-url="/Home/ProfileSnapshot">
+        
+    </div>
+    <div class="col-lg-3 col-md-3">
+        <!--      <div class="container"> -->
+        <div class="chat-panel panel panel-default">
+            <div class="panel-heading">
+                <i class="fa fa-user fa-fw"></i> Profile
+            </div>
+            <!-- /.panel-heading -->
+            <div class="row panel-body" id="userprofile" data-url="../Home/loadprofiles">
+                <!--  <div class=" container">
+                <!--  <div class="container"> -->
+                <!-- CLOSEModal -->
+                <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="closeModal" class="modal fade">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button data-dismiss="modal" class="close" type="button"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                                <h4 id="myModalLabel" class="modal-title">Sign In</h4>
+                            </div>
+                            <div class="modal-body col-md-12">
+                                <p>Are you sure,you want to delete this account ?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button data-dismiss="modal" class="btn btn-default" type="button">Close</button>
+                                <button class="btn btn-primary" type="button">OK</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--end of CLOSEmodel-->
+                <!-- /.list-group -->
+                <div class="col-sm-6">
+                    <div class="btn-group pull-right">
+                        <img data-target="#SocialProfileModal" data-toggle="modal" src="/Themes/@path/Contents/assets/images/img/addprofile.png" class="img-responsive btn btn-default btn-block dropdown-toggle">
+                    </div>
+                </div>
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!--   </div> -->
+        <!-- SocialProfileModal -->
+        <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="SocialProfileModal" class="modal fade">
+            <div class="modal-dialog" style="z-index: 9999;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button data-dismiss="modal" class="close" type="button"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                        <h4 id="myModalLabel" class="modal-title">CONNECT A PROFILE</h4>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-pills">
+                            <li class="active">
+                                <a data-toggle="tab" href="#twitter-pills"><i class="fa fa-twitter fa-fw fa-2x"></i></a>
+                            </li>
+                            <li>
+                                <a data-toggle="tab" href="#facebook-pills"><i class="fa fa-facebook fa-fw fa-2x"></i></a>
+                            </li>
+                            <li>
+                                <a data-toggle="tab" href="#gplus-pills"><i class="fa fa-google-plus fa-fw fa-2x"></i></a>
+                            </li>
+                            <li>
+                                <a data-toggle="tab" href="#linkedin-pills"><i class="fa fa-linkedin fa-fw fa-2x"></i></a>
+                            </li>
+                            <li>
+                                <a data-toggle="tab" href="#instagram-pills"><i class="fa fa-instagram fa-fw fa-2x"></i></a>
+                            </li>
+                            <li>
+                                <a data-toggle="tab" href="#tumblr-pills"><i class="fa fa-tumblr fa-fw fa-2x"></i></a>
+                            </li>
+                            <li>
+                                <a data-toggle="tab" href="#youtube-pills"><i class="fa fa-youtube fa-fw fa-2x"></i></a>
+                            </li>
+                            <li>
+                                <a data-toggle="tab" href="#vine-pills"><i class="fa fa-vine fa-fw fa-2x"></i></a>
+                            </li>
+                        </ul>
+                        <!-- Tab panes -->
+                        <div style="padding: 20px 50px 10px 50px;" class="tab-content container-fluid text-center">
+                            <div alt="twitter" id="twitter-pills" class="tab-pane fade in active">
+                                <h5><strong>Please make sure you are logged in with the proper account when you authorize Sprout.</strong></h5>
+                                <a class="btn btn-block btn-social btn-twitter" href="../TwitterManager/AuthenticateTwitter">
+                                    <i class="fa fa-twitter"></i> Add a Twitter Profile
+                                </a>
+                                <img src="https://d672eyudr6aq1.cloudfront.net/img/connect-twitter.png" class="img-responsive">
+                            </div>
+                            <div alt="facebook" id="facebook-pills" class="tab-pane fade">
+                                <h5><strong>Sprout Social needs permission to access and publish content to Facebook on your behalf. To grant permission, you must be an admin for your brand’s Facebook page.</strong></h5>
+                                <a class="btn btn-block btn-social btn-facebook" href="../FacebookManager/AuthenticateFacebook">
+                                    <i class="fa fa-facebook"></i> Add a Facebook Page
+                                </a>
+                                <img src="https://d672eyudr6aq1.cloudfront.net/img/connect-facebook.png" class="img-responsive">
+                            </div>
+                            <div alt="gplus" id="gplus-pills" class="tab-pane fade">
+                                <h5><strong>Make sure that you are logged in to Google as a Google+ page manager to authorize Sprout Social. Then you can choose which specific pages to connect to Sprout.</strong></h5>
+                                <a class="btn btn-block btn-social btn-google-plus" href="../YoutubeManager/AuthenticateYoutube?op=gplus">
+                                    <i class="fa fa-google-plus"></i> Add a Google+ Profile
+                                </a>
+                                <img src="https://d672eyudr6aq1.cloudfront.net/img/connect-google.png" class="img-responsive">
+                            </div>
+                            <div alt="linkedin" id="linkedin-pills" class="tab-pane fade">
+                                <h5>
+                                    <strong>
+                                        Grant access to your profile to share
+                                        updates and view your feed.
+                                    </strong>
+                                </h5>
+                                <a class="btn btn-block btn-social btn-linkedin">
+                                    <i class="fa fa-linkedin"></i> Connect your personal LinkedIn
+                                </a>
+                                <img src="https://d672eyudr6aq1.cloudfront.net/img/connect-linkedin.png" class="img-responsive">
+                            </div>
+                            <div alt="instagram" id="instagram-pills" class="tab-pane fade">
+                                <h5><strong>=========================</strong></h5>
+                                <a class="btn btn-block btn-social btn-instagram" href="../InstagramManager/AuthenticateInstagram">
+                                    <i class="fa fa-instagram"></i> Add a instagram Page
+                                </a>
+                                <img src="https://d672eyudr6aq1.cloudfront.net/img/connect-twitter.png" class="img-responsive">
+                            </div>
+                            <div alt="tumblr" id="tumblr-pills" class="tab-pane fade">
+                                <h5><strong>============================</strong></h5>
+                                <a class="btn btn-block btn-social btn-tumblr" href="../TumblrManager/AuthenticateTumblr">
+                                    <i class="fa fa-tumblr"></i> Add a tumblr Profile
+                                </a>
+                                <img src="https://d672eyudr6aq1.cloudfront.net/img/connect-google.png" class="img-responsive">
+                            </div>
+                            <div alt="youtube" id="youtube-pills" class="tab-pane fade">
+                                <h5><strong>===============================</strong></h5>
+                                <a class="btn btn-block btn-social btn-google-plus" href="../YoutubeManager/AuthenticateYoutube">
+                                    <i class="fa fa-youtube"></i> Connect your personal youtube
+                                </a>
+                                <img src="https://d672eyudr6aq1.cloudfront.net/img/connect-linkedin.png" class="img-responsive">
+                            </div>
+                            <div alt="vine" id="vine-pills" class="tab-pane fade">
+                                <h2><strong>sign in <i class="fa fa-vine"></i> </strong></h2>
+                                <form role="form">
+                                    <div class="form-group">
+                                        <!-- <label for="name">Your name</label> -->
+                                        <input type="text" placeholder="User name" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <!-- <label for="email">Email address</label> -->
+                                        <input type="Password" placeholder="Password" class="form-control">
+                                    </div>
+                                    <button class="btn btn-success" type="button">LOGIN</button>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- /.modal-body -->
+                    </div>
+                    <div class="modal-footer">
+                        <p class="pull-left">Using 1 of 10 profiles. Need More?<a href=""> Upgrade Today</a></p>
+                        <button data-dismiss="modal" class="btn btn-default" type="button">Cancle</button>
+                        <button class="btn btn-success" type="button">Proceed</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end of SocialProfileModal -->
+        <!-- /.panel -->
+      
+        <!-- /.panel -->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <i class="fa fa-bar-chart-o fa-fw"></i> Recent Followers
+            </div>
+            <div class="row panel-body" id="recentprofile" data-url="/Home/RecentProfiles">
+
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+     
+        <!-- /.panel -->
+        <!-- SocialProfileModal -->
+        <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="SEOSignalsProfileModal" class="modal fade">
+            <div class="modal-dialog" style="z-index:9999">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button data-dismiss="modal" class="close" type="button"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                        <h4 id="myModalLabel" class="modal-title">CONNECT A PROFILE</h4>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-pills">
+                            <li class="active">
+                                <a data-toggle="tab" href="#twitter-pills-2"><i class="fa fa-twitter fa-fw fa-2x"></i></a>
+                            </li>
+                            <li>
+                                <a data-toggle="tab" href="#facebook-pills-2"><i class="fa fa-facebook fa-fw fa-2x"></i></a>
+                            </li>
+                            <li>
+                                <a data-toggle="tab" href="#gplus-pills-2"><i class="fa fa-google-plus fa-fw fa-2x"></i></a>
+                            </li>
+                            <li>
+                                <a data-toggle="tab" href="#linkedin-pills-2"><i class="fa fa-linkedin fa-fw fa-2x"></i></a>
+                            </li>
+                            <li>
+                                <a data-toggle="tab" href="#instagram-pills-2"><i class="fa fa-instagram fa-fw fa-2x"></i></a>
+                            </li>
+                            <li>
+                                <a data-toggle="tab" href="#tumblr-pills-2"><i class="fa fa-tumblr fa-fw fa-2x"></i></a>
+                            </li>
+                            <li>
+                                <a data-toggle="tab" href="#youtube-pills-2"><i class="fa fa-youtube fa-fw fa-2x"></i></a>
+                            </li>
+                        </ul>
+                        <!-- Tab panes -->
+                        <div style="padding: 20px 50px 10px 50px;" class="tab-content container-fluid text-center">
+                            <div alt="twitter" id="twitter-pills-2" class="tab-pane fade in active">
+                                <h5><strong>Please make sure you are logged in with the proper account when you authorize Sprout.</strong></h5>
+                                <a class="btn btn-block btn-social btn-twitter" href="../TwitterManager/AuthenticateTwitter">
+                                    <i class="fa fa-twitter"></i> Add a Twitter Profile
+                                </a>
+                                <img src="https://d672eyudr6aq1.cloudfront.net/img/connect-twitter.png" class="img-responsive">
+                                <hr>
+                                <form class="form-inline">
+                                    <div class="form-group">
+                                        <label class="sr-only">Profile URL</label>
+                                        <p class="form-control-static">Profile URL</p>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="sr-only" for="inputPassword2">URL</label>
+                                        <input type="text" placeholder="https://twitter.com/" class="form-control">
+                                    </div>
+                                    <button class="btn btn-default" type="submit">Add Url</button>
+                                </form>
+                                <hr>
+                                <form class="form-inline">
+                                    <div class="form-group">
+                                        <label for="exampleInputFile"> OR you can upload <i class="fa fa-file-excel-o fa-fw"></i> file </label>
+                                        <input type="file" id="exampleInputFile">
+                                    </div>
+                                </form>
+                            </div>
+                            <div alt="facebook" id="facebook-pills-2" class="tab-pane fade">
+                                <h5><strong>Sprout Social needs permission to access and publish content to Facebook on your behalf. To grant permission, you must be an admin for your brand’s Facebook page.</strong></h5>
+                                <a class="btn btn-block btn-social btn-facebook">
+                                    <i class="fa fa-facebook"></i> Add a Facebook Page1
+                                </a>
+                                <img src="https://d672eyudr6aq1.cloudfront.net/img/connect-twitter.png" class="img-responsive">
+                                <hr>
+                                <form class="form-inline">
+                                    <div class="form-group">
+                                        <label class="sr-only">Profile URL</label>
+                                        <p class="form-control-static">Profile URL</p>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="sr-only" for="inputPassword2">URL</label>
+                                        <input type="text" placeholder="https://www.facebook.com/" class="form-control">
+                                    </div>
+                                    <button class="btn btn-default" type="submit">Add Url</button>
+                                </form>
+                                <hr>
+                                <form class="form-inline">
+                                    <div class="form-group">
+                                        <label for="exampleInputFile"> OR you can upload <i class="fa fa-file-excel-o fa-fw"></i> file </label>
+                                        <input type="file" id="exampleInputFile">
+                                    </div>
+                                </form>
+                            </div>
+                            <div alt="gplus" id="gplus-pills-2" class="tab-pane fade">
+                                <h5><strong>Make sure that you are logged in to Google as a Google+ page manager to authorize Sprout Social. Then you can choose which specific pages to connect to Sprout.</strong></h5>
+                                <a class="btn btn-block btn-social btn-google-plus" href="../YoutubeManager/AuthenticateYoutube?op=gplus">
+                                    <i class="fa fa-google-plus"></i> Add a Google+ Profile
+                                </a>
+                                <img src="https://d672eyudr6aq1.cloudfront.net/img/connect-google.png" class="img-responsive">
+                                <hr>
+                                <form class="form-inline">
+                                    <div class="form-group">
+                                        <label class="sr-only">Profile URL</label>
+                                        <p class="form-control-static">Profile URL</p>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="sr-only" for="inputPassword2">URL</label>
+                                        <input type="text" placeholder="https://plus.google.com/u/0/+CHANCHALSANTRA" class="form-control">
+                                    </div>
+                                    <button class="btn btn-default" type="submit">Add Url</button>
+                                </form>
+                                <hr>
+                                <form class="form-inline">
+                                    <div class="form-group">
+                                        <label for="exampleInputFile"> OR you can upload <i class="fa fa-file-excel-o fa-fw"></i> file </label>
+                                        <input type="file" id="exampleInputFile">
+                                    </div>
+                                </form>
+                            </div>
+                            <div alt="linkedin" id="linkedin-pills-2" class="tab-pane fade">
+                                <h5>
+                                    <strong>
+                                        Grant access to your profile to share
+                                        updates and view your feed.
+                                    </strong>
+                                </h5>
+                                <a class="btn btn-block btn-social btn-linkedin">
+                                    <i class="fa fa-linkedin"></i> Connect your personal LinkedIn
+                                </a>
+                                <img src="https://d672eyudr6aq1.cloudfront.net/img/connect-linkedin.png" class="img-responsive">
+                                <hr>
+                                <form class="form-inline">
+                                    <div class="form-group">
+                                        <label class="sr-only">Profile URL</label>
+                                        <p class="form-control-static">Profile URL</p>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="sr-only" for="inputPassword2">URL</label>
+                                        <input type="text" placeholder="https://twitter.com/Rahul" class="form-control">
+                                    </div>
+                                    <button class="btn btn-default" type="submit">Add Url</button>
+                                </form>
+                                <hr>
+                                <form class="form-inline">
+                                    <div class="form-group">
+                                        <label for="exampleInputFile"> OR you can upload <i class="fa fa-file-excel-o fa-fw"></i> file </label>
+                                        <input type="file" id="exampleInputFile">
+                                    </div>
+                                </form>
+                            </div>
+                            <div alt="instagram" id="instagram-pills-2" class="tab-pane fade">
+                                <h5><strong>=========================</strong></h5>
+                                <a class="btn btn-block btn-social btn-instagram" href="../InstagramManager/AuthenticateInstagram">
+                                    <i class="fa fa-instagram"></i> Add a instagram Page
+                                </a>
+                                <img src="https://d672eyudr6aq1.cloudfront.net/img/connect-twitter.png" class="img-responsive">
+                                <hr>
+                                <form class="form-inline">
+                                    <div class="form-group">
+                                        <label class="sr-only">Profile URL</label>
+                                        <p class="form-control-static">Profile URL</p>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="sr-only" for="inputPassword2">URL</label>
+                                        <input type="text" placeholder="https://twitter.com/" class="form-control">
+                                    </div>
+                                    <button class="btn btn-default" type="submit">Add Url</button>
+                                </form>
+                                <hr>
+                                <form class="form-inline">
+                                    <div class="form-group">
+                                        <label for="exampleInputFile"> OR you can upload <i class="fa fa-file-excel-o fa-fw"></i> file </label>
+                                        <input type="file" id="exampleInputFile">
+                                    </div>
+                                </form>
+                            </div>
+                            <div alt="tumblr" id="tumblr-pills-2" class="tab-pane fade">
+                                <h5><strong>============================</strong></h5>
+                                <a class="btn btn-block btn-social btn-tumblr" href="../TumblrManager/AuthenticateTumblr">
+                                    <i class="fa fa-tumblr"></i> Add a tumblr Profile
+                                </a>
+                                <img src="https://d672eyudr6aq1.cloudfront.net/img/connect-google.png" class="img-responsive">
+                                <hr>
+                                <form class="form-inline">
+                                    <div class="form-group">
+                                        <label class="sr-only">Profile URL</label>
+                                        <p class="form-control-static">Profile URL</p>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="sr-only" for="inputPassword2">URL</label>
+                                        <input type="text" placeholder="https://twitter.com/Chanchal_UI" class="form-control">
+                                    </div>
+                                    <button class="btn btn-default" type="submit">Add Url</button>
+                                </form>
+                                <hr>
+                                <form class="form-inline">
+                                    <div class="form-group">
+                                        <label for="exampleInputFile"> OR you can upload <i class="fa fa-file-excel-o fa-fw"></i> file </label>
+                                        <input type="file" id="exampleInputFile">
+                                    </div>
+                                </form>
+                            </div>
+                            <div alt="youtube" id="youtube-pills-2" class="tab-pane fade">
+                                <h5><strong>===============================</strong></h5>
+                                <a class="btn btn-block btn-social btn-google-plus" href="../YoutubeManager/AuthenticateYoutube">
+                                    <i class="fa fa-youtube"></i> Connect your personal youtube
+                                </a>
+                                <img src="https://d672eyudr6aq1.cloudfront.net/img/connect-linkedin.png" class="img-responsive">
+                                <hr>
+                                <form class="form-inline">
+                                    <div class="form-group">
+                                        <label class="sr-only">Profile URL</label>
+                                        <p class="form-control-static">Profile URL</p>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="sr-only" for="inputPassword2">URL</label>
+                                        <input type="text" placeholder="https://twitter.com/rahul" class="form-control">
+                                    </div>
+                                    <button class="btn btn-default" type="submit">Add Url</button>
+                                </form>
+                                <hr>
+                                <form class="form-inline">
+                                    <div class="form-group">
+                                        <label for="exampleInputFile"> OR you can upload <i class="fa fa-file-excel-o fa-fw"></i> file </label>
+                                        <input type="file" id="exampleInputFile">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- /.modal-body -->
+                    </div>
+                    <div class="modal-footer">
+                        <button data-dismiss="modal" class="btn btn-default" type="button">Cancle</button>
+                        <button class="btn btn-success" type="button">Add Profile</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end of SocialProfileModal -->
+    </div>
+</div>
+
+<script type="text/javascript">
+
+ //   $('#socialmedia').css('display', 'block');
+    //try {
+    //    debugger;
+    //    $("#DisplayCount").load($("#DisplayCount").data("url"));
+    //} catch (e) {
+    //    alert(e);
+    //}
+    //try {
+    //    $('#SocialProfile').load($('#SocialProfile').data("url"));
+    //} catch (e) {
+
+    //}
+    //try {
+    //    $('#loadsocialprofile').load($('#loadsocialprofile').data("url"));
+    //} catch (e) {
+
+    //}
+    //try {
+    //    $('#recentprofile').load($('#recentprofile').data("url"));
+    //} catch (e) {
+
+    //}
+ 
+
+    $(document).ready(function () {
+   
+        try {
+
+            $('#userprofile').load($('#userprofile').data("url"));
+        } catch (e) {
+
+        };
+        try {
+         
+            $("#DisplayCount").load($("#DisplayCount").data("url"));
+        } catch (e) {
+            alert(e);
+        };
+        try {
+            $('#SocialProfile').load($('#SocialProfile').data("url"));
+        } catch (e) {
+
+        };
+        try {
+            $('#recentprofile').load($('#recentprofile').data("url"));
+        } catch (e) {
+
+        };
+    });
+    
+      
+</script>

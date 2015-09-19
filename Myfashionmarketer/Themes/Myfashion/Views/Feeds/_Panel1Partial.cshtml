@@ -1,0 +1,83 @@
+﻿@using Domain.Myfashion.Domain;
+@using Myfashionmarketer.Helper;
+@{
+    Layout = null;
+    string path = @System.Configuration.ConfigurationManager.AppSettings["domain"];
+    bool check = true;
+}
+@foreach (var dicitem in (Dictionary<string, List<object>>)Model)
+{
+    if (dicitem.Key == "facebook")
+    {
+        List<object> lstdic = (List<object>)dicitem.Value;
+        foreach (var facebookmsg in lstdic)
+        {
+            FacebookMessage item = (FacebookMessage)facebookmsg;
+            <li class="list-group-item">
+                <div>
+                    <img src="https://graph.facebook.com/@item.FromId/picture?type=small" class="img-circle" style="height:45px;width:45px;">
+                    <img src="/Themes/@path/Contents/assets/global/img/twticon.png" class="img-circle">
+                    <span class="font-16 m-left-sm bold">@item.FromName</span>
+                    <span><i class="fa fa-clock-o"></i> @item.MessageDate</span>
+                </div>
+                
+                <div class="m-top-sm">
+                    @if (!string.IsNullOrEmpty(item.Picture))
+                    {
+                        <img src="@item.Picture" class="img-responsive h-200" width="100%">
+                    }
+                    <p>@item.Message </p>
+                    <div>
+                        <div class="pull-right">
+                            <div class="btn-group open">
+                                <span title="More" data-placement="top" data-toggle="dropdown" class="btn btn-primary btn-xs dropdown-toggle" type="button">
+                                    <i class="fa fa-bars"></i>
+                                </span>
+                                <ul role="menu" class="dropdown-menu pull-right">
+                                    <li class="">
+                                        <a href="#">Quote Message</a>
+                                    </li>
+                                    <li class="">
+                                        <a href="#">Email Message</a>
+                                    </li>
+                                    <li class="">
+                                        <a href="#">Report as spam</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+             
+
+            </li>
+        }
+    }
+}
+
+
+<script type="text/javascript">
+
+    function mail(ProfileId, Id) {
+        debugger;
+
+        $.ajax({
+            type: "GET",
+            url: "../Feeds/ShowPopUp?ProfileId=" + ProfileId + "&Id=" + Id,
+            data: '',
+            dataType: "html",
+            success: function (msg) {
+                debugger;
+                //  alertify.success("Hello");
+                $('#mailpopup').html(msg);
+                //$('#mailpopup').modal('show');
+            },
+            error: function (err) {
+                alert(err);
+                debugger;
+            }
+        });
+    }
+
+</script>

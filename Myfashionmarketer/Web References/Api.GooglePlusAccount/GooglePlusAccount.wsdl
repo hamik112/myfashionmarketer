@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetAllGooglePlusAccounts">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllGooglePlusAccountsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllGooglePlusAccountsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGooglePlusAccountDetailsById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ProfileId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGooglePlusAccountDetailsByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGooglePlusAccountDetailsByIdResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateGooglePlusAccountByAdmin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObjGooglePlus" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateGooglePlusAccountByAdminResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateGooglePlusAccountByAdminResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllBloggerAccountByUserIdAndGroupId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="groupid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllBloggerAccountByUserIdAndGroupIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllBloggerAccountByUserIdAndGroupIdResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteGplusAccount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ProfileId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="GroupId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteGplusAccountResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetAllGooglePlusAccountsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllGooglePlusAccounts" />
+  </wsdl:message>
+  <wsdl:message name="GetAllGooglePlusAccountsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllGooglePlusAccountsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetGooglePlusAccountDetailsByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGooglePlusAccountDetailsById" />
+  </wsdl:message>
+  <wsdl:message name="GetGooglePlusAccountDetailsByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGooglePlusAccountDetailsByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateGooglePlusAccountByAdminSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateGooglePlusAccountByAdmin" />
+  </wsdl:message>
+  <wsdl:message name="UpdateGooglePlusAccountByAdminSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateGooglePlusAccountByAdminResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllBloggerAccountByUserIdAndGroupIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllBloggerAccountByUserIdAndGroupId" />
+  </wsdl:message>
+  <wsdl:message name="GetAllBloggerAccountByUserIdAndGroupIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllBloggerAccountByUserIdAndGroupIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteGplusAccountSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteGplusAccount" />
+  </wsdl:message>
+  <wsdl:message name="DeleteGplusAccountSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteGplusAccountResponse" />
+  </wsdl:message>
+  <wsdl:portType name="GooglePlusAccountSoap">
+    <wsdl:operation name="GetAllGooglePlusAccounts">
+      <wsdl:input message="tns:GetAllGooglePlusAccountsSoapIn" />
+      <wsdl:output message="tns:GetAllGooglePlusAccountsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGooglePlusAccountDetailsById">
+      <wsdl:input message="tns:GetGooglePlusAccountDetailsByIdSoapIn" />
+      <wsdl:output message="tns:GetGooglePlusAccountDetailsByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGooglePlusAccountByAdmin">
+      <wsdl:input message="tns:UpdateGooglePlusAccountByAdminSoapIn" />
+      <wsdl:output message="tns:UpdateGooglePlusAccountByAdminSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBloggerAccountByUserIdAndGroupId">
+      <wsdl:input message="tns:GetAllBloggerAccountByUserIdAndGroupIdSoapIn" />
+      <wsdl:output message="tns:GetAllBloggerAccountByUserIdAndGroupIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGplusAccount">
+      <wsdl:input message="tns:DeleteGplusAccountSoapIn" />
+      <wsdl:output message="tns:DeleteGplusAccountSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="GooglePlusAccountSoap" type="tns:GooglePlusAccountSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAllGooglePlusAccounts">
+      <soap:operation soapAction="http://tempuri.org/GetAllGooglePlusAccounts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGooglePlusAccountDetailsById">
+      <soap:operation soapAction="http://tempuri.org/GetGooglePlusAccountDetailsById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGooglePlusAccountByAdmin">
+      <soap:operation soapAction="http://tempuri.org/UpdateGooglePlusAccountByAdmin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBloggerAccountByUserIdAndGroupId">
+      <soap:operation soapAction="http://tempuri.org/GetAllBloggerAccountByUserIdAndGroupId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGplusAccount">
+      <soap:operation soapAction="http://tempuri.org/DeleteGplusAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="GooglePlusAccountSoap12" type="tns:GooglePlusAccountSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAllGooglePlusAccounts">
+      <soap12:operation soapAction="http://tempuri.org/GetAllGooglePlusAccounts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGooglePlusAccountDetailsById">
+      <soap12:operation soapAction="http://tempuri.org/GetGooglePlusAccountDetailsById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGooglePlusAccountByAdmin">
+      <soap12:operation soapAction="http://tempuri.org/UpdateGooglePlusAccountByAdmin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBloggerAccountByUserIdAndGroupId">
+      <soap12:operation soapAction="http://tempuri.org/GetAllBloggerAccountByUserIdAndGroupId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGplusAccount">
+      <soap12:operation soapAction="http://tempuri.org/DeleteGplusAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GooglePlusAccount">
+    <wsdl:port name="GooglePlusAccountSoap" binding="tns:GooglePlusAccountSoap">
+      <soap:address location="http://localhost:2022/Services/GooglePlusAccount.asmx" />
+    </wsdl:port>
+    <wsdl:port name="GooglePlusAccountSoap12" binding="tns:GooglePlusAccountSoap12">
+      <soap12:address location="http://localhost:2022/Services/GooglePlusAccount.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

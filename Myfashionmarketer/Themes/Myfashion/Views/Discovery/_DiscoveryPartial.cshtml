@@ -1,0 +1,134 @@
+﻿@{
+    string path = @System.Configuration.ConfigurationManager.AppSettings["domain"];
+}
+
+
+<div class="panel-body container-fluid">
+    <div class="row row-lg">
+        <div class="col-md-12">
+            <div class="form-group">
+                <div class="input-group">
+                    <input type="text" placeholder="Search.." id="txtsearch" class="form-control">
+                    <span class="input-group-btn">
+                        <button class="btn btn-success" id="searchdiscovery"><span><i class="fa fa-search"></i></span></button>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-sm-9">
+                    <div class="panel panel-dark panel-bordered">
+                        <div class="panel-heading">
+                            <div class="panel-title">
+                                <i class="fa fa-twitter"></i> Twitter Posts
+                            </div>
+                        </div>
+                        <div class="panel-body border-light">
+                            <div class="height-300" data-plugin="scrollable">
+                                <div data-role="container">
+                                    <div data-role="content">
+                                        <ul class="list-group" id="twitterdiscovery"></ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="panel panel-primary panel-bordered">
+                        <div class="panel-heading">
+                            <div class="panel-title">
+                                <i class="fa fa-google-plus"></i> GooglePlus Posts
+                            </div>
+                        </div>
+                        <div class="panel-body border-light">
+                            <div class="height-300" data-plugin="scrollable">
+                                <div data-role="container">
+                                    <div data-role="content">
+                                        <ul class="list-group" id="gplusdiscovery"></ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <div class="panel-title">
+                                Search History
+                            </div>
+                        </div>
+                        <div class="panel-body border-light">
+                            <ul class="list-unstyled">
+                                @foreach (string item in (List<string>)Model)
+                                {
+                                    <li><a href="#" onclick="searchKeywordFromHistory('@item')">@Uri.UnescapeDataString(item)</a></li>
+                                }
+                               
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+@*Edited by Antima*@
+
+<script type="text/javascript">
+
+    $('#txtsearch').keypress(function (e) {
+        debugger;
+        var key = e.which;
+        if (key == 13)  // the enter key code
+        {
+            $("#searchdiscovery").click();
+        }
+    });
+
+    // Edited by Antima
+
+    function searchKeywordFromHistory(keyword) {
+        debugger;
+        //  alert("success");
+        $('#txtsearch').val(keyword);
+
+        $('#facebookdiscovery').html('<img src="../Themes/@path/Contents/img/360.gif" />');
+        $('#twitterdiscovery').html('<img src="../Themes/@path/Contents/img/360.gif" />');
+        $('#gplusdiscovery').html('<img src="../Themes/@path/Contents/img/360.gif" />');
+        $.ajax({
+            type: 'GET',
+            url: '../Discovery/SearchFacebook?keyword=' + keyword,
+            success: function (msg) {
+                //alert(msg);
+                $('#facebookdiscovery').html(msg);
+            }
+        });
+        $.ajax({
+            type: 'GET',
+            url: '../Discovery/SearchTwitter?keyword=' + keyword,
+            success: function (msg) {
+                //alert(msg);
+                $('#twitterdiscovery').html(msg);
+            }
+        });
+        $.ajax({
+            type: 'GET',
+            url: '../Discovery/SearchGplus?keyword=' + keyword,
+            success: function (msg) {
+                //alert(msg);
+                $('#gplusdiscovery').html(msg);
+            }
+        });
+
+    }
+
+</script>

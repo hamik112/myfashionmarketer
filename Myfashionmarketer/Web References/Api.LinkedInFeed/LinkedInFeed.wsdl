@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetLinkedInFeeds">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LinkedInId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLinkedInFeedsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLinkedInFeedsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLinkedInFeedsByUserIdAndProfileIdUsingLimit">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LinkedInId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="noOfDataToSkip" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="noOfResultsFromTop" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLinkedInFeedsByUserIdAndProfileIdUsingLimitResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLinkedInFeedsByUserIdAndProfileIdUsingLimitResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLinkedInFeeds1">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LinkedInId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="count" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLinkedInFeeds1Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLinkedInFeeds1Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllLinkedInFeedsOfProfileWithId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProfileId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllLinkedInFeedsOfProfileWithIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllLinkedInFeedsOfProfileWithIdResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetLinkedInFeedsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLinkedInFeeds" />
+  </wsdl:message>
+  <wsdl:message name="GetLinkedInFeedsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLinkedInFeedsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLinkedInFeedsByUserIdAndProfileIdUsingLimitSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLinkedInFeedsByUserIdAndProfileIdUsingLimit" />
+  </wsdl:message>
+  <wsdl:message name="GetLinkedInFeedsByUserIdAndProfileIdUsingLimitSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLinkedInFeedsByUserIdAndProfileIdUsingLimitResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLinkedInFeeds1SoapIn">
+    <wsdl:part name="parameters" element="tns:GetLinkedInFeeds1" />
+  </wsdl:message>
+  <wsdl:message name="GetLinkedInFeeds1SoapOut">
+    <wsdl:part name="parameters" element="tns:GetLinkedInFeeds1Response" />
+  </wsdl:message>
+  <wsdl:message name="GetAllLinkedInFeedsOfProfileWithIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllLinkedInFeedsOfProfileWithId" />
+  </wsdl:message>
+  <wsdl:message name="GetAllLinkedInFeedsOfProfileWithIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllLinkedInFeedsOfProfileWithIdResponse" />
+  </wsdl:message>
+  <wsdl:portType name="LinkedInFeedSoap">
+    <wsdl:operation name="GetLinkedInFeeds">
+      <wsdl:input message="tns:GetLinkedInFeedsSoapIn" />
+      <wsdl:output message="tns:GetLinkedInFeedsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLinkedInFeedsByUserIdAndProfileIdUsingLimit">
+      <wsdl:input message="tns:GetLinkedInFeedsByUserIdAndProfileIdUsingLimitSoapIn" />
+      <wsdl:output message="tns:GetLinkedInFeedsByUserIdAndProfileIdUsingLimitSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLinkedInFeeds1">
+      <wsdl:input message="tns:GetLinkedInFeeds1SoapIn" />
+      <wsdl:output message="tns:GetLinkedInFeeds1SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllLinkedInFeedsOfProfileWithId">
+      <wsdl:input message="tns:GetAllLinkedInFeedsOfProfileWithIdSoapIn" />
+      <wsdl:output message="tns:GetAllLinkedInFeedsOfProfileWithIdSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="LinkedInFeedSoap" type="tns:LinkedInFeedSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetLinkedInFeeds">
+      <soap:operation soapAction="http://tempuri.org/GetLinkedInFeeds" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLinkedInFeedsByUserIdAndProfileIdUsingLimit">
+      <soap:operation soapAction="http://tempuri.org/GetLinkedInFeedsByUserIdAndProfileIdUsingLimit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLinkedInFeeds1">
+      <soap:operation soapAction="http://tempuri.org/GetLinkedInFeeds1" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllLinkedInFeedsOfProfileWithId">
+      <soap:operation soapAction="http://tempuri.org/GetAllLinkedInFeedsOfProfileWithId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="LinkedInFeedSoap12" type="tns:LinkedInFeedSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetLinkedInFeeds">
+      <soap12:operation soapAction="http://tempuri.org/GetLinkedInFeeds" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLinkedInFeedsByUserIdAndProfileIdUsingLimit">
+      <soap12:operation soapAction="http://tempuri.org/GetLinkedInFeedsByUserIdAndProfileIdUsingLimit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLinkedInFeeds1">
+      <soap12:operation soapAction="http://tempuri.org/GetLinkedInFeeds1" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllLinkedInFeedsOfProfileWithId">
+      <soap12:operation soapAction="http://tempuri.org/GetAllLinkedInFeedsOfProfileWithId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="LinkedInFeed">
+    <wsdl:port name="LinkedInFeedSoap" binding="tns:LinkedInFeedSoap">
+      <soap:address location="http://localhost:2022/Services/LinkedInFeed.asmx" />
+    </wsdl:port>
+    <wsdl:port name="LinkedInFeedSoap12" binding="tns:LinkedInFeedSoap12">
+      <soap12:address location="http://localhost:2022/Services/LinkedInFeed.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

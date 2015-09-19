@@ -1,0 +1,106 @@
+﻿@using Domain.Myfashion.Domain;
+@{
+    string path = @System.Configuration.ConfigurationManager.AppSettings["domain"];
+    string LdPreofilePic = string.Empty;
+}
+@foreach (var item in (Dictionary<TeamMemberProfile, object>)Model)
+{
+    if (item.Key.ProfileType == "facebook" || item.Key.ProfileType == "facebook_page")
+    {
+        FacebookAccount objFacebookAccount = (FacebookAccount)item.Value;
+        string profileimage = string.Empty;
+        <div class="col-sm-6 userpictiny">
+            <div class="delet_icon" onclick="confirmDel('415298848564891','page','fb');" data-toggle="modal" data-target="#closeModal"></div>
+            <a href="http://www.facebook.com/@objFacebookAccount.FbUserId" target="_blank" title="@objFacebookAccount.FbUserName"><img class="userpicsize img-responsive btn btn-default btn-block " src="http://graph.facebook.com/@objFacebookAccount.FbUserId/picture?type=small"></a>
+            <img class="img-responsive img-circle socialIconPoss" src="/Themes/@path/Contents/assets/global/img/fb_icon.png">
+        </div>
+    }
+    if (item.Key.ProfileType == "twitter")
+    {
+        TwitterAccount objTwitterAccount = (TwitterAccount)item.Value;
+        <div class="col-sm-6 userpictiny">
+            <div class="delet_icon" onclick="confirmDel('415298848564891','page','fb');" data-toggle="modal" data-target="#closeModal"></div>
+            <a title="@objTwitterAccount.TwitterScreenName" href="http://twitter.com/@objTwitterAccount.TwitterScreenName" target="_blank">
+                <img class=" userpicsize img-responsive btn btn-default btn-block" src="@objTwitterAccount.ProfileImageUrl">
+            </a>
+            <img src="/Themes/@path/Contents/assets/global/img/twticon.png" class="img-responsive img-circle socialIconPoss">
+        </div>
+    }
+    if (item.Key.ProfileType == "linkedin" && item.Value != null)
+    {
+        LinkedInAccount objLinkedInAccount = (LinkedInAccount)item.Value;
+        <div class="col-sm-6 userpictiny">
+            <div class="delet_icon" onclick="confirmDel('415298848564891','page','fb');" data-toggle="modal" data-target="#closeModal"></div>
+            <a title="@objLinkedInAccount.LinkedinUserName" href="@objLinkedInAccount.ProfileUrl" target="_blank"><img class=" userpicsize img-responsive btn btn-default btn-block" src="@objLinkedInAccount.ProfileImageUrl"></a>
+            <img class="img-responsive img-circle socialIconPoss" src="/Themes/@path/Contents/assets/global/img/link_icon.png">
+        </div>
+    }
+    if (item.Key.ProfileType == "instagram")
+    {
+        InstagramAccount objInstagramAccount = (InstagramAccount)item.Value;
+        <div class="col-sm-6 userpictiny">
+            <div class="delet_icon" onclick="confirmDel('415298848564891','page','fb');" data-toggle="modal" data-target="#closeModal"></div>
+            <a title="@objInstagramAccount.InsUserName" href="http://instagram.com/@objInstagramAccount.InsUserName" target="_blank">
+                <img class=" userpicsize img-responsive btn btn-default btn-block" src="@objInstagramAccount.ProfileUrl">
+            </a>
+            <img src="/Themes/@path/Contents/assets/global/img/instagram_icon.png" class="img-responsive img-circle socialIconPoss">
+        </div>
+    }
+    if (item.Key.ProfileType == "tumblr")
+    {
+        TumblrAccount objTumblrAccount = (TumblrAccount)item.Value;
+        string tumblruserimage = "http://api.tumblr.com/v2/blog/" + objTumblrAccount.tblrUserName + ".tumblr.com/avatar";
+        <div class="col-sm-6 userpictiny">
+            <div class="delet_icon" onclick="confirmDel('415298848564891','page','fb');" data-toggle="modal" data-target="#closeModal"></div>
+            <a title="@objTumblrAccount.tblrUserName" href="http://@objTumblrAccount.tblrUserName .tumblr.com/" target="_blank"><img class=" userpicsize img-responsive btn btn-default btn-block " src="@tumblruserimage"></a>
+            <img class="img-responsive img-circle socialIconPoss" src="/Themes/@path/Contents/assets/global/img/tumblr_icon.png">
+        </div>
+    }
+    if (item.Key.ProfileType == "youtube")
+    {
+        YoutubeAccount objYoutubeAccount = (YoutubeAccount)item.Value;
+        <div class="col-sm-6 userpictiny">
+            <div class="delet_icon" onclick="confirmDel('415298848564891','page','fb');" data-toggle="modal" data-target="#closeModal"></div>
+            <a title="@objYoutubeAccount.Ytusername" href="https://www.youtube.com/user/@objYoutubeAccount.Ytuserid/" target="_blank"><img class=" userpicsize img-responsive btn btn-default btn-block" src="@objYoutubeAccount.Ytprofileimage"></a>
+            <img class="img-responsive img-circle socialIconPoss" src="/Themes/@path/Contents/assets/global/img/youtube.png">
+        </div>
+    }
+    if (item.Key.ProfileType == "gplus")
+    {
+        GooglePlusAccount objGooglePlusAccount = (GooglePlusAccount)item.Value;
+        <div class="col-sm-6 userpictiny">
+            <div class="delet_icon" onclick="confirmDel('415298848564891','page','fb');" data-toggle="modal" data-target="#closeModal"></div>
+            <a title="@objGooglePlusAccount.GpUserName" href="https://plus.google.com/@objGooglePlusAccount.GpUserId/posts" target="_blank"><img class=" userpicsize img-responsive btn btn-default btn-block" src="@objGooglePlusAccount.GpProfileImage"></a>
+            <img class="img-responsive img-circle socialIconPoss" src="/Themes/@path/Contents/assets/global/img/youtube.png">
+        </div>
+    }
+}
+
+
+
+<!-- CLOSEModal -->
+<div class="modal fade" id="closeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Sign In</h4>
+            </div>
+            <div class="modal-body col-md-12">
+                <p>Are you sure,you want to delete this account ?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--end of CLOSEmodel-->
+<!-- /.list-group -->
+<div class="col-sm-6">
+    <div class="btn-group pull-right">
+        <img class="img-responsive btn btn-default btn-block dropdown-toggle" src="/Themes/@path/Contents/assets/global/img/addprofile.png" data-toggle="modal" data-target="#SocialProfileModal" />
+
+    </div>
+</div>

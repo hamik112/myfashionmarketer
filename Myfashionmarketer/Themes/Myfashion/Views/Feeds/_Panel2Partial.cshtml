@@ -1,0 +1,60 @@
+﻿@using Domain.Myfashion.Domain;
+@{
+    string path = @System.Configuration.ConfigurationManager.AppSettings["domain"];
+}
+@foreach (var dicitem in (Dictionary<string, List<object>>)Model)
+{
+    if (dicitem.Key == "facebook")
+    {
+        List<object> lstdic = (List<object>)dicitem.Value;
+        foreach (var facebookmsg in lstdic)
+        {
+            FacebookFeed item = (FacebookFeed)facebookmsg;
+            <li class="list-group-item">
+                <div>
+                    <img src="https://graph.facebook.com/@item.FromId/picture?type=small" class="img-circle">
+                    <img src="/Themes/@path/Contents/assets/global/img/fb_icon.png" class="img-circle">
+                    <span class="font-16 m-left-sm bold">@item.FromName</span>
+                    <span><i class="fa fa-clock-o"></i> @item.FeedDate</span>
+                </div>
+                <div class="m-top-sm">
+                    @if (!string.IsNullOrEmpty(item.Picture))
+                    {
+                        <img src="@item.Picture" class="img-responsive h-200" width="100%">
+                    }
+                    <p>@item.FeedDescription </p>
+                  
+
+                </div>
+
+            </li>
+        }
+    }
+    if (dicitem.Key == "twitter")
+    {
+        List<object> lstdic = (List<object>)dicitem.Value;
+        foreach (var twittermsg in lstdic)
+        {
+            TwitterMessage item = (TwitterMessage)twittermsg;
+            <li class="list-group-item">
+                <div>
+                    <img src="@item.FromProfileUrl" class="img-circle">
+                    <img src="/Themes/@path/Contents/assets/global/img/twticon.png" class="img-circle">
+                    <span class="font-16 m-left-sm bold">@item.FromName</span>
+                    <span><i class="fa fa-clock-o"></i> @item.MessageDate</span>
+                </div>
+                <div class="m-top-sm">
+                    <p>@item.TwitterMsg</p>
+                  
+                </div>
+
+            </li>
+        }
+    }
+}
+
+
+
+
+
+

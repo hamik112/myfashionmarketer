@@ -1,0 +1,14 @@
+﻿@using Myfashionmarketer.Helper;
+@{
+    string path = @System.Configuration.ConfigurationManager.AppSettings["domain"];
+}
+@foreach (var item in (List<Domain.Myfashion.Helper.TwitterRecentFollower>)Model)
+{
+    <div class="col-sm-6">
+        <a href="https://twitter.com/@item.screen_name" target="_blank">
+            <img src="@item.profile_image_url" class="img-responsive img-circle" title="@item.name">
+            </a>
+        </div>
+    
+}
+ 

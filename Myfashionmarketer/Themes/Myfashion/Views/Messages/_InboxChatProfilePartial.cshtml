@@ -1,0 +1,69 @@
+﻿@using System.Web.Script.Serialization;
+@{
+    List<Domain.Myfashion.Domain.TeamMemberProfile> allprofileofuser = (List<Domain.Myfashion.Domain.TeamMemberProfile>)Model;
+    Domain.Myfashion.Domain.User _User=(Domain.Myfashion.Domain.User)Session["User"];
+    }
+
+@foreach (var item in allprofileofuser)
+{
+    try
+    {
+        //Domain.Myfashion.Domain.TeamMemberProfile item = (Domain.Myfashion.Domain.TeamMemberProfile)(profile.Value);
+        Myfashionmarketer.Api.FacebookAccount.FacebookAccount apiFacebookAccount = new Myfashionmarketer.Api.FacebookAccount.FacebookAccount();
+        Domain.Myfashion.Domain.FacebookAccount _FacebookAccount = (Domain.Myfashion.Domain.FacebookAccount)new JavaScriptSerializer().Deserialize(apiFacebookAccount.GetAllFacebookAccountDetails(item.ProfileId, _User.Id.ToString()), typeof(Domain.Myfashion.Domain.FacebookAccount));
+        if (item.ProfileType == "facebook_page" && !string.IsNullOrEmpty(_FacebookAccount.AccessToken))
+        {
+
+            <tr class="cls-user-profile">
+                <td><span class=""><i class="fa fa-facebook"></i></span></td>
+                <td>@item.ProfileName </td>
+                <td id="profileid" attrid="@item.ProfileId">
+                    <label for="mChk1">
+                        <input type="checkbox" class="profilecheck" name="fb_@item.ProfileId" id="@item.ProfileId" title="checked" onclick="filterinboxchatmessages(@item.ProfileId)" checked />
+                        <label for="@item.ProfileId" class="css-label"></label>
+                    </label>
+                </td>
+            </tr>
+
+                    }
+                 
+                   
+                }
+                catch (Exception Err)
+                {
+                    Console.Write(Err.StackTrace);
+                }
+            }
+           
+@foreach (var item in allprofileofuser)
+            {
+                try
+                {
+                    //Domain.Myfashion.Domain.TeamMemberProfile item = (Domain.Myfashion.Domain.TeamMemberProfile)(profile.Value);
+                    if (item.ProfileType == "twitter")
+                    {
+                     
+    <tr class="cls-user-profile">
+        <td><span class=""><i class="fa fa-twitter"></i></span></td>
+        <td>&#64;@item.ProfileName</td>
+        <td id="profileid" attrid="@item.ProfileId">
+            <label for="mChk3">
+                <input class="profilecheck" type="checkbox" name="twt_@item.ProfileId" id="@item.ProfileId" title="checked" onclick="filterinboxchatmessages(@item.ProfileId)" checked />
+                <label for="@item.ProfileId" class="css-label"></label>
+            </label>
+        </td>
+    </tr>
+
+                    }
+
+
+                }
+                catch (Exception Err)
+                {
+                    Console.Write(Err.StackTrace);
+                }
+            }
+
+
+                            
+                       

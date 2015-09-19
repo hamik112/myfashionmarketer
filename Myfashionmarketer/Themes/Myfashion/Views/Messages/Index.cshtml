@@ -1,0 +1,130 @@
+﻿@using Domain.Myfashion.Domain;
+@using Myfashionmarketer.Api;
+@using System.Web.Script.Serialization;
+@{
+    Domain.Myfashion.Domain.User user = (Domain.Myfashion.Domain.User)Session["User"];
+    string path = System.Configuration.ConfigurationManager.AppSettings["domain"];
+}
+@*<script src="/Themes/socioboard/Contents/js/jquery-1.11.0.js"></script>*@
+<link href="~/Themes/@path/Contents/assets/css/smartinbox.css" rel="stylesheet" />
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<link href="~/Themes/Myfashion/Contents/assets/admin/layout2/css/social.css" rel="stylesheet" />
+<script src="~/Themes/Myfashion/Contents/assets/js/Message.js">
+    
+
+</script>
+
+<div class="row" >
+    <div class="col-md-9 chat">
+        <ul class="list-group list-group-full" id="ul-inbox-message">
+
+        </ul>
+    </div>
+    <div class="col-sm-3">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4><span><i class="fa fa-filter"></i></span> Filter</h4>
+            </div>
+            <div class="panel-body">
+                <div>
+                    <h4>Profiles</h4>
+                    <table class="table" >
+                        <tbody id="div-user-profiles">
+                           
+                            
+                                <td><span class=""><i class="fa fa-user-plus"></i></span></td>
+                               
+                                <td></td>
+                            </tr>
+                        </tbody>
+                        <td colspan="2" class="dropdown">
+                            <a data-toggle="dropdown" href="#">Connect a profile</a>
+                            <ul class="dropdown-menu">
+                                <li><a data-toggle="modal" href="../FacebookManager/AuthenticateFacebook"><span><i class="fa fa-facebook"></i></span> Facebook</a></li>
+                                <li><a data-toggle="modal" href="../TwitterManager/AuthenticateTwitter"><span><i class="fa fa-twitter"></i></span> Twitter</a></li>
+                                <li><a data-toggle="modal" href="../YoutubeManager/AuthenticateYoutube?op=gplus"><span><i class="fa fa-google-plus"></i></span> Google+</a></li>
+                                <li><a data-toggle="modal" href="../TumblrManager/AuthenticateTumblr"><span><i class="fa fa-tumblr"></i></span> Tumblr</a></li>
+                                <li><a data-toggle="modal" href="../InstagramManager/AuthenticateInstagram"><span><i class="fa fa-instagram"></i></span> Instagram</a></li>
+                                <li><a data-toggle="modal" href="../YoutubeManager/AuthenticateYoutube"><span><i class="fa fa-youtube"></i></span> Youtube</a></li>
+
+                            </ul>
+                        </td>
+                    </table>
+                </div>
+                <div>
+                    <h4>Message Types</h4>
+                    <div>
+                        <table class="table">
+                            <tbody id="div-user-message">
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+  </div>
+
+<script>
+    bindInboxMessages();
+    $(document).ready(function(){
+        
+        // bindInboxChatMessages();
+        debugger;
+       
+            arrid = new Array();
+            arrmsgtype = new Array();
+            try {
+                $("#div-user-message .cls-user-message").each(function () {
+                
+                  //  console.log("this is message" + $(this).children()[2].children()[0].children()[0].attr("id"));
+                    var that = $(this).find(".msg-filter-div");
+                    var attrId = that.attr("id");
+            //        var attrId = $($($(this).children()[2]).children()[0].children()[0]).attr("id");
+                    if (document.getElementById(attrId).checked == false) {
+                        var index = arrmsgtype.indexOf(attrId);
+                        if (index > -1) {
+                            arrmsgtype.splice(index, 1);
+                        }
+                    } else {
+                        arrmsgtype.push(attrId);
+                    }
+                });
+            } catch (e) {
+                console.log(e);
+            }
+         
+            try {
+                $("#div-user-profiles .cls-user-profile").each(function () {
+                    debugger;
+
+                    var that = $(this).find("#profileid")
+                    var attrId = that.attr("attrid");
+                    if (document.getElementById(attrId).checked == false) {
+                        var index = arrmsgtype.indexOf(attrId);
+                        if (index > -1) {
+                            arrid.splice(index, 1);
+                        }
+                    } else {
+                        arrid.push(attrId);
+                    }
+                });
+            } catch (e) {
+
+            }
+            $.ajax({
+                type: "GET",
+                url: "../Messages/BindInboxMessage?load=first&arrmsgtype=" + arrmsgtype + "&arrid=" + arrid,
+                datatype: "html",
+                success: function (msg) {
+                    if (msg != "no_data") {
+                        $("#ul-inbox-message").append(msg);
+                    }
+                },
+                async: false
+            });
+        
+    })
+    </script>

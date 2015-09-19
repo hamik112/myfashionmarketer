@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="AddYoutubeAccount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="client_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="client_secret" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="redirect_uri" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="GroupId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="code" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddYoutubeAccountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddYoutubeAccountResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetYoutubeChannelVideos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="profileid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetYoutubeChannelVideosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetYoutubeChannelVideosResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GoogleLogin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="code" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GoogleLoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GoogleLoginResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Channel_List_serarch">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="search" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Channel_List_serarchResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="AddYoutubeAccountwithLogin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="client_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="client_secret" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="redirect_uri" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="GroupId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="access_token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddYoutubeAccountwithLoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddYoutubeAccountwithLoginResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getYoutubeData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="youtubeId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getYoutubeDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getYoutubeDataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SheduleYoutubeMessage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="YoutubeId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sscheduledmsgguid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SheduleYoutubeMessageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SheduleYoutubeMessageResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateYouTubeAccountByAdmin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObjYouTube" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateYouTubeAccountByAdminResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateYouTubeAccountByAdminResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AddYoutubeAccountSoapIn">
+    <wsdl:part name="parameters" element="tns:AddYoutubeAccount" />
+  </wsdl:message>
+  <wsdl:message name="AddYoutubeAccountSoapOut">
+    <wsdl:part name="parameters" element="tns:AddYoutubeAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetYoutubeChannelVideosSoapIn">
+    <wsdl:part name="parameters" element="tns:GetYoutubeChannelVideos" />
+  </wsdl:message>
+  <wsdl:message name="GetYoutubeChannelVideosSoapOut">
+    <wsdl:part name="parameters" element="tns:GetYoutubeChannelVideosResponse" />
+  </wsdl:message>
+  <wsdl:message name="GoogleLoginSoapIn">
+    <wsdl:part name="parameters" element="tns:GoogleLogin" />
+  </wsdl:message>
+  <wsdl:message name="GoogleLoginSoapOut">
+    <wsdl:part name="parameters" element="tns:GoogleLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_Channel_List_serarchSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_Channel_List_serarch" />
+  </wsdl:message>
+  <wsdl:message name="Get_Channel_List_serarchSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_Channel_List_serarchResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddYoutubeAccountwithLoginSoapIn">
+    <wsdl:part name="parameters" element="tns:AddYoutubeAccountwithLogin" />
+  </wsdl:message>
+  <wsdl:message name="AddYoutubeAccountwithLoginSoapOut">
+    <wsdl:part name="parameters" element="tns:AddYoutubeAccountwithLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="getYoutubeDataSoapIn">
+    <wsdl:part name="parameters" element="tns:getYoutubeData" />
+  </wsdl:message>
+  <wsdl:message name="getYoutubeDataSoapOut">
+    <wsdl:part name="parameters" element="tns:getYoutubeDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="SheduleYoutubeMessageSoapIn">
+    <wsdl:part name="parameters" element="tns:SheduleYoutubeMessage" />
+  </wsdl:message>
+  <wsdl:message name="SheduleYoutubeMessageSoapOut">
+    <wsdl:part name="parameters" element="tns:SheduleYoutubeMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateYouTubeAccountByAdminSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateYouTubeAccountByAdmin" />
+  </wsdl:message>
+  <wsdl:message name="UpdateYouTubeAccountByAdminSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateYouTubeAccountByAdminResponse" />
+  </wsdl:message>
+  <wsdl:portType name="YoutubeSoap">
+    <wsdl:operation name="AddYoutubeAccount">
+      <wsdl:input message="tns:AddYoutubeAccountSoapIn" />
+      <wsdl:output message="tns:AddYoutubeAccountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetYoutubeChannelVideos">
+      <wsdl:input message="tns:GetYoutubeChannelVideosSoapIn" />
+      <wsdl:output message="tns:GetYoutubeChannelVideosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GoogleLogin">
+      <wsdl:input message="tns:GoogleLoginSoapIn" />
+      <wsdl:output message="tns:GoogleLoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Channel_List_serarch">
+      <wsdl:input message="tns:Get_Channel_List_serarchSoapIn" />
+      <wsdl:output message="tns:Get_Channel_List_serarchSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddYoutubeAccountwithLogin">
+      <wsdl:input message="tns:AddYoutubeAccountwithLoginSoapIn" />
+      <wsdl:output message="tns:AddYoutubeAccountwithLoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getYoutubeData">
+      <wsdl:input message="tns:getYoutubeDataSoapIn" />
+      <wsdl:output message="tns:getYoutubeDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SheduleYoutubeMessage">
+      <wsdl:input message="tns:SheduleYoutubeMessageSoapIn" />
+      <wsdl:output message="tns:SheduleYoutubeMessageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateYouTubeAccountByAdmin">
+      <wsdl:input message="tns:UpdateYouTubeAccountByAdminSoapIn" />
+      <wsdl:output message="tns:UpdateYouTubeAccountByAdminSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="YoutubeSoap" type="tns:YoutubeSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddYoutubeAccount">
+      <soap:operation soapAction="http://tempuri.org/AddYoutubeAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetYoutubeChannelVideos">
+      <soap:operation soapAction="http://tempuri.org/GetYoutubeChannelVideos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GoogleLogin">
+      <soap:operation soapAction="http://tempuri.org/GoogleLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Channel_List_serarch">
+      <soap:operation soapAction="http://tempuri.org/Get_Channel_List_serarch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddYoutubeAccountwithLogin">
+      <soap:operation soapAction="http://tempuri.org/AddYoutubeAccountwithLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getYoutubeData">
+      <soap:operation soapAction="http://tempuri.org/getYoutubeData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SheduleYoutubeMessage">
+      <soap:operation soapAction="http://tempuri.org/SheduleYoutubeMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateYouTubeAccountByAdmin">
+      <soap:operation soapAction="http://tempuri.org/UpdateYouTubeAccountByAdmin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="YoutubeSoap12" type="tns:YoutubeSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddYoutubeAccount">
+      <soap12:operation soapAction="http://tempuri.org/AddYoutubeAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetYoutubeChannelVideos">
+      <soap12:operation soapAction="http://tempuri.org/GetYoutubeChannelVideos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GoogleLogin">
+      <soap12:operation soapAction="http://tempuri.org/GoogleLogin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Channel_List_serarch">
+      <soap12:operation soapAction="http://tempuri.org/Get_Channel_List_serarch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddYoutubeAccountwithLogin">
+      <soap12:operation soapAction="http://tempuri.org/AddYoutubeAccountwithLogin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getYoutubeData">
+      <soap12:operation soapAction="http://tempuri.org/getYoutubeData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SheduleYoutubeMessage">
+      <soap12:operation soapAction="http://tempuri.org/SheduleYoutubeMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateYouTubeAccountByAdmin">
+      <soap12:operation soapAction="http://tempuri.org/UpdateYouTubeAccountByAdmin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Youtube">
+    <wsdl:port name="YoutubeSoap" binding="tns:YoutubeSoap">
+      <soap:address location="http://localhost:2022/Services/Youtube.asmx" />
+    </wsdl:port>
+    <wsdl:port name="YoutubeSoap12" binding="tns:YoutubeSoap12">
+      <soap12:address location="http://localhost:2022/Services/Youtube.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

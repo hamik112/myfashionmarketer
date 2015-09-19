@@ -1,0 +1,595 @@
+﻿@{
+    string path = @System.Configuration.ConfigurationManager.AppSettings["domain"];
+}
+
+
+
+<style>
+    .panel-title {
+        padding: 0px;
+    }
+
+    .panel-bordered > .panel-heading > .panel-title {
+        padding-bottom: 0px;
+    }
+
+    .panel-heading {
+        padding: 15px 16px;
+    }
+
+    .actions {
+        position: absolute;
+        right: 12px;
+        top: 12px;
+    }
+
+    .bootstrap-select {
+        width: 100% !important;
+    }
+
+    .datepair-wrap {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .input-daterange-wrap {
+        float: left;
+    }
+
+    .input-daterange-to {
+        float: left;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+    }
+</style>
+<link rel="stylesheet" type="text/css" href="/Themes/@path/Contents/assets/global/pluginsnew/clockface/css/clockface.css" />
+<link rel="stylesheet" type="text/css" href="/Themes/@path/Contents/assets/global/pluginsnew/bootstrap-datepicker/css/datepicker3.css" />
+<link rel="stylesheet" type="text/css" href="/Themes/@path/Contents/assets/global/pluginsnew/bootstrap-timepicker/css/bootstrap-timepicker.min.css" />
+<link rel="stylesheet" type="text/css" href="/Themes/@path/Contents/assets/global/pluginsnew/bootstrap-colorpicker/css/colorpicker.css" />
+<link rel="stylesheet" type="text/css" href="/Themes/@path/Contents/assets/global/pluginsnew/bootstrap-daterangepicker/daterangepicker-bs3.css" />
+<link rel="stylesheet" type="text/css" href="/Themes/@path/Contents/assets/global/pluginsnew/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" />
+<div class="row">
+    <div class="panel panel-bordered panel-dark">
+        <div class="panel-heading">
+            <h3 class="panel-title">  <i class="fa fa-search font-green-sharp"></i> Schedule Message</h3>
+        </div>
+        <div class="panel-body">
+
+            <div class="col-md-12 col-sm-12" id="campaigns">
+                <!-- BEGIN PORTLET-->
+                <div class="panel panel-bordered panel-dark ">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="panel panel-bordered panel-info">
+                                    <div class="panel-heading">
+                                        <div class="panel-title">
+                                            <i class="fa fa-envelope-o"></i> Schedule Message
+                                        </div>
+                                        <div class="actions">
+                                            <div class="dropdown">
+                                                <a class="btn btn-warning" data-toggle="dropdown">Select Profile <span class="caret"></span></a>
+                                                <ul class="dropdown-menu padding-sm text-black" style="width:250px;" id="binduserforcompose"></ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="" style="">
+                                            <div class="form-group">
+                                                <div class="input-group col-sm-12">
+                                                    <div id="bindcomposescheduledprofiles"></div>
+                                                    <textarea id="txtscheduled" placeholder="Type your message here" rows="3" class="form-control">@ViewBag.Message</textarea>
+                                                </div>
+                                            </div>
+                                            <!-- <div class="form-group">
+                                              <div class="input-group col-sm-6">
+                                                   <input type="text" class="form-control">
+                                                     <span class="input-group-btn">
+                                                       <input type="file" id="browse" style="display:none;">
+                                                       <button onClick="$('#browse').trigger('click');" class="btn btn-success">Browse</button>
+                                                     </span>
+                                                </div>
+                                            </div> -->
+                                            <div class="form-group">
+                                                <input type="file" multiple class="file" data-overwrite-initial="false" data-min-file-count="2" id="scheduleimageupload" onchange="AddImageScheduleMessage()">
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="input-group col-sm-6">
+                                                    <input type="text" value="" size="16" class="form-control form-control-inline input-medium date-picker" id="datetimepicker1">
+                                                </div>
+                                            </div>
+                                          
+                                            <div>
+                                                <button id="scheduled" class="btn btn-warning">Schedule</button>
+                                                <button id="savedraft" class="btn btn-info">Save to Drafts</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Modal-->
+                        <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                        <h4 class="modal-title" id="myModalLabel">Edit Status</h4>
+                                    </div>
+                                    <div class="modal-body col-md-12">
+                                        <p>Are you sure want to change status?</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary ">OK</button>
+                                        <button type="button" class="btn btn-default " data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal fade" id="activityModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                        <h4 class="modal-title" id="myModalLabel">TASK ACTIVITY</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="">
+                                            <img src="assets/admin/layout2/img/avatar3.jpg" class="img-circle">
+                                            <img class="img-circle" src="assets/global/img/twticon.png">
+                                            <span>Chanchal</span>
+                                        </div>
+                                        <div class="m-top-sm">
+                                            <p>Hey check this out.</p>
+                                            <span>By Sumit Ghosh at 8/21/2014 5:45:49 AM</span>
+                                            <textarea class="form-control" rows="3" placeholder="Leave a comment"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary ">Save</button>
+                                        <button type="button" class="btn btn-default " data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Modal-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Modal-->
+    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Edit Status</h4>
+                </div>
+                <div class="modal-body col-md-12">
+                    <p>Are you sure want to change status?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary ">OK</button>
+                    <button type="button" class="btn btn-default " data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="activityModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">TASK ACTIVITY</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="">
+                        <img src="assets/portraits/11.jpg" class="img-circle avatar-lg">
+                        <img class="img-circle" src="assets/images/img/twticon.png">
+                        <span>Chanchal</span>
+                    </div>
+                    <div class="m-top-sm">
+                        <p>Hey check this out.</p>
+                        <span>By Sumit Ghosh at 8/21/2014 5:45:49 AM</span>
+                        <textarea class="form-control" rows="3" placeholder="Leave a comment"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary ">Save</button>
+                    <button type="button" class="btn btn-default " data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Modal-->
+</div>
+
+
+<script src="/Themes/@path/Contents/assets/global/pluginsnew/jquery.min.js" type="text/javascript"></script>
+
+
+
+
+
+<script type="text/javascript" src="/Themes/@path/Contents/assets/global/pluginsnew/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="/Themes/@path/Contents/assets/global/pluginsnew/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+<script type="text/javascript" src="/Themes/@path/Contents/assets/global/pluginsnew/clockface/js/clockface.js"></script>
+<script type="text/javascript" src="/Themes/@path/Contents/assets/global/pluginsnew/bootstrap-daterangepicker/moment.min.js"></script>
+<script type="text/javascript" src="/Themes/@path/Contents/assets/global/pluginsnew/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script type="text/javascript" src="/Themes/@path/Contents/assets/global/pluginsnew/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+<script type="text/javascript" src="/Themes/@path/Contents/assets/global/pluginsnew/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+
+
+<script type="text/javascript">
+
+   
+    $('#datetimepicker1').datetimepicker();
+    $(document).ready(function (e) {
+        bindcomposemessage();
+
+        //$('#scheduledtime').timepicker();
+        //$('#scheduleddate').datepicker({
+        //    multidate: true,
+        //    format: "yyyy/mm/dd",//format:"dd/mm/yyyy",
+        //    todayHighlight: true,
+        //    startDate: 'd',
+        //    clearBtn: true
+        //});
+        //// Edited by Antima[6/11/2014]
+        //$('#scheduleddate').on('change', function () {
+        //    $('.datepicker').hide();
+        //});
+
+
+        $('#scheduled').click(function () {
+            debugger;
+            $('#scheduled').hide();
+            $('#ScheduleLoadimg').show();
+            var curdate = new Date();
+            var dd = curdate.getDate();
+            if (dd < 10) {
+                dd = '0' + dd
+            }
+            else {
+                dd = curdate.getDate();
+            }
+            var mm = curdate.getMonth() + 1;
+            if (mm < 10) {
+                mm = '0' + mm
+            }
+            else {
+                mm = curdate.getMonth() + 1;
+            }
+            var hh = curdate.getHours();
+            if (hh < 10) {
+                hh = '0' + hh;
+            }
+            else {
+                hh = curdate.getHours();
+            }
+            var minm = curdate.getMinutes();
+            if (minm < 10) {
+                minm = '0' + minm;
+            }
+            else {
+                minm = curdate.getMinutes();
+            }
+            var sec = curdate.getSeconds();
+            if (sec < 10) {
+                sec = '0' + sec;
+            }
+            else {
+                sec = curdate.getSeconds();
+            }
+
+            //var now = (curdate.getMonth() + 1) + "/" + (curdate.getDate.length<1? '0' : '') +curdate.getDate() + "/" + curdate.getFullYear() + " " + curdate.getHours() + ":" + curdate.getMinutes() + ":" + (curdate.getSeconds() < 10 ? '0' + curdate.getSeconds() : curdate.getSeconds());
+            //var now = mm + "/" + dd + "/" + curdate.getFullYear() + " " + hh + ":" + minm + ":" + sec;
+            var now = curdate.getFullYear() + "/" + mm + "/" + dd + " " + hh + ":" + minm + ":" + sec;
+            var fd = new FormData();
+            var filesimage = document.getElementById('scheduleimageupload').files[0];
+            if (filesimage != null) {
+                fd.append('file', filesimage);
+            }
+            var scheduledmessage = $('#txtscheduled').val();
+            //var scheduleddate = $('#scheduleddate').val();
+            var scheduledtime1 = $('#datetimepicker1').val();
+            var scheduledtime2 = scheduledtime1.split(" ");
+            var scheduledtime3 = scheduledtime2[1] + ':00';
+            var schdd = scheduledtime3.split(":");
+
+            var shdd = schdd[0];
+
+            var shmin = schdd[1];
+            var shsec = schdd[2];
+
+            var intScheduleDate = parseInt(shdd, 10);
+            //--intScheduleDate;
+            shdd = intScheduleDate.toString();
+
+            if (shdd < 10) {
+                shdd = '0' + shdd;
+            }
+            else {
+                shdd = schdd[0];
+            }
+
+            if (shmin < 10) {
+                //shmin = '0' + shmin;
+                shmin = shmin;
+            }
+            else {
+                shmin = schdd[1];
+            }
+            if (scheduledtime2[1] == "PM") {
+                if (shdd != "12") {
+                    shdd = +shdd + +12;
+                }
+            }
+            var scheduledtime = shdd + ":" + shmin + ":" + shsec;
+            var allprofiles = '';
+            if (scheduledmessage == "") {
+                $('#scheduled').show();
+                $('#ScheduleLoadimg').hide();
+                alertify.set({ delay: 1000 });
+                alertify.error('Please Enter a message ');
+                return false;
+            }
+            if (scheduledtime1 == "") {
+                $('#scheduled').show();
+                $('#ScheduleLoadimg').hide();
+                alert('Please Select a DateTime');
+                return false;
+            }
+            if (arrbinduser.length < 1) {
+                $('#scheduled').show();
+                $('#ScheduleLoadimg').hide();
+                //alertify.set({ delay: 1000 });
+                alert('Please Select Profiles to Scheduled a message');
+                return false;
+            }
+            for (var i = 0; i < arrbinduser.length; i++) {
+                allprofiles += arrbinduser[i] + "<:>";
+            }
+            for (var i = 0; i < arrbinduser.length; i++) {
+                var account = arrbinduser[i];
+                var strarray = account.split('~');
+                var ProfileType = strarray[1];
+                if (ProfileType == 'facebook') {
+                    if (scheduledmessage.length > 5000) {
+                        $('#scheduled').show();
+                        $('#ScheduleLoadimg').hide();
+                        alert("Facebook Not Support more than 5000 characters");
+                        return;
+                    }
+                }
+                if (ProfileType == 'twitter') {
+                    if (scheduledmessage.length > 140) {
+                        $('#scheduled').show();
+                        $('#ScheduleLoadimg').hide();
+                        alert("Twitter Not Support more than 140 characters");
+                        return;
+                    }
+                }
+                if (ProfileType == 'linkedin') {
+
+                    if (scheduledmessage.length > 600) {
+                        $('#scheduled').show();
+                        $('#ScheduleLoadimg').hide();
+                        alertify.error("Linkedin Not Support more than 600 characters");
+                        return;
+                    }
+                }
+            }
+
+
+
+            allprofiles = allprofiles.substr(0, allprofiles.length - 3);
+            $.ajax({
+                type: 'POST',
+                url: '../Publishing/ScheduledMessage?scheduledmessage=' + scheduledmessage + '&scheduleddate=' + scheduledtime2[0] + '&scheduledtime=' + scheduledtime + '&profiles=' + allprofiles + '&clienttime=' + now,
+                data: fd,
+                processData: false,
+                contentType: false,
+                success: function (msg) {
+                    $('#datetimepicker1').datepicker('setDate', null);
+                    $('#txtscheduled').val('');
+                    $('#scheduleddate').val('');
+                    $('#scheduledtime').val('');
+                    $('#tumbnail').children().html('');
+                    $('#scheduled').show();
+                    $('#ScheduleLoadimg').hide();
+                    // alertify.set({ delay: 1000 });
+                    alert('Message Scheduled Successfully');
+                    arrbinduser = [];
+
+                    $('.bindprof').hide(1000, function () {
+                        $('#bindcomposescheduledprofiles').html('');
+                        $('#MessageCount').html('');
+                    });
+                }
+            });
+
+        });
+
+        $('#savedraft').click(function () {
+            $('#ScheduleLoadimg').show();
+            $('#savedraft').hide();
+            var scheduledmessage = $('#txtscheduled').val();
+            if (scheduledmessage != "") {
+                $.ajax({
+                    type: 'POST',
+                    url: '../Publishing/SaveDraft?scheduledmessage=' + scheduledmessage,
+                    success: function (msg) {
+                        $('#scheduleddate').datepicker('setDate', null);
+                        $('#txtscheduled').val('');
+                        $('#scheduleddate').val('');
+                        $('#scheduledtime').val('');
+                        $('#ScheduleLoadimg').hide();
+                        $('#savedraft').show();
+                        alertify.set({ delay: 1000 });
+                        alertify.success('Message Saved to Draft');
+                        arrbinduser = [];
+
+                        $('.bindprof').hide(1000, function () {
+                            $('#bindcomposescheduledprofiles').html('');
+                        });
+                    }
+                });
+            }
+            else {
+                $('#ScheduleLoadimg').hide();
+                $('#savedraft').show();
+                alertify.set({ delay: 1000 });
+                alertify.error('Please Enter a message ');
+                return false;
+            }
+        });
+    });
+
+</script>
+
+<script type="text/javascript">
+    $(document).on('change', '.btn-file :file', function () {
+        var input = $(this),
+            numFiles = input.get(0).files ? input.get(0).files.length : 1,
+            label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+        input.trigger('fileselect', [numFiles, label]);
+    });
+
+    $(document).ready(function () {
+        $('.btn-file :file').on('fileselect', function (event, numFiles, label) {
+
+            var input = $(this).parents('.input-group').find(':text'),
+                log = numFiles > 1 ? numFiles + ' files selected' : label;
+
+            if (input.length) {
+                input.val(log);
+            } else {
+                if (log) alert(log);
+            }
+
+        });
+    });
+</script>
+
+<script type="text/javascript">
+    var arrbinduser = [];
+    function bindcomposemessage() {
+        debugger;
+        $.ajax({
+            type: 'POST',
+            url: '../Publishing/ComposeScheduledMessage',
+            success: function (msg) {
+                //alert(msg);
+                $('#binduserforcompose').html(msg);
+            },
+            async: false
+        });
+
+
+    };
+
+    function checkisuserexist(profileidwithnetwork) {
+        if (jQuery.inArray(profileidwithnetwork, arrbinduser) === -1) {
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+
+    function removebindfrofiles(profileid, network) {
+        //alert(clas);
+        $('#' + profileid).hide(250, function () {
+            $('#' + profileid).remove();
+        });
+        var i = arrbinduser.indexOf(profileid + "~" + network);
+        if (i != -1) {
+            arrbinduser.splice(i, 1);
+        }
+    }
+
+    function bindfrofiles(network, name, profileid) {
+        var totalmessagewords = 0;
+        if (checkisuserexist(profileid + "~" + network) == false) {
+            arrbinduser.push(profileid + "~" + network);
+            $('#bindcomposescheduledprofiles').append('<span style="display:none" class="pull-right btn btn-default bindprof" onclick="removebindfrofiles(\'' + profileid + '\',\'' + network + '\')" id=' + profileid + ' data-toggle="tooltip" data-placement="right" title="click to remove"><i class="fa fa-' + network + ' fa-fw"></i>' + name + '</span>');
+            $('#' + profileid).fadeIn(250);
+
+            totalmessagewords = BindChracterAccordingProfile(network);
+            $('#MessageCount').html(totalmessagewords);
+
+
+            $('#txtscheduled').bind('keyup', function () {
+
+                var totalmessagewords = 0;
+                var last = arrbinduser.slice(-1)[0]
+                var strarr = last.split('~');
+                var Network = strarr[1];
+
+                totalmessagewords = BindChracterAccordingProfile(Network);
+
+                var charactersUsed = $(this).val().length;
+
+                if (charactersUsed > totalmessagewords) {
+                    charactersUsed = totalmessagewords;
+                    $(this).val($(this).val().substr(0, totalmessagewords));
+                }
+
+                var charactersRemaining = totalmessagewords - charactersUsed;
+
+                $('#MessageCount').html(charactersRemaining);
+
+            });
+        }
+        else {
+            alertify.set({ delay: 1000 });
+            alertify.error('This Profile Already Added')
+        }
+
+    };
+
+    function BindChracterAccordingProfile(network) {
+        var totalmessagewords = 0;
+        if (network == "facebook") {
+            totalmessagewords = 5000;
+        }
+        if (network == "twitter") {
+            totalmessagewords = 140;
+        }
+        if (network == "linkedin") {
+            totalmessagewords = 600;
+        }
+
+        return totalmessagewords;
+    }
+
+
+
+    function AddImageScheduleMessage() {
+        debugger;
+        var filesinput = $('#scheduleimageupload');
+        var fileExtension = ['jpeg', 'jpg', 'png', 'gif', 'bmp'];
+        if (filesinput != undefined && filesinput[0].files[0] != null) {
+            if (hasExtension('scheduleimageupload', fileExtension)) {
+
+            }
+            else {
+                alertify.set({ delay: 3000 });
+                alertify.error("File Extention is not current. Please upload any image file");
+                $('#scheduleimageupload').val('');
+                return;
+            }
+        }
+    }
+
+</script>
+
+
+
+

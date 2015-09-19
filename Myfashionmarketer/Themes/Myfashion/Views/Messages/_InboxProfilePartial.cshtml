@@ -1,0 +1,61 @@
+﻿@{
+    List<Domain.Myfashion.Domain.TeamMemberProfile> allprofileofuser = (List<Domain.Myfashion.Domain.TeamMemberProfile>)Model;
+    }
+
+@foreach (var item in allprofileofuser)
+            {
+                try
+                {
+                    //Domain.Myfashion.Domain.TeamMemberProfile item = (Domain.Myfashion.Domain.TeamMemberProfile)(profile.Value);
+                    if (item.ProfileType == "facebook")
+                    {
+                        <tr class="cls-user-profile">
+                <td><span class=""><i class="fa fa-facebook"></i></span></td>
+                <td>@item.ProfileName </td>
+                            <td id="profileid" attrid="@item.ProfileId">
+                                <label for="mChk1">
+                                    <input type="checkbox" name="fb_@item.ProfileId" id="@item.ProfileId" title="checked" onclick="filterinboxmessages(@item.ProfileId)" checked />
+                                    <label for="@item.ProfileId" class="css-label"></label>
+                                </label>
+                            </td>
+            </tr>
+                    }
+                 
+                   
+                }
+                catch (Exception Err)
+                {
+                    Console.Write(Err.StackTrace);
+                }
+            }
+           
+@foreach (var item in allprofileofuser)
+            {
+                try
+                {
+                    //Domain.Myfashion.Domain.TeamMemberProfile item = (Domain.Myfashion.Domain.TeamMemberProfile)(profile.Value);
+                    if (item.ProfileType == "twitter")
+                    {
+                       <tr class="cls-user-profile">
+        <td><span class=""><i class="fa fa-twitter"></i></span></td>
+        <td>&#64;@item.ProfileName</td>
+                           <td id="profileid" attrid="@item.ProfileId">
+                               <label for="mChk3">
+                                   <input type="checkbox" name="twt_@item.ProfileId" id="@item.ProfileId" title="checked" onclick="filterinboxmessages(@item.ProfileId)" checked />
+                                   <label for="@item.ProfileId" class="css-label"></label>
+                               </label>
+                           </td>
+    </tr>
+                    }
+                 
+                   
+                }
+                catch (Exception Err)
+                {
+                    Console.Write(Err.StackTrace);
+                }
+            }
+
+
+                            
+                       

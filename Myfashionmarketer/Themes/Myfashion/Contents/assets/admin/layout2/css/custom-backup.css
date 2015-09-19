@@ -1,0 +1,76 @@
+/* here you can put your own css to customize and override the theme */
+
+/***
+Rounded Portlets
+***/
+/*
+.portlet {
+	border-radius: 4px !important;
+}
+
+.portlet .portlet-title {
+	border-radius: 4px 4px 0px 0px !important;
+}
+
+.portlet .portlet-body,
+.portlet .portlet-body .form-actions  {
+	border-radius: 0px 0px 4px 4px !important;
+}
+*/
+.logo-size{height: 32px; margin-top: 15px;}
+.page-lay{padding: 0px 15px 0px !important;}
+.nav-pills > li.active > a, .nav-pills > li.active > a:focus, .nav-pills > li.active > a:hover{ background-color: #e5e5e5;
+    color: #333;}
+	.nav-pills>li>a{color:#FFF;}
+	.nav-pills>li> a:hover{color:#333;}
+	.row-full-height{height:100%; min-height:850px;}
+	.dropdown > .dropdown-menu:before, .dropdown-toggle > .dropdown-menu:before, .btn-group > .dropdown-menu:before{left:90px;}
+	.dropdown > .dropdown-menu:after, .dropdown-toggle > .dropdown-menu:after, .btn-group > .dropdown-menu:after{left:91px;}
+	.input-small {
+    left: -70px;
+    width: 145px !important;
+}
+.btn-blue {
+    background-color: #fff;
+    border: 1px solid #14b9d6;
+    color: #333;
+	margin-top:5px;
+}
+.m-top-md{margin-top:20px;}
+.tabs-left { margin-top: 3rem; }
+
+.nav-tabs {
+  float: left;
+  border-bottom: 0;
+}
+
+ .nav-tabs > li{float:none; margin:0;}
+ .nav > li > a{color:#fff;}
+    
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+  border:0;
+}
+
+.tab-content {
+  margin-left: 45px;
+}
+  .tab-pane {
+    display: none;
+    background-color: #fff;
+    padding: 1.6rem;
+    overflow-y: auto;
+  }
+  
+  .active { display: block; }
+
+.list-group {
+  width: 100%;
+  
+  .list-group-item {
+    height: 50px;
+    
+    h4, span {
+      line-height: 11px;
+    }
+  

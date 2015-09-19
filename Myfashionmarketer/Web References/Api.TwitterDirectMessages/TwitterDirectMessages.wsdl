@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getAllDirectMessagesById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Profileid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getAllDirectMessagesByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getAllDirectMessagesByIdResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDistinctTwitterDirectMessagesByProfilesAndUserId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Profiles" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDistinctTwitterDirectMessagesByProfilesAndUserIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDistinctTwitterDirectMessagesByProfilesAndUserIdResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetConversation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SenderId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RecipientId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetConversationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetConversationResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="getAllDirectMessagesByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:getAllDirectMessagesById" />
+  </wsdl:message>
+  <wsdl:message name="getAllDirectMessagesByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:getAllDirectMessagesByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDistinctTwitterDirectMessagesByProfilesAndUserIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDistinctTwitterDirectMessagesByProfilesAndUserId" />
+  </wsdl:message>
+  <wsdl:message name="GetDistinctTwitterDirectMessagesByProfilesAndUserIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDistinctTwitterDirectMessagesByProfilesAndUserIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetConversationSoapIn">
+    <wsdl:part name="parameters" element="tns:GetConversation" />
+  </wsdl:message>
+  <wsdl:message name="GetConversationSoapOut">
+    <wsdl:part name="parameters" element="tns:GetConversationResponse" />
+  </wsdl:message>
+  <wsdl:portType name="TwitterDirectMessagesSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllDirectMessagesById">
+      <wsdl:input message="tns:getAllDirectMessagesByIdSoapIn" />
+      <wsdl:output message="tns:getAllDirectMessagesByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDistinctTwitterDirectMessagesByProfilesAndUserId">
+      <wsdl:input message="tns:GetDistinctTwitterDirectMessagesByProfilesAndUserIdSoapIn" />
+      <wsdl:output message="tns:GetDistinctTwitterDirectMessagesByProfilesAndUserIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetConversation">
+      <wsdl:input message="tns:GetConversationSoapIn" />
+      <wsdl:output message="tns:GetConversationSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TwitterDirectMessagesSoap" type="tns:TwitterDirectMessagesSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllDirectMessagesById">
+      <soap:operation soapAction="http://tempuri.org/getAllDirectMessagesById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDistinctTwitterDirectMessagesByProfilesAndUserId">
+      <soap:operation soapAction="http://tempuri.org/GetDistinctTwitterDirectMessagesByProfilesAndUserId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetConversation">
+      <soap:operation soapAction="http://tempuri.org/GetConversation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TwitterDirectMessagesSoap12" type="tns:TwitterDirectMessagesSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllDirectMessagesById">
+      <soap12:operation soapAction="http://tempuri.org/getAllDirectMessagesById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDistinctTwitterDirectMessagesByProfilesAndUserId">
+      <soap12:operation soapAction="http://tempuri.org/GetDistinctTwitterDirectMessagesByProfilesAndUserId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetConversation">
+      <soap12:operation soapAction="http://tempuri.org/GetConversation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TwitterDirectMessages">
+    <wsdl:port name="TwitterDirectMessagesSoap" binding="tns:TwitterDirectMessagesSoap">
+      <soap:address location="http://localhost:2022/Services/TwitterDirectMessages.asmx" />
+    </wsdl:port>
+    <wsdl:port name="TwitterDirectMessagesSoap12" binding="tns:TwitterDirectMessagesSoap12">
+      <soap12:address location="http://localhost:2022/Services/TwitterDirectMessages.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

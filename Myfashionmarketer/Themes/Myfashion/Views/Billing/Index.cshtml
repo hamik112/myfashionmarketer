@@ -1,0 +1,175 @@
+﻿@{
+    string path = @System.Configuration.ConfigurationManager.AppSettings["domain"];
+}
+
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <!-- BEGIN INLINE NOTIFICATIONS PORTLET-->
+        <div class="portlet light">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="fa fa-cogs"></i>Pricing Tables
+                </div>
+                <div class="tools">
+                    <a href="javascript:;" class="collapse">
+                    </a>
+                    <a href="#portlet-config" data-toggle="modal" class="config">
+                    </a>
+                    <a href="javascript:;" class="reload">
+                    </a>
+                    <a href="javascript:;" class="remove">
+                    </a>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div class="row margin-bottom-40">
+                    <!-- Pricing -->
+                    <div class="col-md-4">
+                        <div class="pricing hover-effect">
+                            <div class="pricing-head">
+                                <h3>
+                                    Personal
+                                </h3>
+                                <h4>
+                                    <i>$</i>5<i></i>
+                                    <span>
+                                        Per Month
+                                    </span>
+                                </h4>
+                            </div>
+                            <ul class="pricing-content list-unstyled">
+                                <li>
+                                    <i class="fa fa-tags"></i> At vero eos
+                                </li>
+                                <li>
+                                    <i class="fa fa-asterisk"></i> No Support
+                                </li>
+                                <li>
+                                    <i class="fa fa-heart"></i> Fusce condimentum
+                                </li>
+                                <li>
+                                    <i class="fa fa-star"></i> Ut non libero
+                                </li>
+                                <li>
+                                    <i class="fa fa-shopping-cart"></i> Consecte adiping elit
+                                </li>
+                            </ul>
+                            <div class="pricing-footer">
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero magna psum olor .
+                                </p>
+                                <a onclick="UpgradeStatus('Personal')" class="btn yellow-crusta">
+                                    Upgrade <i class="m-icon-swapright m-icon-white"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="pricing hover-effect">
+                            <div class="pricing-head">
+                                <h3>
+                                    Professional
+                                </h3>
+                                <h4>
+                                    <i>$</i>10<i></i>
+                                    <span>
+                                        Per Month
+                                    </span>
+                                </h4>
+                            </div>
+                            <ul class="pricing-content list-unstyled">
+                                <li>
+                                    <i class="fa fa-tags"></i> At vero eos
+                                </li>
+                                <li>
+                                    <i class="fa fa-asterisk"></i> No Support
+                                </li>
+                                <li>
+                                    <i class="fa fa-heart"></i> Fusce condimentum
+                                </li>
+                                <li>
+                                    <i class="fa fa-star"></i> Ut non libero
+                                </li>
+                                <li>
+                                    <i class="fa fa-shopping-cart"></i> Consecte adiping elit
+                                </li>
+                            </ul>
+                            <div class="pricing-footer">
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero magna psum olor .
+                                </p>
+                                <a onclick="UpgradeStatus('Professional')" class="btn yellow-crusta">
+                                    Upgrade <i class="m-icon-swapright m-icon-white"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="pricing pricing-active hover-effect">
+                            <div class="pricing-head pricing-head-active">
+                                <h3>
+                                    Business
+                                </h3>
+                                <h4>
+                                    <i>$</i>25<i></i>
+                                    <span>
+                                        Per Month
+                                    </span>
+                                </h4>
+                            </div>
+                            <ul class="pricing-content list-unstyled">
+                                <li>
+                                    <i class="fa fa-tags"></i> At vero eos
+                                </li>
+                                <li>
+                                    <i class="fa fa-asterisk"></i> No Support
+                                </li>
+                                <li>
+                                    <i class="fa fa-heart"></i> Fusce condimentum
+                                </li>
+                                <li>
+                                    <i class="fa fa-star"></i> Ut non libero
+                                </li>
+                                <li>
+                                    <i class="fa fa-shopping-cart"></i> Consecte adiping elit
+                                </li>
+                            </ul>
+                            <div class="pricing-footer">
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero magna psum olor .
+                                </p>
+                                <a onclick="UpgradeStatus('Business')" class="btn yellow-crusta">
+                                    Upgrade <i class="m-icon-swapright m-icon-white"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--//End Pricing -->
+                </div>
+            </div>
+        </div>
+        <!-- END INLINE NOTIFICATIONS PORTLET-->
+    </div>
+</div>
+
+<script type="text/javascript" src="/Themes/@path/Contents/assets/plugins/jquery-1.11.2.min.js"></script>
+<script>
+    function UpgradeStatus(accounttype)
+    {
+        $.ajax({
+            type: "POST",
+            url: '../Billing/UpgradePlan?AccountType=' + accounttype,
+            contentType: false,
+            success: function (msg) {
+                if (msg !== "") {
+                    window.location = msg;
+                }
+            }
+        });
+    
+    
+    }
+
+
+</script>

@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="SendMail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Subject" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="profile" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendMailResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendAgencyMail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Company" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendAgencyMailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendAgencyMailResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendEnterpriseMail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="designation" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="location" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Company" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="companywebsite" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendEnterpriseMailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendEnterpriseMailResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendCareerMail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Subject" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="profile" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="filepath" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="filename" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="filetype" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendCareerMailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendCareerMailResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendRequestForDemo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Subject" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="body" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendRequestForDemoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendRequestForDemoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendChangePasswordMail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="emailId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="mailBody" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Subject" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendChangePasswordMailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendChangePasswordMailResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendFeedMail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="emailId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="feed" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fromname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="mailBody" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendFeedMailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendFeedMailResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendAddNewsLatterMail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="emailId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="mailBody" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Subject" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendAddNewsLatterMailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendAddNewsLatterMailResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendTaskNotificationMail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="emailId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="mailBody" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Subject" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendTaskNotificationMailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendTaskNotificationMailResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SendMailSoapIn">
+    <wsdl:part name="parameters" element="tns:SendMail" />
+  </wsdl:message>
+  <wsdl:message name="SendMailSoapOut">
+    <wsdl:part name="parameters" element="tns:SendMailResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendAgencyMailSoapIn">
+    <wsdl:part name="parameters" element="tns:SendAgencyMail" />
+  </wsdl:message>
+  <wsdl:message name="SendAgencyMailSoapOut">
+    <wsdl:part name="parameters" element="tns:SendAgencyMailResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendEnterpriseMailSoapIn">
+    <wsdl:part name="parameters" element="tns:SendEnterpriseMail" />
+  </wsdl:message>
+  <wsdl:message name="SendEnterpriseMailSoapOut">
+    <wsdl:part name="parameters" element="tns:SendEnterpriseMailResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendCareerMailSoapIn">
+    <wsdl:part name="parameters" element="tns:SendCareerMail" />
+  </wsdl:message>
+  <wsdl:message name="SendCareerMailSoapOut">
+    <wsdl:part name="parameters" element="tns:SendCareerMailResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendRequestForDemoSoapIn">
+    <wsdl:part name="parameters" element="tns:SendRequestForDemo" />
+  </wsdl:message>
+  <wsdl:message name="SendRequestForDemoSoapOut">
+    <wsdl:part name="parameters" element="tns:SendRequestForDemoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendChangePasswordMailSoapIn">
+    <wsdl:part name="parameters" element="tns:SendChangePasswordMail" />
+  </wsdl:message>
+  <wsdl:message name="SendChangePasswordMailSoapOut">
+    <wsdl:part name="parameters" element="tns:SendChangePasswordMailResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendFeedMailSoapIn">
+    <wsdl:part name="parameters" element="tns:SendFeedMail" />
+  </wsdl:message>
+  <wsdl:message name="SendFeedMailSoapOut">
+    <wsdl:part name="parameters" element="tns:SendFeedMailResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendAddNewsLatterMailSoapIn">
+    <wsdl:part name="parameters" element="tns:SendAddNewsLatterMail" />
+  </wsdl:message>
+  <wsdl:message name="SendAddNewsLatterMailSoapOut">
+    <wsdl:part name="parameters" element="tns:SendAddNewsLatterMailResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendTaskNotificationMailSoapIn">
+    <wsdl:part name="parameters" element="tns:SendTaskNotificationMail" />
+  </wsdl:message>
+  <wsdl:message name="SendTaskNotificationMailSoapOut">
+    <wsdl:part name="parameters" element="tns:SendTaskNotificationMailResponse" />
+  </wsdl:message>
+  <wsdl:portType name="MailSenderSoap">
+    <wsdl:operation name="SendMail">
+      <wsdl:input message="tns:SendMailSoapIn" />
+      <wsdl:output message="tns:SendMailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendAgencyMail">
+      <wsdl:input message="tns:SendAgencyMailSoapIn" />
+      <wsdl:output message="tns:SendAgencyMailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendEnterpriseMail">
+      <wsdl:input message="tns:SendEnterpriseMailSoapIn" />
+      <wsdl:output message="tns:SendEnterpriseMailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendCareerMail">
+      <wsdl:input message="tns:SendCareerMailSoapIn" />
+      <wsdl:output message="tns:SendCareerMailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendRequestForDemo">
+      <wsdl:input message="tns:SendRequestForDemoSoapIn" />
+      <wsdl:output message="tns:SendRequestForDemoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendChangePasswordMail">
+      <wsdl:input message="tns:SendChangePasswordMailSoapIn" />
+      <wsdl:output message="tns:SendChangePasswordMailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendFeedMail">
+      <wsdl:input message="tns:SendFeedMailSoapIn" />
+      <wsdl:output message="tns:SendFeedMailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendAddNewsLatterMail">
+      <wsdl:input message="tns:SendAddNewsLatterMailSoapIn" />
+      <wsdl:output message="tns:SendAddNewsLatterMailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendTaskNotificationMail">
+      <wsdl:input message="tns:SendTaskNotificationMailSoapIn" />
+      <wsdl:output message="tns:SendTaskNotificationMailSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MailSenderSoap" type="tns:MailSenderSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendMail">
+      <soap:operation soapAction="http://tempuri.org/SendMail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendAgencyMail">
+      <soap:operation soapAction="http://tempuri.org/SendAgencyMail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendEnterpriseMail">
+      <soap:operation soapAction="http://tempuri.org/SendEnterpriseMail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendCareerMail">
+      <soap:operation soapAction="http://tempuri.org/SendCareerMail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendRequestForDemo">
+      <soap:operation soapAction="http://tempuri.org/SendRequestForDemo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendChangePasswordMail">
+      <soap:operation soapAction="http://tempuri.org/SendChangePasswordMail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendFeedMail">
+      <soap:operation soapAction="http://tempuri.org/SendFeedMail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendAddNewsLatterMail">
+      <soap:operation soapAction="http://tempuri.org/SendAddNewsLatterMail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendTaskNotificationMail">
+      <soap:operation soapAction="http://tempuri.org/SendTaskNotificationMail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MailSenderSoap12" type="tns:MailSenderSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendMail">
+      <soap12:operation soapAction="http://tempuri.org/SendMail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendAgencyMail">
+      <soap12:operation soapAction="http://tempuri.org/SendAgencyMail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendEnterpriseMail">
+      <soap12:operation soapAction="http://tempuri.org/SendEnterpriseMail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendCareerMail">
+      <soap12:operation soapAction="http://tempuri.org/SendCareerMail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendRequestForDemo">
+      <soap12:operation soapAction="http://tempuri.org/SendRequestForDemo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendChangePasswordMail">
+      <soap12:operation soapAction="http://tempuri.org/SendChangePasswordMail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendFeedMail">
+      <soap12:operation soapAction="http://tempuri.org/SendFeedMail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendAddNewsLatterMail">
+      <soap12:operation soapAction="http://tempuri.org/SendAddNewsLatterMail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendTaskNotificationMail">
+      <soap12:operation soapAction="http://tempuri.org/SendTaskNotificationMail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MailSender">
+    <wsdl:port name="MailSenderSoap" binding="tns:MailSenderSoap">
+      <soap:address location="http://localhost:2022/Services/MailSender.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MailSenderSoap12" binding="tns:MailSenderSoap12">
+      <soap12:address location="http://localhost:2022/Services/MailSender.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

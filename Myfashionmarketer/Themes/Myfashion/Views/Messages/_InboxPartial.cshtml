@@ -1,0 +1,120 @@
+﻿@using Domain.Myfashion.Domain;
+@using Myfashionmarketer.Api;
+@using System.Web.Script.Serialization;
+@{
+    Domain.Myfashion.Domain.User user = (Domain.Myfashion.Domain.User)Session["User"];
+    List<Domain.Myfashion.Domain.InboxMessages> lstmsg = (List<Domain.Myfashion.Domain.InboxMessages>)Model;
+}
+
+@foreach (Domain.Myfashion.Domain.InboxMessages msg in lstmsg)
+{
+    if (msg.MessageType == "twt_followers")
+    {
+        <li class="list-group-item you">
+            <div class="media">
+
+                <div class="media-left">
+                    <a href="javascript:void(0)" class="avatar avatar-100">
+                        <img src="@msg.FromImageUrl" alt="">
+                    </a>
+                </div>
+                <div class="media-body">
+                    @{string date = "";
+                    try
+                    {
+                        date = (msg.CreatedTime.Date.ToString()).Split(new char[] { ' ' })[0];
+                    }
+                    catch { }
+                    <div class="date"><a href="javascript:void(0)">New Follower Alert @date </a></div>
+                    }
+
+                    <div class="message1">
+                    
+                        <p class="media-heading" id="msg_@msg.Id"><a href="https://twitter.com/@msg.FromName" target="_blank" data-toggle="tooltip" title="@msg.FromName">@msg.FromName</a> is now following <a href="https://twitter.com/@msg.RecipientName" target="_blank" data-toggle="tooltip" title="@msg.RecipientName">@msg.RecipientName</a> on Twitter.</p>
+
+                        <p>Followers @msg.FollowerCount / Following @msg.FollowingCount</p>
+                        <p>
+                            Bio: @msg.Message
+
+                        </p>
+                        <div class="pull-right chatLinks col-md-2">
+                            @* <a href="#"><i class="fa fa-user-plus"></i></a>
+                    <a href="#"><i class="fa fa-check-circle-o"></i></a>*@
+                            <a title="Task" data-target="#task" data-toggle="modal" onclick="opentask('msg_@msg.Id','@msg.CreatedTime')" style="cursor:pointer"><i class="fa fa-thumb-tack"></i></a>
+                            <a title="Email Message" @*data-target="#msgmailpopup" data-toggle="modal"*@ onclick="MailPopUpMsg('@msg.Id');" style="cursor:pointer"><i class="fa fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>}
+    else if (msg.MessageType == "twt_retweet")
+    {
+        <li class="list-group-item you">
+            <div class="media">
+                <div class="media-left">
+                    <a href="#" class="user">
+                        <img src="@msg.RecipientImageUrl" alt="">
+                    </a>
+                 </div>
+                <div class="media-body">
+                    <div class="date"><a href="https://twitter.com/@msg.RecipientName" target="_blank" data-toggle="tooltip" title="@msg.RecipientName">@msg.RecipientName</a> @msg.CreatedTime, retweeted by <a href="https://twitter.com/@msg.FromName" target="_blank" data-toggle="tooltip" title="@msg.FromName">@msg.FromName</a></div>
+                    <div class="message">
+                        <p id="msg_@msg.Id"><a href="https://twitter.com/@msg.FromName/status/@msg.MessageId" target="_blank" style="color: #fff; text-decoration: none">@msg.Message</a></p>
+                        <div class="pull-right chatLinks col-md-2">
+                            @*<a href="#"><i class="fa fa-user-plus"></i></a>
+                    <a href="#"><i class="fa fa-check-circle-o"></i></a>*@
+                            <a title="Task" data-target="#task" data-toggle="modal" onclick="opentask('msg_@msg.Id','@msg.CreatedTime')" style="cursor:pointer"><i class="fa fa-thumb-tack"></i></a>
+                            <a title="Email Message" @*data-target="#msgmailpopup" data-toggle="modal"*@ onclick="MailPopUpMsg('@msg.Id');" style="cursor:pointer"><i class="fa fa-envelope"></i></a>
+                        </div>
+                    </div>
+                    </div>
+                </div>    
+    </li>}
+    else if (msg.MessageType == "fb_notification")
+    {
+        <li class="list-group-item you">
+            <div class="media">
+                <a href="#" class="user">
+                    <img src="@msg.FromImageUrl" alt="">
+                </a>
+                <div class="media-body">
+                    <div class="date">@msg.CreatedTime</div>
+                    <div class="message">
+                        <p id="msg_@msg.Id">@msg.Message</p>
+                        <div class="pull-right chatLinks col-md-2">
+                            @* <a href="#"><i class="fa fa-user-plus"></i></a>
+                    <a href="#"><i class="fa fa-check-circle-o"></i></a>*@
+                            <a title="Task" data-target="#task" data-toggle="modal" onclick="opentask('msg_@msg.Id','@msg.CreatedTime')" style="cursor:pointer"><i class="fa fa-thumb-tack"></i></a>
+                            <a title="Email Message" @*data-target="#msgmailpopup" data-toggle="modal"*@ onclick="MailPopUpMsg('@msg.Id');" style="cursor:pointer"><i class="fa fa-envelope"></i></a>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+</li>}
+    else if (msg.MessageType == "twt_mention")
+    {
+     <li class="list-group-item you">
+            <div class="media">
+        <div class="media-left">
+            <a href="#" class="user">
+                <img src="@msg.FromImageUrl" alt="">
+            </a>
+            </div>
+        <div class="media-body">
+            <div class="date"><a href="https://twitter.com/@msg.FromName" target="_blank" data-toggle="tooltip" title="">@msg.FromName</a> @msg.CreatedTime, mention <a href="https://twitter.com/@msg.RecipientName" target="_blank" data-toggle="tooltip" title="">@msg.RecipientName</a></div>
+            <div class="message">
+                <p id="msg_@msg.Id"><a href="https://twitter.com/@msg.FromName/status/@msg.MessageId" target="_blank" style="color: #fff; text-decoration: none">@msg.Message</a></p>
+                <div class="pull-right chatLinks col-md-2">
+                    @*<a href="#"><i class="fa fa-user-plus"></i></a>
+                    <a href="#"><i class="fa fa-check-circle-o"></i></a>*@
+                    <a title="Task" data-target="#task" data-toggle="modal" onclick="opentask('msg_@msg.Id','@msg.CreatedTime')" style="cursor:pointer"><i class="fa fa-thumb-tack"></i></a>
+                    <a title="Email Message" @*data-target="#msgmailpopup" data-toggle="modal"*@ onclick="MailPopUpMsg('@msg.Id');" style="cursor:pointer"><i class="fa fa-envelope"></i></a>
+                </div>
+                </div>
+            </div>
+                </div>
+</li>}
+
+}
+

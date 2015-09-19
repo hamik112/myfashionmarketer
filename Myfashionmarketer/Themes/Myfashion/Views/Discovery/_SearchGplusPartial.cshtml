@@ -1,0 +1,20 @@
+﻿@{
+    bool check = true;
+}
+
+@foreach (var item in (List<Domain.Myfashion.Domain.DiscoverySearch>)Model)
+{
+        <li class="list-group-item">
+            <div>
+                <img class="img-circle avatar-lg" src="@item.ProfileImageUrl">
+                <span class="font-16 m-left-sm bold"><a href="http://plus.google.com/@item.FromId" target="_blank">@item.FromName</a></span>
+                <span><a href="" target="_blank"><i class="icon fa-clock-o"></i>@item.CreatedTime</a></span>
+            </div>
+            <div class="m-top-sm">
+                <p>
+                    @item.Message
+                </p>
+            </div>
+        </li>
+
+}

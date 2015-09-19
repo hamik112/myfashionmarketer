@@ -1,0 +1,40 @@
+﻿@using Domain.Myfashion.Domain;
+@{
+    string path = @System.Configuration.ConfigurationManager.AppSettings["domain"];
+     Domain.Myfashion.Domain.User objuser = (Domain.Myfashion.Domain.User)Session["User"];
+}
+<thead>
+    <tr>
+        <th class="text-center">User</th>
+        <th class="text-center">Message</th>
+        <th class="text-center">Edit</th>
+        <th class="text-center">Delete</th>
+        <th class="text-center">Schedule</th>
+
+    </tr>
+</thead>
+<tbody>
+    @foreach (var item in (List<Domain.Myfashion.Domain.Drafts>)Model)
+{
+    item.CreatedDate = TimeZoneInfo.ConvertTimeFromUtc(item.CreatedDate,
+TimeZoneInfo.FindSystemTimeZoneById("India Standard Time"));
+    <tr class="text-center" id="@item.Id">
+        <td>
+            <img class="img-circle square-40" src="../../assets/admin/layout2/img/avatar3.jpg">
+            <p>@objuser.UserName <br> @item.CreatedDate</p>
+        </td>
+        <td>
+            <p> @item.Message</p>
+
+        </td>
+        <td>
+            <button type="button" onclick="editdraft('@item.Id','@item.Message')" class="btn btn-xs btn-warning"><span><i class="fa fa-edit"></i></span></button>
+        </td>
+        <td><button onclick="deletedraftmsg('@item.Id')" class="btn btn-xs btn-danger"><span><i class="fa fa-trash"></i></span></button></td>
+        <td><a href="../Publishing/Index?Message=@item.Message" class="btn btn-xs btn-success"><span><i class="fa fa-check"></i></span></a></td>
+    </tr>
+
+}
+
+</tbody>
+

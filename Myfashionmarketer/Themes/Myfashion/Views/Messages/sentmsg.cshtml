@@ -1,0 +1,91 @@
+﻿@using Domain.Myfashion.Domain;
+@using Myfashionmarketer.Api;
+@using System.Web.Script.Serialization;
+@{
+    Domain.Myfashion.Domain.User user = (Domain.Myfashion.Domain.User)Session["User"];
+    string path = System.Configuration.ConfigurationManager.AppSettings["domain"];
+}
+
+<div class="row">
+    <div class="panel">
+        <div class="panel-body">
+            <div class="col-md-12 col-sm-12" id="sent">
+                <!-- BEGIN PORTLET-->
+                <div class="panel panel-bordered panel-dark">
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                            <i class="fa fa-search font-green-sharp"></i>
+                            Sent Message
+
+                        </div>
+                        <div class="actions">
+                            <div class="btn-group">
+                                <button data-toggle="dropdown" type="button" class="btn btn-circle btn-info dropdown-toggle" aria-expanded="false">
+                                    <i class="fa fa-search-plus"></i> Search <i class="fa fa-angle-down"></i>
+                                </button>
+                                <div role="menu" class="dropdown-menu dropdown-content input-small hold-on-click">
+                                    <form action="#">
+                                        <div class="input-group">
+                                            <input type="text" placeholder="search..." class="form-control">
+                                            <span class="input-group-btn">
+                                                <button type="submit" class="btn blue">Go!</button>
+                                            </span>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        
+                        <div class="row" id="sentmsg">
+
+
+
+                        </div>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="/Themes/@path/Contents/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+                        $('#socialmedia').css('display', 'block');
+                        $(document).ready(function () {
+                            //$('#page-wrapper').load('../Messages/loadsentmsg');
+                            //$('#side-menu a').removeClass('active');
+                            //$("#message").addClass('active');
+                            //$("#message").children().addClass('active');
+                            //$("#msg-sentmsg").addClass('active');
+                            //$("#msg-task").removeClass('active');
+                            //$("#msg-index").removeClass('active');
+                            //$("#msg-archive").removeClass('active');
+                            
+                            $.ajax({
+                                type: "POST",
+                                url: "../Messages/loadsentmsg",
+                                
+                                contentType: "application/json; charset=utf-8",
+                                dataType: "html",
+                                success: function (msg) {
+                                    $("#sentmsg").html(msg);
+                                            
+                                }
+                                //  UpdateReadStatus();
+
+
+
+                         
+                            });
+                      
+
+                        function hideTask(divId) {
+                            alert(divId);
+                            $('#' + divId).removeClass('in');
+                        }
+                        })
+                    </script>
