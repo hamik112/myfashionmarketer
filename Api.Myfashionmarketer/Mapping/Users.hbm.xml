@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping assembly="Domain.Myfashion" namespace="Domain.Myfashion.Domain" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="Users" table="users" lazy="true" >
+    <id name="Userid" column="UserID" />
+    <many-to-one name="Customers" class="Customers">
+      <column name="CustomerID" sql-type="int(10)" not-null="true" />
+    </many-to-one>
+    <property name="Resellerid">
+      <column name="ResellerId" sql-type="int(10)" not-null="false" />
+    </property>
+    <property name="Loginid">
+      <column name="LoginID" sql-type="varchar(60)" not-null="true" />
+    </property>
+    <property name="Password">
+      <column name="Password" sql-type="varchar(15)" not-null="true" />
+    </property>
+    <property name="Usertype">
+      <column name="UserType" sql-type="int(11)" not-null="false" />
+    </property>
+    <property name="Active">
+      <column name="active" sql-type="int(2)" not-null="true" />
+    </property>
+    <property name="Addeddate">
+      <column name="Addeddate" sql-type="timestamp" not-null="false" />
+    </property>
+    <property name="Token">
+      <column name="token" sql-type="text" not-null="false" />
+    </property>
+   
+  </class>
+</hibernate-mapping>

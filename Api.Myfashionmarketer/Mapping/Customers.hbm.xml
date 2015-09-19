@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping assembly="Domain.Myfashion" namespace="Domain.Myfashion.Domain" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="Customers" table="customers" lazy="true" >
+    <id name="Customerid" column="CustomerID" />
+    <property name="Resellerid">
+      <column name="ResellerId" sql-type="int(11)" not-null="false" />
+    </property>
+    <property name="Firstname">
+      <column name="FirstName" sql-type="varchar(20)" not-null="false" />
+    </property>
+    <property name="Lastname">
+      <column name="LastName" sql-type="varchar(20)" not-null="false" />
+    </property>
+    <property name="Phone">
+      <column name="Phone" sql-type="varchar(30)" not-null="false" />
+    </property>
+    <property name="Address">
+      <column name="Address" sql-type="varchar(50)" not-null="false" />
+    </property>
+    <property name="City">
+      <column name="City" sql-type="varchar(20)" not-null="false" />
+    </property>
+    <property name="State">
+      <column name="State" sql-type="varchar(20)" not-null="false" />
+    </property>
+    <property name="Country">
+      <column name="Country" sql-type="varchar(20)" not-null="false" />
+    </property>
+    <property name="Zipcode">
+      <column name="ZipCode" sql-type="int(10)" not-null="true" />
+    </property>
+    <property name="Allowedusercount">
+      <column name="AllowedUserCount" sql-type="int(10)" not-null="true" />
+    </property>
+    <property name="Activeusercount">
+      <column name="ActiveUserCount" sql-type="int(10)" not-null="true" />
+    </property>
+    <property name="Allowedcampaignscount">
+      <column name="AllowedCampaignsCount" sql-type="int(10)" not-null="true" />
+    </property>
+    <property name="Activeserpcampaignscount">
+      <column name="ActiveSerpCampaignsCount" sql-type="int(10)" not-null="true" />
+    </property>
+    <property name="Activevideocampaigncount">
+      <column name="ActiveVideoCampaignCount" sql-type="int(10)" not-null="true" />
+    </property>
+    <property name="Allowedkeywordcount">
+      <column name="AllowedKeywordCount" sql-type="int(10)" not-null="true" />
+    </property>
+    <property name="Activekeywordcount">
+      <column name="ActiveKeywordCount" sql-type="int(10)" not-null="true" />
+    </property>
+    <property name="Activevideokeywordcount">
+      <column name="ActiveVideoKeywordCount" sql-type="int(10)" not-null="true" />
+    </property>
+    <property name="Timezoneid">
+      <column name="TimezoneID" sql-type="varchar(50)" not-null="false" />
+    </property>
+    <property name="Timezonevalue">
+      <column name="TimezoneValue" sql-type="varchar(50)" not-null="false" />
+    </property>
+    <property name="Alertemailid">
+      <column name="AlertEmailID" sql-type="varchar(50)" not-null="false" />
+    </property>
+    <property name="Alertnotificationcount">
+      <column name="AlertNotificationCount" sql-type="varchar(50)" not-null="false" />
+    </property>
+    <property name="Companyname">
+      <column name="CompanyName" sql-type="varchar(120)" not-null="false" />
+    </property>
+    <property name="Companyurllink">
+      <column name="CompanyURLLink" sql-type="varchar(200)" not-null="false" />
+    </property>
+    <property name="Companylogolink">
+      <column name="CompanyLogoLink" sql-type="varchar(200)" not-null="false" />
+    </property>
+    <property name="Companydescription">
+      <column name="CompanyDescription" sql-type="varchar(500)" not-null="false" />
+    </property>
+
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping
+      xmlns="urn:nhibernate-mapping-2.2"
+      namespace="Domain.Myfashion.Domain"
+      assembly="Domain.Myfashion">
+
+  <class name="Account" table="Account" lazy="false">
+    <id name="Company_id" column="Company_id">
+      <generator class="guid"/>
+    </id>
+    <property name="User_id">
+      <column name="User_id" />
+    </property>
+    <property name="Business_name">
+      <column name="Business_name"  />
+      </property>
+      
+    
+    <property name="Tags">
+      <column name="Tags"  />
+    </property>
+    <property name="Indusrties">
+      <column name="Indusrties"  />
+    </property>
+
+
+    <property name="Block_status">
+      <column name="Block_status"  />
+    </property>
+
+    <property name="Default_no">
+      <column name="Default_no"  />
+    </property>
+
+    <property name="Address">
+      <column name="Address"  />
+    </property>
+    <property name="Country_name">
+      <column name="Country_name"  />
+    </property>
+
+    <property name="City">
+      <column name="City"  />
+    </property>
+
+    <property name="Zip">
+      <column name="Zip"  />
+    </property>
+    <property name="Company_url">
+      <column name="Company_url"  />
+    </property>
+    <property name="EmailId">
+      <column name="EmailId"  />
+    </property>
+
+    <property name="Spam_url">
+      <column name="Spam_url"  />
+    </property>
+
+    <property name="Api_key">
+      <column name="Api_key"  />
+    </property>
+
+    <property name="Blocked_url">
+      <column name="Blocked_url"  />
+    </property>
+
+    <property name="Google_analytics_acc_id">
+      <column name="Google_analytics_acc_id"  />
+    </property>
+
+    <property name="Page_domain">
+      <column name="Page_domain"  />
+    </property>
+    <property name="Adwords_custId">
+      <column name="Adwords_custId"  />
+    </property>
+     <property name="Link_replace_domain">
+      <column name="Link_replace_domain"  />
+     </property>
+     <property name="Google_captcha_key">
+      <column name="Google_captcha_key"  />
+    </property>
+    <property name="Google_captcha_secret">
+      <column name="Google_captcha_secret"  />
+    </property>
+    <property name="Billing_email">
+      <column name="Billing_email"  />
+    </property>
+
+
+  </class>
+</hibernate-mapping>

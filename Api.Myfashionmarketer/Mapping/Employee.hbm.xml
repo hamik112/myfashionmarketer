@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping
+      xmlns="urn:nhibernate-mapping-2.2"
+      namespace="Domain.Myfashion.Domain"
+      assembly="Domain.Myfashion">
+
+  <class name="Employee" table="Employee" lazy="false">
+    <id name="Employee_id" column="Employee_id">
+      <generator class="guid"/>
+    </id>
+    <property name="Company_id">
+      <column name="Company_id" />
+    </property>
+
+    <property name="First_name">
+      <column name="First_name"  />
+    </property>
+
+
+    <property name="Last_name">
+      <column name="Last_name"  />
+    </property>
+
+    <property name="Email">
+      <column name="Email"  />
+    </property>
+
+
+    <property name="Phone_no">
+      <column name="Phone_no"  />
+    </property>
+
+    <property name="Address">
+      <column name="Address"  />
+    </property>
+
+    <property name="Country_name">
+      <column name="Country_name"  />
+    </property>
+
+    <property name="City_name">
+      <column name="City_name"  />
+    </property>
+
+  </class>
+</hibernate-mapping>
