@@ -1,155 +1,93 @@
 ﻿@{
     string path = @System.Configuration.ConfigurationManager.AppSettings["domain"];
 }
+<style type="text/css">
 
-<div class="row">
-    <div class="col-md-10 col-md-offset-1">
-        <!-- BEGIN INLINE NOTIFICATIONS PORTLET-->
-        <div class="portlet light">
-            <div class="portlet-title">
-                <div class="caption">
-                    <i class="fa fa-cogs"></i>Pricing Tables
-                </div>
-                <div class="tools">
-                    <a href="javascript:;" class="collapse">
-                    </a>
-                    <a href="#portlet-config" data-toggle="modal" class="config">
-                    </a>
-                    <a href="javascript:;" class="reload">
-                    </a>
-                    <a href="javascript:;" class="remove">
-                    </a>
-                </div>
-            </div>
-            <div class="portlet-body">
-                <div class="row margin-bottom-40">
-                    <!-- Pricing -->
-                    <div class="col-md-4">
-                        <div class="pricing hover-effect">
-                            <div class="pricing-head">
-                                <h3>
-                                    Personal
-                                </h3>
-                                <h4>
-                                    <i>$</i>5<i></i>
-                                    <span>
-                                        Per Month
-                                    </span>
-                                </h4>
-                            </div>
-                            <ul class="pricing-content list-unstyled">
-                                <li>
-                                    <i class="fa fa-tags"></i> At vero eos
-                                </li>
-                                <li>
-                                    <i class="fa fa-asterisk"></i> No Support
-                                </li>
-                                <li>
-                                    <i class="fa fa-heart"></i> Fusce condimentum
-                                </li>
-                                <li>
-                                    <i class="fa fa-star"></i> Ut non libero
-                                </li>
-                                <li>
-                                    <i class="fa fa-shopping-cart"></i> Consecte adiping elit
-                                </li>
-                            </ul>
-                            <div class="pricing-footer">
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero magna psum olor .
-                                </p>
-                                <a onclick="UpgradeStatus('Personal')" class="btn yellow-crusta">
-                                    Upgrade <i class="m-icon-swapright m-icon-white"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="pricing hover-effect">
-                            <div class="pricing-head">
-                                <h3>
-                                    Professional
-                                </h3>
-                                <h4>
-                                    <i>$</i>10<i></i>
-                                    <span>
-                                        Per Month
-                                    </span>
-                                </h4>
-                            </div>
-                            <ul class="pricing-content list-unstyled">
-                                <li>
-                                    <i class="fa fa-tags"></i> At vero eos
-                                </li>
-                                <li>
-                                    <i class="fa fa-asterisk"></i> No Support
-                                </li>
-                                <li>
-                                    <i class="fa fa-heart"></i> Fusce condimentum
-                                </li>
-                                <li>
-                                    <i class="fa fa-star"></i> Ut non libero
-                                </li>
-                                <li>
-                                    <i class="fa fa-shopping-cart"></i> Consecte adiping elit
-                                </li>
-                            </ul>
-                            <div class="pricing-footer">
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero magna psum olor .
-                                </p>
-                                <a onclick="UpgradeStatus('Professional')" class="btn yellow-crusta">
-                                    Upgrade <i class="m-icon-swapright m-icon-white"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="pricing pricing-active hover-effect">
-                            <div class="pricing-head pricing-head-active">
-                                <h3>
-                                    Business
-                                </h3>
-                                <h4>
-                                    <i>$</i>25<i></i>
-                                    <span>
-                                        Per Month
-                                    </span>
-                                </h4>
-                            </div>
-                            <ul class="pricing-content list-unstyled">
-                                <li>
-                                    <i class="fa fa-tags"></i> At vero eos
-                                </li>
-                                <li>
-                                    <i class="fa fa-asterisk"></i> No Support
-                                </li>
-                                <li>
-                                    <i class="fa fa-heart"></i> Fusce condimentum
-                                </li>
-                                <li>
-                                    <i class="fa fa-star"></i> Ut non libero
-                                </li>
-                                <li>
-                                    <i class="fa fa-shopping-cart"></i> Consecte adiping elit
-                                </li>
-                            </ul>
-                            <div class="pricing-footer">
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero magna psum olor .
-                                </p>
-                                <a onclick="UpgradeStatus('Business')" class="btn yellow-crusta">
-                                    Upgrade <i class="m-icon-swapright m-icon-white"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
 
-                    <!--//End Pricing -->
+</style>
+<div class="panel">
+    <div class="panel-body container-fluid">
+        <!-- Example Pricing List -->
+        <div class="example-wrap">
+            <h4 class="example-title">Pricing-List - Bg In Title</h4>
+            <div class="example">
+                <div class="row">
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="pricing-list">
+                            <div class="pricing-header">
+                                <div class="pricing-title bg-blue-600">Personal</div>
+                                <div class="pricing-price">
+                                    <span class="pricing-currency blue-600">$</span>
+                                    <span class="pricing-amount blue-600">5</span>
+                                    <span class="pricing-period blue-600">/ mo</span>
+                                </div>
+                            </div>
+                            <ul class="pricing-features">
+                                <li><i class="fa fa-check"></i>1 user</li>
+                                <li><i class="fa fa-check"></i>10 GB storage</li>
+                                <li class="disabled"><i class="fa fa-times"></i>Email priority support</li>
+                                <li class="disabled"><i class="fa fa-times"></i>Free update</li>
+                                <li class="disabled"><i class="fa fa-times"></i>24/7 support</li>
+                            </ul>
+                            <div class="pricing-footer">
+                                <a onclick="UpgradeStatus('Personal')" class="btn btn-primary btn-outline">
+                                    Upgrade <i class="m-icon-swapright m-icon-white"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="pricing-list">
+                            <div class="pricing-header">
+                                <div class="pricing-title bg-blue-600">Professional</div>
+                                <div class="pricing-price">
+                                    <span class="pricing-currency blue-600">$</span>
+                                    <span class="pricing-amount blue-600">10</span>
+                                    <span class="pricing-period blue-600">/ mo</span>
+                                </div>
+                            </div>
+                            <ul class="pricing-features">
+                                <li><i class="fa fa-check"></i>10 users</li>
+                                <li><i class="fa fa-check"></i>30 GB storage</li>
+                                <li><i class="fa fa-check"></i>Email priority support</li>
+                                <li><i class="fa fa-check"></i>Free update</li>
+                                <li class="disabled"><i class="fa fa-times"></i>24/7 support</li>
+                            </ul>
+                            <div class="pricing-footer">
+                                <a onclick="UpgradeStatus('Professional')" class="btn btn-primary btn-outline">
+                                    Upgrade <i class="m-icon-swapright m-icon-white"></i>
+                                </a>
+                             </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="pricing-list">
+                            <div class="pricing-header">
+                                <div class="pricing-title bg-blue-600">Business</div>
+                                <div class="pricing-price">
+                                    <span class="pricing-currency blue-600">$</span>
+                                    <span class="pricing-amount blue-600">25</span>
+                                    <span class="pricing-period blue-600">/ mo</span>
+                                </div>
+                            </div>
+                            <ul class="pricing-features">
+                                <li><i class="fa fa-check"></i>Unlimited user</li>
+                                <li><i class="fa fa-check"></i>100 GB storage</li>
+                                <li><i class="fa fa-check"></i>Email priority support</li>
+                                <li><i class="fa fa-check"></i>Free update</li>
+                                <li><i class="fa fa-check"></i>24/7 support</li>
+                            </ul>
+                            <div class="pricing-footer">
+                                <a onclick="UpgradeStatus('Business')" class="btn btn-primary btn-outline">
+                                    Upgrade <i class="m-icon-swapright m-icon-white"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <!-- END INLINE NOTIFICATIONS PORTLET-->
+        <!-- End Example Pricing List -->
     </div>
 </div>
 
