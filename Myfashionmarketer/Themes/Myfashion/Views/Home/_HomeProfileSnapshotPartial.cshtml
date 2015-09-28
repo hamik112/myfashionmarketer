@@ -52,7 +52,7 @@
                 stravg = String.Format("{0:0.00}", avg);
             }
             <div id="mid_@objFacebookAccount.FbUserId" class="col-md-4 col-sm-6 col-xs-12">
-                <div class="widget widget-shadow">
+                <div class="widget widget-shadow" style="border: 1px solid #62a8ea;">
 @if (objFacebookAccount.AccessToken != "")
                     {
                     <div class="widget-header bg-blue-600 padding-20 white">
@@ -67,7 +67,7 @@
                             </div>
                         </div>
                     </div>
-                    <div style="min-height: 214px; overflow: hidden;" class="widget-body padding-horizontal-30 padding-vertical-20">
+                    <div style="max-height: 230px;min-height: 234px; overflow: hidden;" class="widget-body padding-horizontal-30 padding-vertical-20">
                         <ul class="list-group recent_height">
     @for (int i = 0; i < lstdic.Count; i++){
      Domain.Myfashion.Domain.FacebookFeed objFacebookFeed = ((Domain.Myfashion.Domain.FacebookFeed)lstdic[i]);
@@ -125,7 +125,7 @@
                         </div>
                     </div>
                 </div>
-               <div style="min-height: 214px; overflow: hidden;" class="widget-body padding-horizontal-30 padding-vertical-20">
+               <div style="max-height: 230px;min-height: 234px; overflow: hidden;" class="widget-body padding-horizontal-30 padding-vertical-20">
                    <ul class="list-group recent_height">
 @foreach (Domain.Myfashion.Domain.FbPagePost item_FbPagePost in lstFbPagePost)
                         {
@@ -184,7 +184,7 @@
             }
             List<Domain.Myfashion.Domain.TwitterFeed> lstTwitterFeed = new List<Domain.Myfashion.Domain.TwitterFeed>();
             <div id="mid_@objTwitterAccount.TwitterUserId"  class="col-md-4 col-sm-6 col-xs-12">
-                <div class="widget widget-shadow">
+                <div class="widget widget-shadow" style="border: 1px #46be8a solid;">
                     <div class="widget-header bg-green-600 padding-20 white">
                         <a href="javascript:void(0)" class="avatar avatar-lg img-bordered bg-white pull-left margin-right-20">
                             <img alt="" title="@objTwitterAccount.TwitterScreenName" src="@objTwitterAccount.ProfileImageUrl">
@@ -197,7 +197,7 @@
                             </div>
                         </div>
                     </div>
-                    <div style="min-height: 214px; overflow: hidden;" class="widget-body padding-horizontal-30 padding-vertical-20">
+                    <div style="min-height: 214px;max-height: 234px; overflow: hidden;" class="widget-body padding-horizontal-30 padding-vertical-20">
                         <ul class="list-group">
 @for (int i = 0; i < lstdic.Count; i++)
                         {
@@ -245,7 +245,7 @@
                 objInstagramAccount.ProfileUrl = "/Themes/" + path + "/Contents/assets/images/img/anonymousUser.jpg";
             }
             <div id="mid_@objInstagramAccount.InstagramId"  class="col-md-4 col-sm-6 col-xs-12">
-                <div class="widget widget-shadow">
+                <div class="widget widget-shadow" style="border: 1px rgb(70,190,138) solid;">
                     <div class="widget-header bg-green-600 padding-20">
                         <a href="javascript:void(0)" class="avatar avatar-lg img-bordered bg-white pull-left margin-right-20">
                             <img alt="" title="@objInstagramAccount.InsUserName" src="@objInstagramAccount.ProfileUrl">
@@ -258,7 +258,7 @@
                             </div>
                         </div>
                     </div>
-                    <div style="min-height: 214px; overflow: hidden;" class="widget-body padding-horizontal-30 padding-vertical-20">
+                    <div style="max-height: 230px;min-height: 234px; overflow: hidden;" class="widget-body padding-horizontal-30 padding-vertical-20">
                         <ul class="list-group">
                             <li class="list-group-item">
                                 <span class="badge">@objInstagramAccount.TotalImages</span>
@@ -305,7 +305,7 @@
                     LikesCount = 0;
                 }
                 <div id="mid_@objTumblrAccount.tblrUserName"  class="col-md-4 col-sm-6 col-xs-12">
-                    <div class="widget widget-shadow">
+                    <div class="widget widget-shadow"style="border: 1px rgb(70,190,138) solid;">
                         <div class="widget-header bg-green-600 padding-20 white">
                             <a href="javascript:void(0)" class="avatar avatar-lg img-bordered bg-white pull-left margin-right-20">
                                 <img alt="" title="@objTumblrAccount.tblrUserName" src="@tumblruserimage">
@@ -318,7 +318,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div style="min-height: 214px; overflow: hidden;" class="widget-body padding-horizontal-30 padding-vertical-20">
+                        <div style="max-height: 230px;min-height: 234px; overflow: hidden;" class="widget-body padding-horizontal-30 padding-vertical-20">
                             <ul class="list-group">
                                 <li class="list-group-item">
                                     <span class="badge">@PostCount</span>
@@ -354,7 +354,7 @@
                 pp = "/Themes/" + path + "/Contents/assets/global/img/anonymousUser.jpg";
             }
             <div id="mid_@objYoutubeAccount.Ytuserid"  class="col-md-4 col-sm-6 col-xs-12">
-                <div class="widget widget-shadow">
+                <div class="widget widget-shadow" style="border: 1px rgb(247,218,100) solid;">
                     <div class="widget-header bg-yellow-600 padding-20 white">
                         <a href="javascript:void(0)" class="avatar avatar-lg img-bordered bg-white pull-left margin-right-20">
                             <img alt="" title="@objYoutubeAccount.Ytusername" src="@pp">
@@ -367,7 +367,7 @@
                             </div>
                         </div>
                     </div>
-                    <div style="min-height: 214px; overflow: hidden;" class="widget-body padding-horizontal-30 padding-vertical-20">
+                    <div style="max-height: 230px; min-height: 234px; overflow: hidden;" class="widget-body padding-horizontal-30 padding-vertical-20">
                         <ul class="list-group">
                             <li class="list-group-item">
                                 <span class="badge">@objYoutubeChannel.ViewCount</span>
@@ -399,7 +399,7 @@
                 //  var item = dictionary.ElementAt(index);
                 Domain.Myfashion.Domain.GooglePlusAccount objGooglePlusAccount = (Domain.Myfashion.Domain.GooglePlusAccount)dic_profileinfo.Key;
                 <div id="mid_@objGooglePlusAccount.GpUserName"  class="col-md-4 col-sm-6 col-xs-12">
-                    <div class="widget widget-shadow">
+                    <div class="widget widget-shadow"style="border: 1px rgb(117,117,117) solid;">
                         <div class="widget-header bg-grey-600 padding-20 white">
                             <a href="javascript:void(0)" class="avatar avatar-lg img-bordered bg-white pull-left margin-right-20">
                                 <img alt="" title="@objGooglePlusAccount.GpUserName" src="@objGooglePlusAccount.GpProfileImage">
@@ -413,7 +413,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div style="min-height: 214px; overflow: hidden;" class="widget-body padding-horizontal-30 padding-vertical-20">
+                        <div style="max-height: 230px; min-height: 234px; overflow: hidden;" class="widget-body padding-horizontal-30 padding-vertical-20">
                             <ul class="list-group">
                                 <li class="list-group-item">
                                     <span class="badge">@objGooglePlusAccount.HaveYouInCircles</span>

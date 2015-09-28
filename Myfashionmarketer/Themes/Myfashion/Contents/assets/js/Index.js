@@ -52,6 +52,7 @@ function register() {
                                                                     return;
                                                                 }
                                                                 else if (msg_Signup == "Success") {
+                                                                 
                                                                     alert1(email, password);
                                                                    // window.location = "../Home/Index"
                                                                 }
@@ -204,7 +205,7 @@ function validatePhone($Phoneno) {
 }
 
 function signinFunction() {
-    debugger;
+   
     try {
         var password = document.getElementById('txtPassword').value;
 
@@ -219,7 +220,7 @@ function signinFunction() {
 
                 url: '../Index/SignIn?&username=' + encodeURIComponent(username) + '&password=' + encodeURIComponent(password),
                 success: function (msg) {
-                    debugger;
+                  
                     if (msg != "Invalid Email or Password") {
                         if ($("#RememberMe").is(':checked')) {
                             checkCookie(username, password);
@@ -511,7 +512,7 @@ function globustrackerlogin(uid, pass) {
         crossDomain: true,
         dataType: 'jsonp',
         jsonpCallback: "func",
-        url: "http://globus.tracker.com/myfashion/loginService.action?username=" + id + "&password=" + puid + "&callback=?",
+        url: "http://tracker.marketersuite.com/myfashion/loginService.action?username=" + id + "&password=" + puid + "&callback=?",
         contentType: "application/json; charset=utf-8",
         //   contentType: "application/json",
         success: function (json) {
@@ -534,13 +535,13 @@ function alert1(id, puid) {
         crossDomain: true,
         dataType: 'jsonp',
         jsonpCallback: "func",
-        url: "http://tracker.myfashionmarketer.com/myfashion/loginService.action?username=" + id + "&password=" + puid + "&callback=?",
+        url: "http://tracker.marketersuite.com/myfashion/loginService.action?username=" + id + "&password=" + puid + "&callback=?",
         contentType: "application/json; charset=utf-8",
         //   contentType: "application/json",
         success: function (json) {
             if (json.code === 101) {
-
-                window.location = "/home/index";
+                   
+               window.location = "/home/index";
 
             }
         },
@@ -558,13 +559,13 @@ function track(id, puid) {
         crossDomain: true,
         dataType: 'jsonp',
         jsonpCallback: "func",
-        url: "http://tracker.myfashionmarketer.com/myfashion/loginService.action?username=" + id + "&password=" + puid + "&callback=?",
+        url: "http://tracker.marketersuite.com/myfashion/loginService.action?username=" + id + "&password=" + puid + "&callback=?",
         contentType: "application/json; charset=utf-8",
         //   contentType: "application/json",
         success: function (json) {
             if (json.code === 101) {
 
-                window.location = "/home/globustracker";
+            ///    window.location = "/home/globustracker";
 
             }
         },

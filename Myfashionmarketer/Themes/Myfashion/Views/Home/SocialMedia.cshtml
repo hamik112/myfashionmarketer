@@ -1,84 +1,175 @@
 ﻿@{
     string path = @System.Configuration.ConfigurationManager.AppSettings["domain"];
 }
+<style>
+    .panel-red .panel-heading {
+        background-color: #d9534f;
+        border-color: #d9534f;
+        color: #fff;
+    }
+    .huge {
+        font-size: 40px;
+    }
+    .fa-5x {
+        font-size: 3em;
+    }
+    .panel-red {
+        border-color: #d9534f;
+    }
+        .panel-red a {
+            color: #d9534f;
+        }
+    .panel-green {
+        border-color: #5cb85c;
+    }
+        .panel-green .panel-heading {
+            background-color: #5cb85c;
+            border-color: #5cb85c;
+            color: #fff;
+        }
+        .panel-green a {
+            color: #5cb85c;
+        }
+    .panel-yellow {
+        border-color: #F7DA64;
+    }
+        .panel-yellow .panel-heading {
+            background-color: #F7DA64;
+            border-color: #F7DA64;
+            color: #fff;
+        }
 
+        .panel-yellow a {
+            color: #5cb85c;
+        }
+
+
+
+    .panel-blue {
+        border-color: #3B5998;
+    }
+
+        .panel-blue .panel-heading {
+            background-color: #3B5998;
+            border-color: #3B5998;
+            color: #fff;
+        }
+
+        .panel-blue a {
+            color: #5cb85c;
+        }
+</style>
 <script type="text/javascript" src="/Themes/@path/Contents/assets/js/underscore.js"></script>
 
 <link rel="stylesheet" href="/Themes/@path/Contents/assets/admin/layout2/css/v1.css">
 <link href="/Themes/@path/Contents/assets/admin/layout2/css/social.css" rel="stylesheet">
-
+<div class="col-lg-12" style="margin-left:-59px">
+    <h1 class="page-header">Updates</h1>
+</div>
 <div class="row" id="DisplayCount" data-url="/Home/DisplayCount">
-    <div class="col-lg-3 col-md-6">
-        <!-- Widget -->
-        <div class="widget">
-            <div class="widget-content padding-20 light_maroon white">
-                <div class="counter counter-lg counter-inverse">
-                    <div class="counter-label text-uppercase margin-bottom-5">INCOMMING MESSAGES</div>
-                    <div class="counter-number-group">
-                        <span class="counter-number">0</span>
-                        <span class="counter-icon margin-left-10"><i aria-hidden="true" class="icon wb-chat-group"></i></span>
-                    </div>
-                    <div class="counter-label">Read More <i class="icon fa-arrow-circle-right"></i></div>
+    
+	<div class="col-lg-3 col-md-6">
+    <div class="panel panel-green" >
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-xs-3">
+                    <i class="fa fa-comments fa-5x"></i>
+                </div>
+                <div class="col-xs-9 text-right">
+                   <div class="huge" style="min-height: 50px;"><img src="/Themes/@System.Configuration.ConfigurationManager.AppSettings["domain"]/Contents/img/button-loader.gif" style="margin-top: 11%; width: 18%;" /></div>
+                    <div>Incoming Messages</div>
                 </div>
             </div>
         </div>
-        <!-- End Widget -->
+        <a href="../Messages/Index">
+            <div class="panel-footer">
+                <span class="pull-left">View Details</span>
+                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                <div class="clearfix"></div>
+            </div>
+        </a>
     </div>
-    <div class="col-lg-3 col-md-6">
-        <!-- Widget -->
-        <div class="widget">
-            <div class="widget-content padding-20 bg-blue-600 white">
-                <div class="counter counter-lg counter-inverse">
-                    <div class="counter-label text-uppercase margin-bottom-5">Sent Messages</div>
-                    <div class="counter-number-group">
-                        <span class="counter-number">0</span>
-                        <span class="counter-icon margin-left-10"><i aria-hidden="true" class="icon wb-reply"></i></span>
-                    </div>
-                    <div class="counter-label">Read More <i class="icon fa-arrow-circle-right"></i></div>
+</div>
+<div class="col-lg-3 col-md-6">
+    <div class="panel panel-red">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-xs-3">
+                    <i class="fa fa-mail-reply-all fa-5x"></i>
+                </div>
+                <div class="col-xs-9 text-right">
+                                       <div class="huge" style="min-height: 50px;"><img src="/Themes/@System.Configuration.ConfigurationManager.AppSettings["domain"]/Contents/img/button-loader.gif" style="margin-top: 11%; width: 18%;" /></div>
+
+                    <div>Sent Messages</div>
                 </div>
             </div>
         </div>
-        <!-- End Widget -->
+        <a href="../Messages/Index">
+            <div class="panel-footer">
+                <span class="pull-left">View Details</span>
+                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                <div class="clearfix"></div>
+            </div>
+        </a>
     </div>
+</div>
+
     <div class="col-lg-3 col-md-6">
-        <!-- Widget -->
-        <div class="widget">
-            <div class="widget-content padding-20 light_greens text-white">
-                <div class="counter counter-lg">
-                    <div class="counter-label text-uppercase margin-bottom-5">Twitter Followers</div>
-                    <div class="counter-number-group">
-                        <span class="counter-number">0</span>
-                        <span class="counter-number-related"><i aria-hidden="true" class="icon bd-twitter"></i></span>
-                    </div>
-                    <div class="counter-label">Read More <i class="icon fa-arrow-circle-right"></i></div>
+    <div class="panel panel-yellow">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-xs-3">
+                    <i class="fa fa-twitter fa-5x"></i>
+                </div>
+                <div class="col-xs-9 text-right">
+                                      <div class="huge" style="min-height: 50px;"><img src="/Themes/@System.Configuration.ConfigurationManager.AppSettings["domain"]/Contents/img/button-loader.gif" style="margin-top: 11%; width: 18%;" /></div>
+
+                    <div>Twitter Followers</div>
                 </div>
             </div>
         </div>
-        <!-- End Widget -->
+        <a href="../Messages/Index">
+            <div class="panel-footer">
+                <span class="pull-left">View Details</span>
+                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                <div class="clearfix"></div>
+            </div>
+        </a>
     </div>
+</div>
+
     <div class="col-lg-3 col-md-6">
-        <!-- Widget -->
-        <div class="widget">
-            <div class="widget-content padding-20 dark_yellows white">
-                <div class="counter counter-lg counter-inverse">
-                    <div class="counter-label text-uppercase font-size-16">New Facebook Fans</div>
-                    <div class="counter-number-group">
-                        <span class="counter-number">0</span>
-                        <span class="counter-icon margin-left-10"><i class="icon bd-facebook" aria-hidden="true"></i></span>
-                    </div>
-                    <div class="counter-label">Read More <i class="icon fa-arrow-circle-right"></i></div>
+    <div class="panel panel-blue">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-xs-3">
+                    <i class="fa fa-facebook fa-5x"></i>
+                </div>
+                <div class="col-xs-9 text-right">
+                                       <div class="huge" style="min-height: 50px;"><img src="/Themes/@System.Configuration.ConfigurationManager.AppSettings["domain"]/Contents/img/button-loader.gif" style="margin-top: 11%; width: 18%;" /></div>
+
+                    <div>New Facebook Fans</div>
                 </div>
             </div>
         </div>
-        <!-- End Widget -->
+        <a href="../Messages/Index">
+            <div class="panel-footer">
+                <span class="pull-left">View Details</span>
+                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                <div class="clearfix"></div>
+            </div>
+        </a>
     </div>
+</div>
+
     <div class="clearfix visible-lg-block"></div>
 </div>
 <div class="row" >
     <div class="col-lg-9 col-md-9 col-sm-12" id="SocialProfile" data-url="/Home/ProfileSnapshot">
-        
+        <center><img src="/Themes/@System.Configuration.ConfigurationManager.AppSettings["domain"]/Contents/img/balls.gif"/></center>
     </div>
     <div class="col-lg-3 col-md-3">
+	
         <!--      <div class="container"> -->
         <div class="chat-panel panel panel-default">
             <div class="panel-heading">
@@ -86,6 +177,8 @@
             </div>
             <!-- /.panel-heading -->
             <div class="row panel-body" id="userprofile" data-url="../Home/loadprofiles">
+			 <center> <img src="/Themes/@System.Configuration.ConfigurationManager.AppSettings["domain"]/Contents/img/43px_on_transparent.gif" style="margin-top: 11%; width: 18%;" />  
+            </center>
                 <!--  <div class=" container">
                 <!--  <div class="container"> -->
                 <!-- CLOSEModal -->
@@ -137,9 +230,7 @@
                             <li>
                                 <a data-toggle="tab" href="#gplus-pills"><i class="fa fa-google-plus fa-fw fa-2x"></i></a>
                             </li>
-                            <li>
-                                <a data-toggle="tab" href="#linkedin-pills"><i class="fa fa-linkedin fa-fw fa-2x"></i></a>
-                            </li>
+                            
                             <li>
                                 <a data-toggle="tab" href="#instagram-pills"><i class="fa fa-instagram fa-fw fa-2x"></i></a>
                             </li>
@@ -149,9 +240,7 @@
                             <li>
                                 <a data-toggle="tab" href="#youtube-pills"><i class="fa fa-youtube fa-fw fa-2x"></i></a>
                             </li>
-                            <li>
-                                <a data-toggle="tab" href="#vine-pills"><i class="fa fa-vine fa-fw fa-2x"></i></a>
-                            </li>
+                           
                         </ul>
                         <!-- Tab panes -->
                         <div style="padding: 20px 50px 10px 50px;" class="tab-content container-fluid text-center">
@@ -243,8 +332,9 @@
                 <i class="fa fa-bar-chart-o fa-fw"></i> Recent Followers
             </div>
             <div class="row panel-body" id="recentprofile" data-url="/Home/RecentProfiles">
-
-            </div>
+                       <center> <img src="/Themes/@System.Configuration.ConfigurationManager.AppSettings["domain"]/Contents/img/43px_on_transparent.gif" style="margin-top: 11%; width: 18%;" />  
+            </center>
+			</div>
             <!-- /.panel-body -->
         </div>
         <!-- /.panel -->

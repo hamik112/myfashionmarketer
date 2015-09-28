@@ -32,7 +32,8 @@
     <link rel="stylesheet" href="/Themes/@path/Contents/assets/admin/layout2/css/introjs.css">
     <link rel="stylesheet" href="/Themes/@path/Contents/assets/admin/layout2/css/slidePanel.css">
     <link rel="stylesheet" href="/Themes/@path/Contents/assets/admin/layout2/css/flag-icon.css">
-
+  <link href="/Themes/@path/Contents/assets/admin/layout2/css/social.css" rel="stylesheet" />
+  <link href="/Themes/@path/Contents/assets/admin/layout2/css/fileinput.css" rel="stylesheet" />
 
     <!-- Plugins For This Page -->
     <link rel="stylesheet" href="/Themes/@path/Contents/assets/admin/layout2/css/chartist.css">
@@ -50,7 +51,11 @@
     <link rel="stylesheet" href="/Themes/@path/Contents/assets/fonts/brand-icons/brand-icons.min.css">
     <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Noto+Sans:400,400italic,700'>
 
-    <!--[if lt IE 9]>
+	 <link rel="stylesheet" href="/Themes/@path/Contents/assets/vendor/datatables-bootstrap/dataTables.bootstrap.css">
+  <link rel="stylesheet" href="/Themes/@path/Contents/assets/vendor/datatables-fixedheader/dataTables.fixedHeader.css">
+  <link rel="stylesheet" href="/Themes/@path/Contents/assets/vendor/datatables-responsive/dataTables.responsive.css">
+ 
+ <!--[if lt IE 9]>
       <script src="assets/vendor/html5shiv/html5shiv.min.js"></script>
       <![endif]-->
     <!--[if lt IE 10]>
@@ -136,14 +141,14 @@
                             </span>
                         </a>
                         <ul class="dropdown-menu" role="menu">
-                            <li role="presentation">
+                           @* <li role="presentation">
                                 <a href="javascript:void(0)" role="menuitem"><i class="icon wb-user" aria-hidden="true"></i> Profile</a>
-                            </li>
+                            </li>*@
                             <li role="presentation">
-                                <a href="javascript:void(0)" role="menuitem"><i class="icon wb-payment" aria-hidden="true"></i> Billing</a>
+                                <a href="/billing/index" role="menuitem"><i class="icon wb-payment" aria-hidden="true"></i> Billing</a>
                             </li>
-                            <li role="presentation">
-                                <a href="javascript:void(0)" role="menuitem"><i class="icon wb-settings" aria-hidden="true"></i> Settings</a>
+                           <li role="presentation">
+                                <a href="/home/usersetting" role="menuitem"><i class="icon wb-settings" aria-hidden="true"></i> Settings</a>
                             </li>
                             <li class="divider" role="presentation"></li>
                             <li role="presentation">
@@ -357,7 +362,7 @@
                 <div>
                     <ul class="site-menu">
 
-                        <li class="site-menu-item has-sub">
+                        <li class="site-menu-item ">
                             <a href="/home/index" data-slug="dashboard">
                                 <i class="site-menu-icon wb-dashboard" aria-hidden="true"></i>
                                 <span class="site-menu-title">Dashboard</span>
@@ -471,13 +476,23 @@
                                 <span class="site-menu-arrow"></span>
                             </a>
                             <ul class="site-menu-sub">
+							  <li class="site-menu-item has-sub" id="socialdashboard">
+                                    <a href="/home/socialmedia" data-slug="uikit-panel">
+                                        <i class="site-menu-icon " aria-hidden="true"></i>
+                                        <span class="site-menu-title">socialdashboard</span>
+                                        
+                                    </a>
+                                  
+                                </li>
                                 <li class="site-menu-item has-sub">
+								
                                     <a href="javascript:void(0)" data-slug="uikit-panel">
                                         <i class="site-menu-icon " aria-hidden="true"></i>
                                         <span class="site-menu-title">Messages</span>
                                         <span class="site-menu-arrow"></span>
                                     </a>
                                     <ul class="site-menu-sub">
+									
                                         <li class="site-menu-item">
                                             <a class="animsition-link" href="/Messages/Index">
                                                 <i class="site-menu-icon " aria-hidden="true"></i>
@@ -499,13 +514,12 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li class="site-menu-item has-sub" id="feeds">
-                                    <a href="javascript:void(0)" data-slug="uikit-panel">
+                               
+								<li class="site-menu-item" id="feeds">
+                                    <a class="animsition-link" href="/feeds/Index">
                                         <i class="site-menu-icon " aria-hidden="true"></i>
-                                        <span class="site-menu-title">Feeds</span>
-                                        <span class="site-menu-arrow"></span>
+                                        <span class="site-menu-title">feeds</span>
                                     </a>
-                                  
                                 </li>
                                 <li class="site-menu-item has-sub">
                                     <a href="javascript:void(0)" data-slug="uikit-panel">
@@ -527,7 +541,7 @@
                                             </a>
                                         </li>
                                         <li class="site-menu-item">
-                                            <a class="animsition-link" href="Publishing/Draft">
+                                            <a class="animsition-link" href="/Publishing/Draft">
                                                 <i class="site-menu-icon " aria-hidden="true"></i>
                                                 <span class="site-menu-title">Drafts</span>
                                             </a>
@@ -536,11 +550,12 @@
                                     </ul>
                                 </li>
                                 <li class="site-menu-item">
-                                    <a class="animsition-link" href="#">
+                                    <a class="animsition-link" href="/Discovery/Index">
                                         <i class="site-menu-icon " aria-hidden="true"></i>
                                         <span class="site-menu-title">Discovery</span>
                                     </a>
                                 </li>
+								
                                 <li class="site-menu-item has-sub">
                                     <a href="javascript:void(0)" data-slug="uikit-panel">
                                         <i class="site-menu-icon " aria-hidden="true"></i>
@@ -819,7 +834,7 @@
     <footer class="site-footer">
         <span class="site-footer-legal">© 2015 <a href="#">MyfashionMarketer</a></span>
         <div class="site-footer-right">
-            Crafted with <i class="red-600 wb wb-heart"></i> by <a href="#">Globussoft</a>
+            Crafted with <i class="red-600 wb wb-heart"></i> by <a href="#">Marketer Suite</a>
         </div>
     </footer>
 
@@ -878,11 +893,20 @@
     <script src="/Themes/@path/Contents/assets/js/components/switchery.js"></script>
     <script src="/Themes/@path/Contents/assets/js/index.js"></script>
 
-    <!-- Scripts For This Page -->
+	 <script src="/Themes/@path/Contents/assets/js/fileinput.js"></script>
+    <script src="/Themes/@path/Contents/assets/js/fileinput_locale_es.js"></script>
+    <script src="/Themes/@path/Contents/assets/js/fileinput_locale_fr.js"></script>
+
+  
     <script src="/Themes/@path/Contents/assets/js/components/matchheight.js"></script>
     <script src="/Themes/@path/Contents/assets/js/components/jvectormap.js"></script>
     <script src="/Themes/@path/Contents/assets/js/components/masonry.js"></script>
 
+	<script src="/Themes/@path/Contents/assets/vendor/datatables/jquery.dataTables.js"></script>
+  <script src="/Themes/@path/Contents/assets/vendor/datatables-fixedheader/dataTables.fixedHeader.js"></script>
+  <script src="/Themes/@path/Contents/assets/vendor/datatables-bootstrap/dataTables.bootstrap.js"></script>
+  <script src="/Themes/@path/Contents/assets/vendor/datatables-responsive/dataTables.responsive.js"></script>
+  <script src="/Themes/@path/Contents/assets/vendor/datatables-tabletools/dataTables.tableTools.js"></script>
 
     <script>
         $(document).ready(function ($) {
@@ -1308,6 +1332,10 @@
                 });
             })();
         });
+$("#socialdashboard").on("click",function(){
+window.location.href="/home/socialmedia";
+
+})
 
     </script>
 

@@ -7,7 +7,7 @@
     body {
         
         font-family: "Noto Sans",sans-serif;
-        font-size: 14px !important;
+        font-size: 12px !important;
        
     }
     .Chartjs-legend {
@@ -165,9 +165,7 @@
                                                 <div class="col-md-5 col-md-offset-1 well">
                                                     <div><div id="chart-container8"></div></div>
                                                 </div>
-                                                <div class="col-md-5 well" style="margin-left: 3%;">
-                                                    <div><div id=""></div></div>
-                                                </div>
+                                               
                                             </div>
                                             <div id="view-selector-container-1" class="row"></div>
                                             <div class="row" style="margin-top:10px;">
@@ -562,38 +560,38 @@
 
                                         setTimeout(function () {
 
-                                            //console.log(dataChart);
+                                           
                                             //console.log(dataChart['zt']['totalsForAllResults']);
-                                            var totalpageviews = dataChart['zt']['totalsForAllResults']['ga:pageviews'];
+                                            var totalpageviews = dataChart['Ei']['totalsForAllResults']['ga:pageviews'];
                                             console.log("1.TotalPageViews : " + totalpageviews);
                                             $("#pageviews").text(totalpageviews);
 
                                             //console.log(dataChart1);
                                             //console.log(dataChart1['zt']['totalsForAllResults']);
-                                            var totalBounceRate = dataChart1['zt']['totalsForAllResults']['ga:bounceRate'];
+                                            var totalBounceRate = dataChart1['Ei']['totalsForAllResults']['ga:bounceRate'];
                                             var BounceRate = parseFloat(totalBounceRate).toFixed(2);
                                             console.log("2.TotalBounceRate " + BounceRate + "%");
                                             $("#bouncerate").text(BounceRate + " %");
 
                                             //console.log(dataChart3);
-                                            //console.log(dataChart3['zt']['totalsForAllResults']);
-                                            var totalusers = dataChart3['zt']['totalsForAllResults']['ga:users'];
+                                            //console.log(dataChart3['Ei']['totalsForAllResults']);
+                                            var totalusers = dataChart3['Ei']['totalsForAllResults']['ga:users'];
                                             console.log("3.TotalUsers : " + totalusers);
                                             $("#users").text(totalusers);
 
                                             //console.log(dataChart8);
-                                            //console.log(dataChart8['zt']['totalsForAllResults']);
-                                            var totalAvgSessionDuration = dataChart8['zt']['totalsForAllResults']['ga:avgSessionDuration'];
+                                            //console.log(dataChart8['Ei']['totalsForAllResults']);
+                                            var totalAvgSessionDuration = dataChart8['Ei']['totalsForAllResults']['ga:avgSessionDuration'];
                                             var AvgSessionDuration = parseFloat(totalAvgSessionDuration).toFixed(2);
                                             console.log("4.TotalAvgSessionDuration : " + AvgSessionDuration);
                                             $("#avgsessionduration").text(AvgSessionDuration + " %");
 
-                                            var totalpercentnewsession = dataChart6['zt']['totalsForAllResults']['ga:percentNewSessions'];
+                                            var totalpercentnewsession = dataChart6['Ei']['totalsForAllResults']['ga:percentNewSessions'];
                                             var PercentNewSession = parseFloat(totalpercentnewsession).toFixed(2);
                                             console.log("5.TotalPercentNewSession : " + PercentNewSession + "%");
                                             $("#percentnewsession").text(PercentNewSession + " %");
 
-                                            var totalpageuserSession = dataChart7['zt']['totalsForAllResults']['ga:users'];
+                                            var totalpageuserSession = dataChart7['Ei']['totalsForAllResults']['ga:users'];
                                             console.log("6.TotalPageUserSession : " + totalpageuserSession);
                                             $("#pageuserSession").text(totalpageuserSession);
 
