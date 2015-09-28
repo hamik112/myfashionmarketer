@@ -1,0 +1,50 @@
+D:\Sciooard new code 04-07-2015\trunk\SocioboardDataServices\obj\Debug\SocioboardDataServices.csprojResolveAssemblyReference.cache
+D:\Sciooard new code 04-07-2015\trunk\SocioboardDataServices\bin\Debug\SocioboardDataServices.exe.config
+D:\Sciooard new code 04-07-2015\trunk\SocioboardDataServices\bin\Debug\SocioboardDataServices.exe
+D:\Sciooard new code 04-07-2015\trunk\SocioboardDataServices\bin\Debug\SocioboardDataServices.pdb
+D:\Sciooard new code 04-07-2015\trunk\SocioboardDataServices\bin\Debug\ChilkatDotNet2.dll
+D:\Sciooard new code 04-07-2015\trunk\SocioboardDataServices\bin\Debug\Domain.Socioboard.dll
+D:\Sciooard new code 04-07-2015\trunk\SocioboardDataServices\bin\Debug\Facebook.dll
+D:\Sciooard new code 04-07-2015\trunk\SocioboardDataServices\bin\Debug\log4net.dll
+D:\Sciooard new code 04-07-2015\trunk\SocioboardDataServices\bin\Debug\Newtonsoft.Json.dll
+D:\Sciooard new code 04-07-2015\trunk\SocioboardDataServices\bin\Debug\Domain.Socioboard.pdb
+D:\Sciooard new code 04-07-2015\trunk\SocioboardDataServices\bin\Debug\Facebook.xml
+D:\Sciooard new code 04-07-2015\trunk\SocioboardDataServices\obj\Debug\SocioboardDataServices.exe
+D:\Sciooard new code 04-07-2015\trunk\SocioboardDataServices\obj\Debug\SocioboardDataServices.pdb
+E:\socioboard\trunk\SocioboardDataServices\bin\Debug\SocioboardDataServices.exe.config
+E:\socioboard\trunk\SocioboardDataServices\bin\Debug\SocioboardDataServices.exe
+E:\socioboard\trunk\SocioboardDataServices\bin\Debug\SocioboardDataServices.pdb
+E:\socioboard\trunk\SocioboardDataServices\bin\Debug\ChilkatDotNet2.dll
+E:\socioboard\trunk\SocioboardDataServices\bin\Debug\Domain.Socioboard.dll
+E:\socioboard\trunk\SocioboardDataServices\bin\Debug\Facebook.dll
+E:\socioboard\trunk\SocioboardDataServices\bin\Debug\log4net.dll
+E:\socioboard\trunk\SocioboardDataServices\bin\Debug\Newtonsoft.Json.dll
+E:\socioboard\trunk\SocioboardDataServices\bin\Debug\Domain.Socioboard.pdb
+E:\socioboard\trunk\SocioboardDataServices\bin\Debug\Facebook.xml
+E:\socioboard\trunk\SocioboardDataServices\obj\Debug\SocioboardDataServices.csprojResolveAssemblyReference.cache
+E:\socioboard\trunk\SocioboardDataServices\obj\Debug\SocioboardDataServices.exe
+E:\socioboard\trunk\SocioboardDataServices\obj\Debug\SocioboardDataServices.pdb
+D:\D DRIVE\newsocioboard\trunk\SocioboardDataServices\bin\Debug\SocioboardDataServices.exe.config
+D:\D DRIVE\newsocioboard\trunk\SocioboardDataServices\bin\Debug\SocioboardDataServices.exe
+D:\D DRIVE\newsocioboard\trunk\SocioboardDataServices\bin\Debug\SocioboardDataServices.pdb
+D:\D DRIVE\newsocioboard\trunk\SocioboardDataServices\bin\Debug\ChilkatDotNet2.dll
+D:\D DRIVE\newsocioboard\trunk\SocioboardDataServices\bin\Debug\Domain.Socioboard.dll
+D:\D DRIVE\newsocioboard\trunk\SocioboardDataServices\bin\Debug\Facebook.dll
+D:\D DRIVE\newsocioboard\trunk\SocioboardDataServices\bin\Debug\log4net.dll
+D:\D DRIVE\newsocioboard\trunk\SocioboardDataServices\bin\Debug\Newtonsoft.Json.dll
+D:\D DRIVE\newsocioboard\trunk\SocioboardDataServices\bin\Debug\Domain.Socioboard.pdb
+D:\D DRIVE\newsocioboard\trunk\SocioboardDataServices\bin\Debug\Facebook.xml
+D:\D DRIVE\newsocioboard\trunk\SocioboardDataServices\obj\Debug\SocioboardDataServices.csprojResolveAssemblyReference.cache
+D:\D DRIVE\newsocioboard\trunk\SocioboardDataServices\obj\Debug\SocioboardDataServices.exe
+D:\D DRIVE\newsocioboard\trunk\SocioboardDataServices\obj\Debug\SocioboardDataServices.pdb
+D:\D DRIVE\newmyfashiongithub\SocioboardDataServices\obj\Debug\SocioboardDataServices.csprojResolveAssemblyReference.cache
+D:\D DRIVE\newmyfashiongithub\SocioboardDataServices\obj\Debug\SocioboardDataServices.exe
+D:\D DRIVE\newmyfashiongithub\SocioboardDataServices\obj\Debug\SocioboardDataServices.pdb
+D:\D DRIVE\newmyfashiongithub\SocioboardDataServices\bin\Debug\SocioboardDataServices.exe.config
+D:\D DRIVE\newmyfashiongithub\SocioboardDataServices\bin\Debug\SocioboardDataServices.exe
+D:\D DRIVE\newmyfashiongithub\SocioboardDataServices\bin\Debug\SocioboardDataServices.pdb
+D:\D DRIVE\newmyfashiongithub\SocioboardDataServices\bin\Debug\Domain.Myfashion.dll
+D:\D DRIVE\newmyfashiongithub\SocioboardDataServices\bin\Debug\Facebook.dll
+D:\D DRIVE\newmyfashiongithub\SocioboardDataServices\bin\Debug\Newtonsoft.Json.dll
+D:\D DRIVE\newmyfashiongithub\SocioboardDataServices\bin\Debug\Domain.Myfashion.pdb
+D:\D DRIVE\newmyfashiongithub\SocioboardDataServices\bin\Debug\Facebook.xml

@@ -1,0 +1,36 @@
+D:\Sciooard new code 04-07-2015\trunk\SocioboardDataScheduler\obj\Debug\SocioboardDataScheduler.csprojResolveAssemblyReference.cache
+D:\Sciooard new code 04-07-2015\trunk\SocioboardDataScheduler\bin\Debug\SocioboardDataScheduler.exe.config
+D:\Sciooard new code 04-07-2015\trunk\SocioboardDataScheduler\bin\Debug\SocioboardDataScheduler.exe
+D:\Sciooard new code 04-07-2015\trunk\SocioboardDataScheduler\bin\Debug\SocioboardDataScheduler.pdb
+D:\Sciooard new code 04-07-2015\trunk\SocioboardDataScheduler\bin\Debug\Domain.Socioboard.dll
+D:\Sciooard new code 04-07-2015\trunk\SocioboardDataScheduler\bin\Debug\Newtonsoft.Json.dll
+D:\Sciooard new code 04-07-2015\trunk\SocioboardDataScheduler\bin\Debug\Domain.Socioboard.pdb
+D:\Sciooard new code 04-07-2015\trunk\SocioboardDataScheduler\obj\Debug\SocioboardDataScheduler.exe
+D:\Sciooard new code 04-07-2015\trunk\SocioboardDataScheduler\obj\Debug\SocioboardDataScheduler.pdb
+E:\socioboard\trunk\SocioboardDataScheduler\bin\Debug\SocioboardDataScheduler.exe.config
+E:\socioboard\trunk\SocioboardDataScheduler\bin\Debug\SocioboardDataScheduler.exe
+E:\socioboard\trunk\SocioboardDataScheduler\bin\Debug\SocioboardDataScheduler.pdb
+E:\socioboard\trunk\SocioboardDataScheduler\bin\Debug\Domain.Socioboard.dll
+E:\socioboard\trunk\SocioboardDataScheduler\bin\Debug\Newtonsoft.Json.dll
+E:\socioboard\trunk\SocioboardDataScheduler\bin\Debug\Domain.Socioboard.pdb
+E:\socioboard\trunk\SocioboardDataScheduler\obj\Debug\SocioboardDataScheduler.csprojResolveAssemblyReference.cache
+E:\socioboard\trunk\SocioboardDataScheduler\obj\Debug\SocioboardDataScheduler.exe
+E:\socioboard\trunk\SocioboardDataScheduler\obj\Debug\SocioboardDataScheduler.pdb
+D:\D DRIVE\newsocioboard\trunk\SocioboardDataScheduler\bin\Debug\SocioboardDataScheduler.exe.config
+D:\D DRIVE\newsocioboard\trunk\SocioboardDataScheduler\bin\Debug\SocioboardDataScheduler.exe
+D:\D DRIVE\newsocioboard\trunk\SocioboardDataScheduler\bin\Debug\SocioboardDataScheduler.pdb
+D:\D DRIVE\newsocioboard\trunk\SocioboardDataScheduler\bin\Debug\Domain.Socioboard.dll
+D:\D DRIVE\newsocioboard\trunk\SocioboardDataScheduler\bin\Debug\Newtonsoft.Json.dll
+D:\D DRIVE\newsocioboard\trunk\SocioboardDataScheduler\bin\Debug\Domain.Socioboard.pdb
+D:\D DRIVE\newsocioboard\trunk\SocioboardDataScheduler\obj\Debug\SocioboardDataScheduler.csprojResolveAssemblyReference.cache
+D:\D DRIVE\newsocioboard\trunk\SocioboardDataScheduler\obj\Debug\SocioboardDataScheduler.exe
+D:\D DRIVE\newsocioboard\trunk\SocioboardDataScheduler\obj\Debug\SocioboardDataScheduler.pdb
+D:\D DRIVE\newmyfashiongithub\SocioboardDataScheduler\obj\Debug\SocioboardDataScheduler.csprojResolveAssemblyReference.cache
+D:\D DRIVE\newmyfashiongithub\SocioboardDataScheduler\obj\Debug\SocioboardDataScheduler.exe
+D:\D DRIVE\newmyfashiongithub\SocioboardDataScheduler\obj\Debug\SocioboardDataScheduler.pdb
+D:\D DRIVE\newmyfashiongithub\SocioboardDataScheduler\bin\Debug\SocioboardDataScheduler.exe.config
+D:\D DRIVE\newmyfashiongithub\SocioboardDataScheduler\bin\Debug\SocioboardDataScheduler.exe
+D:\D DRIVE\newmyfashiongithub\SocioboardDataScheduler\bin\Debug\SocioboardDataScheduler.pdb
+D:\D DRIVE\newmyfashiongithub\SocioboardDataScheduler\bin\Debug\Domain.Myfashion.dll
+D:\D DRIVE\newmyfashiongithub\SocioboardDataScheduler\bin\Debug\Newtonsoft.Json.dll
+D:\D DRIVE\newmyfashiongithub\SocioboardDataScheduler\bin\Debug\Domain.Myfashion.pdb
