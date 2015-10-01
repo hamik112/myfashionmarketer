@@ -132,6 +132,9 @@
     <property name="appnameapp">
       <column name="appnameapp"/>
     </property>
+    <property name="entrydate">
+      <column name="entrydate"/>
+    </property>
   
   </class>
 </hibernate-mapping>
