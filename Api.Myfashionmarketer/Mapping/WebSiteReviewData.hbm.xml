@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping
+      xmlns="urn:nhibernate-mapping-2.2"
+      namespace="Domain.Myfashion.Domain"
+      assembly="Domain.Myfashion">
+
+  <class name="websitereviewdata" table="websitereviewdata" lazy="false">
+    <id name="Id" column="Id">
+      <generator class="guid"/>
+    </id>
+
+    <property name="websitename">
+      <column name="websitename" />
+    </property>
+
+    <property name="imageurl">
+      <column name="imageurl" />
+    </property>
+    <property name="textname">
+      <column name="textname" />
+    </property>
+    <property name="websitedescription">
+      <column name="websitedescription"  />
+    </property>
+
+    <property name="GlobalRank">
+      <column name="GlobalRank"  />
+    </property>
+
+    <property name="CountryRank">
+      <column name="CountryRank"  />
+    </property>
+    <property name="CategoryRank">
+      <column name="CategoryRank"  />
+    </property>
+
+
+    <property name="VisitersOnSite">
+      <column name="VisitersOnSite"  />
+    </property>
+
+    <property name="TimeOnSite">
+      <column name="TimeOnSite"  />
+    </property>
+
+    <property name="WebSitePageViewers">
+      <column name="WebSitePageViewers"  />
+    </property>
+    <property name="WebSiteBounceRate">
+      <column name="WebSiteBounceRate"  />
+    </property>
+
+    <property name="DirrectTrafficOnSite">
+      <column name="DirrectTrafficOnSite"  />
+    </property>
+
+    <property name="ReferralTrafficOnSite">
+      <column name="ReferralTrafficOnSite"  />
+    </property>
+
+    <property name="SearchTrafficeOnSite">
+      <column name="SearchTrafficeOnSite"  />
+    </property>
+
+
+
+
+ <property name="TrafficbyCountry">
+      <column name="TrafficbyCountry"  />
+    </property>
+
+    <property name="SocialTrafficeOnSite">
+      <column name="SocialTrafficeOnSite"  />
+    </property>
+
+    <property name="MailTrafficeOnSite">
+      <column name="MailTrafficeOnSite"  />
+    </property>
+
+    <property name="DisplayTrafficOnSite">
+      <column name="DisplayTrafficOnSite"  />
+    </property>
+
+    <property name="toprefersitedata">
+      <column name="toprefersitedata"  />
+    </property>
+    <property name="topdestiantionsites">
+      <column name="topdestiantionsites"  />
+    </property>
+    <property name="PaidSearch">
+      <column name="PaidSearch"  />
+    </property>
+    <property name="organickeyword">
+      <column name="organickeyword"  />
+    </property>
+    <property name="paidkeyword">
+      <column name="paidkeyword"/>
+    </property>
+     <property name="socialsites">
+      <column name="socialsites"  />
+    </property>
+    <property name="sitesvalue">
+      <column name="sitesvalue"  />
+    </property>
+    <property name="display">
+      <column name="display"/>
+    </property>
+     <property name="interestvalue">
+      <column name="interestvalue"  />
+    </property>
+    <property name="audienceinterest">
+      <column name="audienceinterest"  />
+    </property>
+    <property name="visitedsites">
+      <column name="visitedsites"/>
+    </property>
+    
+  
+ <property name="similarwebsite">
+      <column name="similarwebsite"  />
+    </property>
+    <property name="googleinmagesource">
+      <column name="googleinmagesource"  />
+    </property>
+    <property name="googleappname">
+      <column name="googleappname"/>
+    </property>
+    
+   <property name="inmagesourceapp">
+      <column name="inmagesourceapp"  />
+    </property>
+    <property name="appnameapp">
+      <column name="appnameapp"/>
+    </property>
+  
+  </class>
+</hibernate-mapping>
