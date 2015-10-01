@@ -368,6 +368,7 @@ namespace Api.Myfashionmarketer.Services
                 _WebSiteReviewData.DisplayTrafficOnSite = DisplayTrafficOnSite;
                 _WebSiteReviewData.GlobalRank = GlobalRank;
                 _WebSiteReviewData.TrafficbyCountry = TrafficbyCountry;
+                _WebSiteReviewData.entrydate = DateTime.Now;
                 WebSiteReviewDataRpository.Add(_WebSiteReviewData);
             }
             else {
