@@ -1,0 +1,69 @@
+D:\FaceDominator\BaseLib\bin\Debug\BaseLib.dll
+D:\FaceDominator\BaseLib\bin\Debug\BaseLib.pdb
+D:\FaceDominator\BaseLib\bin\Debug\ChilkatDotNet2.dll
+D:\FaceDominator\BaseLib\bin\Debug\log4net.dll
+D:\FaceDominator\BaseLib\bin\Debug\Newtonsoft.Json.dll
+D:\FaceDominator\BaseLib\bin\Debug\System.Data.SQLite.dll
+D:\FaceDominator\BaseLib\obj\Debug\BaseLib.dll
+D:\FaceDominator\BaseLib\obj\Debug\BaseLib.pdb
+D:\Project\FacebookAds\FacebookAds\BaseLib\bin\Debug\BaseLib.dll
+D:\Project\FacebookAds\FacebookAds\BaseLib\bin\Debug\BaseLib.pdb
+D:\Project\FacebookAds\FacebookAds\BaseLib\bin\Debug\System.Data.SQLite.dll
+D:\Project\FacebookAds\FacebookAds\BaseLib\bin\Debug\System.Data.SQLite.xml
+D:\Project\FacebookAds\FacebookAds\BaseLib\obj\Debug\BaseLib.dll
+D:\Project\FacebookAds\FacebookAds\BaseLib\obj\Debug\BaseLib.pdb
+D:\Project\SVNFacebookAdsScraper\FacebookAds\BaseLib\bin\Debug\BaseLib.dll
+D:\Project\SVNFacebookAdsScraper\FacebookAds\BaseLib\bin\Debug\BaseLib.pdb
+D:\Project\SVNFacebookAdsScraper\FacebookAds\BaseLib\bin\Debug\System.Data.SQLite.dll
+D:\Project\SVNFacebookAdsScraper\FacebookAds\BaseLib\bin\Debug\System.Data.SQLite.xml
+D:\Project\SVNFacebookAdsScraper\FacebookAds\BaseLib\obj\Debug\BaseLib.dll
+D:\Project\SVNFacebookAdsScraper\FacebookAds\BaseLib\obj\Debug\BaseLib.pdb
+D:\Project\SvnAdsScraper\FacebookAds\BaseLib\bin\Debug\BaseLib.dll
+D:\Project\SvnAdsScraper\FacebookAds\BaseLib\bin\Debug\BaseLib.pdb
+D:\Project\SvnAdsScraper\FacebookAds\BaseLib\bin\Debug\Newtonsoft.Json.dll
+D:\Project\SvnAdsScraper\FacebookAds\BaseLib\bin\Debug\System.Data.SQLite.dll
+D:\Project\SvnAdsScraper\FacebookAds\BaseLib\bin\Debug\System.Data.SQLite.xml
+D:\Project\SvnAdsScraper\FacebookAds\BaseLib\obj\Debug\BaseLib.dll
+D:\Project\SvnAdsScraper\FacebookAds\BaseLib\obj\Debug\BaseLib.pdb
+D:\FacebookAdsScraper\FacebookAds\BaseLib\bin\Debug\BaseLib.dll
+D:\FacebookAdsScraper\FacebookAds\BaseLib\bin\Debug\BaseLib.pdb
+D:\FacebookAdsScraper\FacebookAds\BaseLib\bin\Debug\System.Data.SQLite.dll
+D:\FacebookAdsScraper\FacebookAds\BaseLib\bin\Debug\System.Data.SQLite.xml
+D:\FacebookAdsScraper\FacebookAds\BaseLib\obj\Debug\BaseLib.csprojResolveAssemblyReference.cache
+D:\FacebookAdsScraper\FacebookAds\BaseLib\obj\Debug\BaseLib.dll
+D:\FacebookAdsScraper\FacebookAds\BaseLib\obj\Debug\BaseLib.pdb
+D:\sonu\FacebookAdsScraper\FacebookAds\BaseLib\bin\Debug\BaseLib.dll
+D:\sonu\FacebookAdsScraper\FacebookAds\BaseLib\bin\Debug\BaseLib.pdb
+D:\sonu\FacebookAdsScraper\FacebookAds\BaseLib\bin\Debug\System.Data.SQLite.dll
+D:\sonu\FacebookAdsScraper\FacebookAds\BaseLib\bin\Debug\System.Data.SQLite.xml
+D:\sonu\FacebookAdsScraper\FacebookAds\BaseLib\obj\Debug\BaseLib.dll
+D:\sonu\FacebookAdsScraper\FacebookAds\BaseLib\obj\Debug\BaseLib.pdb
+D:\sonu\FacebookAdsScraper\FacebookAds\BaseLib\obj\Debug\BaseLib.csprojResolveAssemblyReference.cache
+D:\sonu\ExpediaScraper\BaseLib\bin\Debug\BaseLib.dll
+D:\sonu\ExpediaScraper\BaseLib\bin\Debug\BaseLib.pdb
+D:\sonu\ExpediaScraper\BaseLib\bin\Debug\System.Data.SQLite.dll
+D:\sonu\ExpediaScraper\BaseLib\bin\Debug\System.Data.SQLite.xml
+D:\sonu\ExpediaScraper\BaseLib\obj\Debug\BaseLib.dll
+D:\sonu\ExpediaScraper\BaseLib\obj\Debug\BaseLib.pdb
+D:\sonu\ExpediaScraper\BaseLib\obj\Debug\BaseLib.csprojResolveAssemblyReference.cache
+D:\sonu\Expedia_SVN\ExpediaScraper\BaseLib\bin\Debug\BaseLib.dll
+D:\sonu\Expedia_SVN\ExpediaScraper\BaseLib\bin\Debug\BaseLib.pdb
+D:\sonu\Expedia_SVN\ExpediaScraper\BaseLib\bin\Debug\System.Data.SQLite.dll
+D:\sonu\Expedia_SVN\ExpediaScraper\BaseLib\bin\Debug\System.Data.SQLite.xml
+D:\sonu\Expedia_SVN\ExpediaScraper\BaseLib\obj\Debug\BaseLib.dll
+D:\sonu\Expedia_SVN\ExpediaScraper\BaseLib\obj\Debug\BaseLib.pdb
+D:\sonu\Expedia_SVN\ExpediaScraper\BaseLib\obj\Debug\BaseLib.csprojResolveAssemblyReference.cache
+D:\sonu\GithubAccountCreator\BaseLib\bin\Debug\BaseLib.dll
+D:\sonu\GithubAccountCreator\BaseLib\bin\Debug\BaseLib.pdb
+D:\sonu\GithubAccountCreator\BaseLib\bin\Debug\System.Data.SQLite.dll
+D:\sonu\GithubAccountCreator\BaseLib\bin\Debug\System.Data.SQLite.xml
+D:\sonu\GithubAccountCreator\BaseLib\obj\Debug\BaseLib.dll
+D:\sonu\GithubAccountCreator\BaseLib\obj\Debug\BaseLib.pdb
+D:\sonu\GithubAccountCreator\BaseLib\obj\Debug\BaseLib.csprojResolveAssemblyReference.cache
+D:\D DRIVE\newmyfashiongithub\Api.Myfashionmarketer\Library\BaseLib\bin\Debug\BaseLib.dll
+D:\D DRIVE\newmyfashiongithub\Api.Myfashionmarketer\Library\BaseLib\bin\Debug\BaseLib.pdb
+D:\D DRIVE\newmyfashiongithub\Api.Myfashionmarketer\Library\BaseLib\bin\Debug\Newtonsoft.Json.dll
+D:\D DRIVE\newmyfashiongithub\Api.Myfashionmarketer\Library\BaseLib\bin\Debug\System.Data.SQLite.dll
+D:\D DRIVE\newmyfashiongithub\Api.Myfashionmarketer\Library\BaseLib\bin\Debug\System.Data.SQLite.xml
+D:\D DRIVE\newmyfashiongithub\Api.Myfashionmarketer\Library\BaseLib\obj\Debug\BaseLib.dll
+D:\D DRIVE\newmyfashiongithub\Api.Myfashionmarketer\Library\BaseLib\obj\Debug\BaseLib.pdb
