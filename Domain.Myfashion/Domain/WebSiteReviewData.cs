@@ -43,6 +43,7 @@ namespace Domain.Myfashion.Domain
       public  string inmagesourceapp   {     get;set;}
       public  string appnameapp     {     get;set;}
       public string TrafficbyCountry { get; set; }
+      public DateTime entrydate { get; set; }
    
    }
 }
