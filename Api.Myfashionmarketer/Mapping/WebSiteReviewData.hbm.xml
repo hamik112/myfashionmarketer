@@ -135,6 +135,14 @@
     <property name="entrydate">
       <column name="entrydate"/>
     </property>
+
+
+    <property name="relatedappimageurl">
+      <column name="relatedappimageurl"/>
+    </property>
+    <property name="relatedgoogleimageurl">
+      <column name="relatedgoogleimageurl"/>
+    </property>
   
   </class>
 </hibernate-mapping>
