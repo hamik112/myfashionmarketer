@@ -420,7 +420,7 @@ namespace Api.Myfashionmarketer.Services
 
 
         [WebMethod]
-        public string websiteinfo(string url)
+        public string websiteinfo(string Id, string url)
         {
             WebSiteReviewDataRpository objWebSiteReviewDataRpository = new WebSiteReviewDataRpository();
             websitereviewdata _WebSiteReviewData = new websitereviewdata();
@@ -451,12 +451,12 @@ namespace Api.Myfashionmarketer.Services
 
 
         [WebMethod]
-        public string UpdateWebSiteData(string Url)
+        public string UpdateWebSiteData(string Id,string Url)
         {
             WebSiteReviewDataRpository _WebSiteReviewDataRpository = new WebSiteReviewDataRpository();
             websitereviewdata _WebSiteReviewData = new websitereviewdata();
-            _WebSiteReviewData = _WebSiteReviewDataRpository.getUserInfoBywebsitename(Url);
-            if (_WebSiteReviewData.entrydate.Date == DateTime.Now)
+            _WebSiteReviewData = _WebSiteReviewDataRpository.getinfoforupdate(Guid.Parse(Id), Url);
+            if (_WebSiteReviewData.entrydate.Date == DateTime.Today)
             {
 
                 string imageurl = "";
