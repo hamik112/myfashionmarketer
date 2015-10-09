@@ -78,6 +78,37 @@ namespace Api.Myfashionmarketer.Models
             return user;
         }
 
+
+        public websitereviewdata getinfoforupdate(Guid Id, string Url)
+        {
+            websitereviewdata user = new websitereviewdata();
+            using (NHibernate.ISession session = SessionFactory.GetNewSession())
+            {
+
+                using (NHibernate.ITransaction transaction = session.BeginTransaction())
+                {
+
+                    try
+                    {
+                        List<websitereviewdata> lstdata = session.CreateQuery("from websitereviewdata u where u.websitename = : websitename and u.Id=:Id")
+                                        .SetParameter("websitename", Url).SetParameter("Id", Id).List<websitereviewdata>().ToList<websitereviewdata>();
+                        user = lstdata[0];
+                       
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.StackTrace);
+                        user = null;
+                    }
+                
+                }
+            
+            }
+            return user;
+        
+        
+        }
+
         public int deleteolddata(string websitename)
         {
             using (NHibernate.ISession session = SessionFactory.GetNewSession())
